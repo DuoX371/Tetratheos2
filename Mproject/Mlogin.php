@@ -18,23 +18,23 @@ body {background-image:url(loginbackground1.png);
 <body>
   <img src="tIcon.png" style="width:70px;margin-left:46%;margin-top:200px;border-radius:45%;">
   <p style="margin-left:45%;font-family:impact;font-size:20px;">Tetratheos</p>
-  <form>
+  <form method="post" action="process.php">
   <div class="LoginMenu">
 
     <div>
       <span class="symbol-input100">
               <i class="fa fa-user icon"></i>
       </span>
-      <input class="input100" type="text"  placeholder="Username" >
+      <input class="input100" type="text"  placeholder="Username" name="username" >
     </div>
 
     <div>
       <span class="symbol-input100">
               <i class="fa fa-key icon"></i>
       </span>
-      <input class="input100" type="password"  placeholder="Password">
+      <input class="input100" type="password"  placeholder="Password" name="password">
     </div><br>
-    <button type="submit" class="submit100" >Login</button>
+    <button type="submit" class="submit100" name="login">Login</button>
 
   </div>
   <p style="margin-left:42%;position:absolute;">
