@@ -335,7 +335,9 @@
               }
               }
               else
-                echo "NO subjects";
+                echo '<div style="padding-left: 10px;">
+                        You are currently not taking any subjects <br><br><br>
+                      </div>';
             ?>
 
           <!-- Content Row -->
