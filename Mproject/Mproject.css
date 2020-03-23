@@ -1,0 +1,12 @@
+.container{padding:0.01em 16px}
+.footer{transition:margin-left: .4s;margin-top:500px;background-color:blue;height:500px;background-color:#a1b5d1;position:abosolute;}
+.item {padding:0.01em 10px 30px;}
+.item:hover{color:blue;}
+.main{transition:margin-left: .4s}
+.sidebar{height:100%;width:200px;background-color:#fff;position:fixed!important;z-index:1;overflow:auto}
+
+.text-grey {color:#757575!important}
+
+
+.header{background-image:url(HeaderBackground.jpg);background-repeat: no-repeat;background-size: cover;}
+

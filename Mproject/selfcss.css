@@ -1,0 +1,90 @@
+.turnitin{
+  opacity:0.5;
+}
+.turnitin:hover {
+  opacity: 1;
+}
+
+.mydivider{
+  height:0;
+  margin:.5rem 0;
+  overflow:hidden;
+  border-top:1px solid #639fff
+}
+
+
+/*Mproject*/
+.mycard{position:relative;display:flex;flex-direction:column;min-width:0;word-wrap:break-word;background-color:#fff;background-clip:border-box;border:1px solid #e3e6f0;border-radius:.35rem;margin-left:5%; width:130%;}
+.myshadow{box-shadow:0 .15rem 1.75rem 0 rgba(58,59,69,.15)!important}
+.mymb-4{margin-bottom:1.5rem!important}
+.mycard-header{margin-bottom:0;background-color:#f8f9fc;border-bottom:1px solid #e3e6f0;text-align: center;padding-left:40%}
+.mycard2{position:static;display:flex;flex-direction:column;word-wrap:break-word;height:92%;max-width:60%;background-color:#fff;background-clip:border-box;border:1px solid #e3e6f0;border-radius:.35rem;margin-left:12%;}
+.myads{margin-left:24%;margin-top:3%;font-size:20px;}
+.ads2{margin-left:5%;}
+
+/*Msubject*/
+.mscard{background-color:#fff;padding:1%;width:70%;margin-left:10%;margin-top:4%;border:1px solid #e3e6f0;}
+.msleft{margin-left:85%;}
+.eXpand{border:1px solid #e3e6f0;box-shadow:0 .15rem 1.75rem 0 rgba(58,59,69,.15);transition:0.5s;cursor:default;}
+.eXpand:hover{background-color:rgba(232, 251, 255);}
+.mscardin{background-color:#fff;margin-bottom:10px;padding:1%;width:70%;margin-left:10%;border:1px solid #e3e6f0;display:none;}
+.mscardin td {border-bottom-style:solid #e8f1ff;padding:3% 2%;}
+.mscardindv {background-color:#e8f1ff;}
+.mscardindv2 {background-color:#f5f7fa;}
+.mscardwidth {width:30%;}
+.mscardwidth2 {width:750px;}
+.msftop {margin-top:26%;}
+
+/*Mmark*/
+.mmfcontainer{display:flex;flex-wrap:wrap;}
+.mmdivider{margin-left: 5%;margin-top:1%;}
+.mmcard{margin-left:25%;width:100%;}
+.mmcardin{margin-left: 25%;width:100%;}
+.mmeXpand{border:1px solid #e3e6f0;box-shadow:0 .15rem 1.75rem 0 rgba(58,59,69,.15);cursor:default;font-size:20px;text-align: center;}
+.mmcardin td,th {border-bottom-style:solid #e8f1ff;padding:5% 6%;}
+.mmcardindv {background-color:#e8f1ff;}
+.mmcardindv2 {background-color:#f5f7fa;}
+.mmcardindv3 {background-color:#abcbff;}
+.mmcardwidth {width:30%;}
+.mmcardwidth2 {width:auto;}
+.mmftop {margin-top:26%;}
+
+/*Mprofile*/
+.mpPpic{border-radius:50%;width:20%;position:relative;}
+.mpEpic{position:absolute;right:1080px;top:400px;background-color: white;padding:1%;}
+
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .mycard{position:relative;display:flex;flex-direction:column;word-wrap:break-word;background-color:#fff;background-clip:border-box;border:1px solid #e3e6f0;border-radius:.35rem;margin-left:5%;margin-right:2%; max-width:97%;font-size:15px;padding:0 2%;}
+  .myshadow{box-shadow:0 .15rem 1.75rem 0 rgba(58,59,69,.15)!important}
+  .mymb-4{margin-bottom:1.5rem!important}
+  .mycard-header{padding-left:35%;margin-bottom:0;background-color:#f8f9fc;border-bottom:1px solid #e3e6f0}
+  .mycard2{position:static;display:flex;flex-direction:column;word-wrap:break-word;height:50%;max-width:71%;background-color:#fff;background-clip:border-box;border:1px solid #e3e6f0;border-radius:.35rem;margin-left:4%;}
+  .myads{margin-left:12%;margin-top:15%;font-size:19px;}
+  .ads2{margin-left:0%;margin-top:4%;}
+
+  /* Msubject */
+  .mscard{background-color:#fff;padding:2%;width:85%;margin-left:5%;margin-top:4%;border:1px solid #e3e6f0;}
+  .mscardin{background-color:#fff;margin-bottom:10px;padding:1%;width:85%;margin-left:5%;border:1px solid #e3e6f0;display:none;}
+  .msleft{margin-left:55%;}
+  .mscardwidth {width:40%;}
+  .mscardwidth2 {width:750px;}
+  .msftop {margin-top:40%;}
+
+  /*Mmark*/
+  .mmfcontainer{display:block;}
+  .mmdivider{margin-left: 0%;margin-top:7%;}
+  .mmcard{margin-left:2.5%;width:100%;}
+  .mmcardin{margin-left: 2.5%;width:100%;}
+  .mmeXpand{border:1px solid #e3e6f0;box-shadow:0 .15rem 1.75rem 0 rgba(58,59,69,.15);cursor:default;font-size:20px;text-align: center;}
+
+  .mmcardin td,th {border-bottom-style:solid #e8f1ff;padding:5% 6%;}
+  .mmcardindv {background-color:#e8f1ff;}
+  .mmcardindv2 {background-color:#f5f7fa;}
+  .mmcardindv3 {background-color:#abcbff;}
+  .mmcardwidth {width:30%;}
+  .mmcardwidth2 {width:auto;}
+  .mmftop {margin-top:26%;}
+
+}
