@@ -1,7 +1,7 @@
 <?php
   //var_dump($_POST["username"]);
-  include_once "database.php";
   require "functions.php";
+  include_once "database.php";
 
 
   if(isset($_POST["login"])){
@@ -14,6 +14,7 @@
     //validateUser($username, $password);
     if(mysqli_num_rows($validateUser) > 0){
       $userDetails = mysqli_fetch_assoc($validateUser);
+      $_SESSION["currentUser"] = $userDetails;
       if($userDetails["userType"] == "a"){
         echo "ADMIN PAGE UNDER MAINTAINENCE";
       }
@@ -31,4 +32,6 @@
 
 
   }
+
+  
 ?>

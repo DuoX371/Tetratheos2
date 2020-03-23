@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 function jsalert($alert){
   echo "<script> alert('" . $alert . "')</script>";
 }

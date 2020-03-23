@@ -1,3 +1,7 @@
+<?php
+  require "functions.php";
+  include_once "database.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -264,8 +268,8 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Kurumi</span>
-                <img class="img-profile rounded-circle" src="../kurumi.png">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $_SESSION["currentUser"]["name"]; ?></span>
+                <img class="img-profile rounded-circle" src="kurumi.png">
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -305,7 +309,7 @@
 
           <!--Main Content-->
           <div class="mmfcontainer">
-            <img src="../kurumi.png" class="mpPpic">
+            <img src="kurumi.png" class="mpPpic">
             <input type="file" class="mpEpic" text="Edit">Edit Picture/>
             area
           </div>
