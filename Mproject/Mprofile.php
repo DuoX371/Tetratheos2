@@ -27,7 +27,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
         <div class="sidebar-brand-icon rotate-n-15">
           <img src="tIcon.png">
         </div>
@@ -39,7 +39,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="Mproject.html">
+        <a class="nav-link" href="Mproject.php">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -67,10 +67,10 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Subject-list:</h6>
-            <a class="collapse-item" href="Msubject.html">Subject 1</a>
-            <a class="collapse-item" href="Msubject.html">Subject 2</a>
-            <a class="collapse-item" href="Msubject.html">Subject 3</a>
-            <a class="collapse-item" href="Msubject.html">Subject 4</a>
+            <a class="collapse-item" href="Msubject.php">Subject 1</a>
+            <a class="collapse-item" href="Msubject.php">Subject 2</a>
+            <a class="collapse-item" href="Msubject.php">Subject 3</a>
+            <a class="collapse-item" href="Msubject.php">Subject 4</a>
           </div>
         </div>
       </li>
@@ -85,14 +85,14 @@
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="charts.php">
           <i class="fas fa-fw fa-table"></i>
           <span>Calender</span></a>
       </li>
 
       <!-- Nav Item - Tables -->
       <li class="nav-item">
-        <a class="nav-link" href="Mmark.html">
+        <a class="nav-link" href="Mmark.php">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Marks Checking</span></a>
       </li>
@@ -269,7 +269,7 @@
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="Mprofile.html">
+                <a class="dropdown-item" href="Mprofile.php">
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Profile
                 </a>
@@ -344,7 +344,7 @@
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="Mlogin.html">Logout</a>
+          <a class="btn btn-primary" href="Mlogin.php">Logout</a>
         </div>
       </div>
     </div>

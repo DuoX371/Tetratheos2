@@ -9,10 +9,6 @@
     $username = $_POST["username"];
     $password = $_POST["password"];
 
-    var_dump($username);
-    var_dump($password);
-
-
     $validateUser = validateUser($username, $password);
     //$validateA101 = validateUser("A101", "abc");
     //validateUser($username, $password);
@@ -22,7 +18,7 @@
         echo "ADMIN PAGE UNDER MAINTAINENCE";
       }
       elseif($userDetails["userType"] == "s"){
-        echo "STUDENT PAGE ALSO UNDER MAINTAINENCE";
+        gopage("Mprofile.php");
       }
       elseif($userDetails["userType"] == "l"){
         echo "STUDENT PAGE AND ADMIN PAGE UNDER MAINTAINENCE, LECTURER PAGE NO NEED ASK LA";
