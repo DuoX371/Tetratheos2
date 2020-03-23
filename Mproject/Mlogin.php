@@ -95,7 +95,7 @@ body {background-image:url(loginbackground1.png);
     </div>
 
     <!--- The modal 2 -->
-    <div id="id02" class="modal">
+    <div id="id02" class="modal2">
       <span onclick="document.getElementById('id02').style.display='none'" class="close2" title="Close Modal">&times;</span>
       <!-- Modal Content -->
       <form class="modal-content2 animate">
@@ -128,16 +128,19 @@ body {background-image:url(loginbackground1.png);
 
 <script>
 // Get the modal
-var signUp = document.getElementById('id01');
-var forgotPass = document.getElementById('id02');
+var modal = document.getElementById('id01');
+var modal2 = document.getElementById('id02');
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-  if (event.target == signUp) {
-    signUp.style.display = "none";
+  if (event.target == modal) {
+    modal.style.display = "none";
   }
-  if (event.target == forgotPass) {
-    forgotPass.style.display = "none";
+}
+
+window.onclick = function(event) {
+  if (event.target == modal2) {
+    modal2.style.display = "none";
   }
 }
 </script>
