@@ -52,6 +52,12 @@
 /*Mprofile*/
 .mpPpic{border-radius:50%;width:20%;position:relative;}
 .mpEpic{position:absolute;right:1080px;top:400px;background-color: white;padding:1%;}
+.mpfcontainer{display:flex;flex-wrap:wrap;margin-top:5%;}
+.mpPpos{margin-left:10%;}
+.mpformpos{margin-left:50%;}
+.mplbpos{margin-top:20%;}
+.mplbpos2{background-color: red;width:150%;margin-top:20%;!imporant}
+.mpinpos{width:450%;}
 
 
 @media only screen and (max-width: 768px) {

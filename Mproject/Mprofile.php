@@ -308,10 +308,18 @@
           </div>
 
           <!--Main Content-->
-          <div class="mmfcontainer">
-            <img src="kurumi.png" class="mpPpic">
-            <input type="file" class="mpEpic" text="Edit">Edit Picture/>
-            area
+          <div class="mpfcontainer">
+            <img src="kurumi.png" class="mpPpic mpPpos">
+            <div>
+              <form class="mpformpos">
+                <label for="username">Username:</label><br>
+                <input type="text" id="username" name="username" class="mpinpos"/><br>
+                <label for="email" class="mplbpos" >Email:</label><br>
+                <input type="text" id="email" name="email" class="mpinpos"/><br>
+                <label for="phone" class="mplbpos2">Phone Number:</label><br>
+                <input type="text" id="phone" name="phone" class="mpinpos"/>
+              </form>
+            </div>
           </div>
 
       <!-- Footer -->
