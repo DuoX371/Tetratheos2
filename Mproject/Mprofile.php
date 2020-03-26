@@ -277,11 +277,7 @@
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Profile
                 </a>
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Settings
-                </a>
-                <a class="dropdown-item" href="#">
+                <a class="dropdown-item" href="Mactivity.php">
                   <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                   Activity Log
                 </a>
@@ -312,18 +308,27 @@
             <img src="kurumi.png" class="mpPpic mpPpos">
             <div>
               <form class="mpformpos">
-                <label for="username">Username:</label><br>
+                <label for="id">ID:</label><br>
+                <input type="text" id="id" name="id" class="mpinpos" disabled/><br>
+                <label for="username" class="mplbpos">Username:</label><br>
                 <input type="text" id="username" name="username" class="mpinpos"/><br>
                 <label for="email" class="mplbpos" >Email:</label><br>
                 <input type="text" id="email" name="email" class="mpinpos"/><br>
                 <label for="phone" class="mplbpos2">Phone Number:</label><br>
                 <input type="text" id="phone" name="phone" class="mpinpos"/>
+
+                <input type="file" id="real-file" hidden="hidden"/>
+                <button type="button" id="custom-button">Choose File</button>
               </form>
+              <div class="mmfcontainer" style="margin-top:65%;">
+                <input type="submit" id="mpsavebtn" value="Save"></button>
+                <button type="button" id="mpcancelbtn">Cancel</button>
+              </div>
             </div>
           </div>
 
       <!-- Footer -->
-      <footer class="sticky-footer bg-white msftop">
+      <footer class="sticky-footer bg-white mpftop">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
             <span>Copyright &copy; Your Website 2019</span>
@@ -381,6 +386,18 @@
   <!-- Page level custom scripts -->
   <script src="js/demo/chart-area-demo.js"></script>
   <script src="js/demo/chart-pie-demo.js"></script>
+
+  <!--Change profile picture script-->
+
+  <script type="text/javascript">
+  const realFileBtn = document.getElementById("real-file")
+  const customBtn = document.getElementById("custom-button")
+
+  customBtn.addEventListener("click",function(){
+    realFileBtn.click();
+  });
+
+  </script>
 
 </body>
 

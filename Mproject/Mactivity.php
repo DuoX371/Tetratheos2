@@ -10,7 +10,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <title>Tetratheos - Marks</title>
+  <title>Tetratheos - Activity Log</title>
   <link rel="icon" href="tIcon.png">
 	<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 	<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -31,7 +31,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="Mproject.php">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
         <div class="sidebar-brand-icon rotate-n-15">
           <img src="tIcon.png">
         </div>
@@ -299,179 +299,35 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Marks</h1>
+            <h1 class="h3 mb-0 text-gray-800">Activity Log</h1>
             <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
           </div>
 
           <!--Main Content-->
-        <div class="mmfcontainer">
-          <div class="mmdivider">
-            <div class="mmcard mmeXpand">
-              <div>
-                DIP222 Python
-              </div>
-            </div>
+          <div class="maTable">
+            <table>
+              <tr>
+                <th>Datetime</th>
+                <th>Activity</th>
+              </tr>
+              <tr class="maEnroll">
+                <td class="maTdate">20 Feb 2020 10:20a.m.</td>
+                <td class="maTActivity">Enrol Subject (Python)</td>
+              </tr>
+              <tr class="maSubmit">
+                <td class="maTdate">20 Feb 2020 10:30a.m.</td>
+                <td class="maTActivity">Submit Assignment (Python)</td>
+              </tr>
+              <tr class="maEmail">
+                <td class="maTdate">25 Mar 2020 12:00p.m.</td>
+                <td class="maTActivity">Write email to Steven</td>
+              </tr>
+            </table>
 
-            <div id="drop-content" class="mmcardin" style="padding:0%;">
-              <table>
-                <tr class="mmcardindv">
-                  <th class="mmcardwidth">
-                    Coursework
-                  </th>
-                  <th class="mmcardwidth2">
-                    Grade
-                  </th>
-                  <th class="mmcardwidth2">
-                    Marks (overall)
-                  </th>
-                </tr>
-                <tr class="mmcardindv2">
-                  <td>
-                    Assignment 1
-                  </td>
-                  <td>
-                    A
-                  </td>
-                  <td>
-                    25%
-                  </td>
-                </tr>
-                <tr class="mmcardindv">
-                  <td>
-                    Assignment 2
-                  </td>
-                  <td>
-                    A
-                  </td>
-                  <td>
-                    24%
-                  </td>
-                </tr>
-                <tr class="mmcardindv2">
-                  <td>
-                    Lab Test
-                  </td>
-                  <td>
-                    A
-                  </td>
-                  <td>
-                    10%
-                  </td>
-                </tr>
-                <tr class="mmcardindv">
-                  <td>
-                    Final Exam
-                  </td>
-                  <td>
-                    A
-                  </td>
-                  <td>
-                    40%
-                  </td>
-                </tr>
-                <tr class="mmcardindv3" style="font-weight:bold;">
-                  <td>
-                    Total
-                  </td>
-                  <td>
-                    A
-                  </td>
-                  <td>
-                    99%
-                  </td>
-                </tr>
-
-              </table>
-
-            </div>
           </div>
 
-          <!--Dropdown 2-->
-          <div class="mmdivider">
-            <div class="mmcard mmeXpand">
-              <div>
-                DIP204 HTML
-              </div>
-            </div>
-
-            <div id="drop-content" class="mmcardin" style="padding:0%;">
-              <table>
-                <tr class="mmcardindv">
-                  <th class="mmcardwidth">
-                    Coursework
-                  </th>
-                  <th class="mmcardwidth2">
-                    Grade
-                  </th>
-                  <th class="mmcardwidth2">
-                    Marks (overall)
-                  </th>
-                </tr>
-                <tr class="mmcardindv2">
-                  <td>
-                    Assignment 1
-                  </td>
-                  <td>
-                    A
-                  </td>
-                  <td>
-                    25%
-                  </td>
-                </tr>
-                <tr class="mmcardindv">
-                  <td>
-                    Assignment 2
-                  </td>
-                  <td>
-                    A
-                  </td>
-                  <td>
-                    24%
-                  </td>
-                </tr>
-                <tr class="mmcardindv2">
-                  <td>
-                    Lab Test
-                  </td>
-                  <td>
-                    A
-                  </td>
-                  <td>
-                    10%
-                  </td>
-                </tr>
-                <tr class="mmcardindv">
-                  <td>
-                    Final Exam
-                  </td>
-                  <td>
-                    -
-                  </td>
-                  <td>
-                    -
-                  </td>
-                </tr>
-                <tr class="mmcardindv3" style="font-weight:bold;">
-                  <td>
-                    Total
-                  </td>
-                  <td>
-                    -
-                  </td>
-                  <td>
-                    -
-                  </td>
-                </tr>
-
-              </table>
-
-            </div>
-          </div>
-
-      <!-- End of Main Content -->
-      </div>
       <!-- Footer -->
-      <footer class="sticky-footer bg-white msftop">
+      <footer class="sticky-footer bg-white maftop">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
             <span>Copyright &copy; Your Website 2019</span>
@@ -529,6 +385,18 @@
   <!-- Page level custom scripts -->
   <script src="js/demo/chart-area-demo.js"></script>
   <script src="js/demo/chart-pie-demo.js"></script>
+
+  <!--Change profile picture script-->
+
+  <script type="text/javascript">
+  const realFileBtn = document.getElementById("real-file")
+  const customBtn = document.getElementById("custom-button")
+
+  customBtn.addEventListener("click",function(){
+    realFileBtn.click();
+  });
+
+  </script>
 
 </body>
 
