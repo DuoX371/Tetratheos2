@@ -63,6 +63,13 @@
           <img src="turnitinIcon.png"><i style="color:white;padding-left:1%;">Turnitin</i></a>
       </li>
 
+      <li class="nav-item">
+        <a class="nav-link" href="Menrol.php">
+          <i class="fas fa-cogs"></i>
+            Enrol Subject
+        </a>
+      </li>
+
       <!-- Nav Item - Utilities Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">

@@ -23,7 +23,7 @@
 .ads2{margin-left:5%;}
 
 /*Msubject*/
-.mscard{background-color:#fff;padding:1%;width:70%;margin-left:10%;margin-top:4%;border:1px solid #e3e6f0;}
+.mscard{background-color:#fff;padding:1%;width:70%;margin-left:10%;margin-top:9%;border:1px solid #e3e6f0;}
 .msleft{margin-left:85%;}
 .eXpand{border:1px solid #e3e6f0;box-shadow:0 .15rem 1.75rem 0 rgba(58,59,69,.15);transition:0.5s;cursor:default;}
 .eXpand:hover{background-color:rgba(232, 251, 255);}
@@ -34,6 +34,8 @@
 .mscardwidth {width:30%;}
 .mscardwidth2 {width:750px;}
 .msftop {margin-top:26%;}
+.addbutton{position:absolute;margin-left: 15%;margin-top: 32%;}
+.savebutton{position:absolute;margin-left: 30%;margin-top: 32%;width:5%;}
 
 /*Mmark*/
 .mmfcontainer{display:flex;flex-wrap:wrap;}
@@ -77,6 +79,14 @@
 .maSubmit{background-color:#e8f1ff;}
 .maEmail{background-color: #f5f7fa}
 
+/*Menrol*/
+.mecard{border:1px solid #f2fbff;width:50%;margin-left:16%;margin-top: 5%;position:absolute;background-color: #def5ff;}
+.mecard td{word-wrap: normal;width:1%;}
+.mectitle {font-size: 30px;text-align: center;background-color: #9ed2e8;color:white;}
+.melabel{margin-left: 67%;margin-top: 10%;}
+.meinput{margin-top:5%;margin-left: 6%;}
+.meenrol{margin-left:41%;margin-top: 3%;margin-bottom: 3%;width:20%;}
+
 @media only screen and (max-width: 768px) {
   /* For mobile phones: */
   .mycard{position:relative;display:flex;flex-direction:column;word-wrap:break-word;background-color:#fff;background-clip:border-box;border:1px solid #e3e6f0;border-radius:.35rem;margin-left:5%;margin-right:2%; max-width:97%;font-size:15px;padding:0 2%;}
@@ -88,12 +98,14 @@
   .ads2{margin-left:0%;margin-top:4%;}
 
   /* Msubject */
-  .mscard{background-color:#fff;padding:2%;width:85%;margin-left:5%;margin-top:4%;border:1px solid #e3e6f0;}
+  .mscard{background-color:#fff;padding:2%;width:85%;margin-left:5%;margin-top:25%;border:1px solid #e3e6f0;}
   .mscardin{background-color:#fff;margin-bottom:10px;padding:1%;width:85%;margin-left:5%;border:1px solid #e3e6f0;display:none;}
   .msleft{margin-left:55%;}
   .mscardwidth {width:40%;}
   .mscardwidth2 {width:750px;}
   .msftop {margin-top:40%;}
+  .addbutton{position:absolute;margin-left: 3%;margin-top: 80%;}
+  .savebutton{position:absolute;margin-left: 35%;margin-top: 80%;width:20%;}
 
   /*Mmark*/
   .mmfcontainer{display:block;}
@@ -136,4 +148,12 @@
   .maEnroll{background-color: #d1e3ff}
   .maSubmit{background-color:#e8f1ff;}
   .maEmail{background-color: #f5f7fa}
+
+  /*Menrol*/
+  .mecard{border:1px solid #f2fbff;width:70%;margin-left:0%;margin-top: 5%;position:absolute;background-color: #def5ff;}
+  .mecard td{word-wrap: normal;width:1%;}
+  .mectitle {font-size: 30px;text-align: center;background-color: #9ed2e8;color:white;}
+  .melabel{margin-left: 20%;margin-top: 10%;}
+  .meinput{margin-top:7%;margin-left: 6%;}
+  .meenrol{margin-left:38%;margin-top: 5%;margin-bottom: 5%;width:20%;}
 }

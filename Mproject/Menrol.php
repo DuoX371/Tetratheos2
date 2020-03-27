@@ -10,7 +10,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <title>Tetratheos - Marks</title>
+  <title>Tetratheos - Enrol Subject</title>
   <link rel="icon" href="tIcon.png">
 	<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 	<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -306,174 +306,28 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Marks</h1>
+            <h1 class="h3 mb-0 text-gray-800">Enrol Subject</h1>
             <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
           </div>
 
           <!--Main Content-->
-        <div class="mmfcontainer">
-          <div class="mmdivider">
-            <div class="mmcard mmeXpand">
-              <div>
-                DIP222 Python
-              </div>
-            </div>
+          <div class="mecard">
+            <p class="mectitle">Enrolment</p>
+            <table>
+            <tr>
+              <td><label for="Enrolment key" class="melabel">Enrolment Key:</label></td>
+              <td><input type="text" id="Ekey" class="meinput"/></td>
+            </tr>
+            <tr>
+              <td><label for="Enrolment Password" class="melabel">Password:</label>
+              <td><input type="password" id="Epass" class="meinput"/></td>
+            </table>
 
-            <div id="drop-content" class="mmcardin" style="padding:0%;">
-              <table>
-                <tr class="mmcardindv">
-                  <th class="mmcardwidth">
-                    Coursework
-                  </th>
-                  <th class="mmcardwidth2">
-                    Grade
-                  </th>
-                  <th class="mmcardwidth2">
-                    Marks (overall)
-                  </th>
-                </tr>
-                <tr class="mmcardindv2">
-                  <td>
-                    Assignment 1
-                  </td>
-                  <td>
-                    A
-                  </td>
-                  <td>
-                    25%
-                  </td>
-                </tr>
-                <tr class="mmcardindv">
-                  <td>
-                    Assignment 2
-                  </td>
-                  <td>
-                    A
-                  </td>
-                  <td>
-                    24%
-                  </td>
-                </tr>
-                <tr class="mmcardindv2">
-                  <td>
-                    Lab Test
-                  </td>
-                  <td>
-                    A
-                  </td>
-                  <td>
-                    10%
-                  </td>
-                </tr>
-                <tr class="mmcardindv">
-                  <td>
-                    Final Exam
-                  </td>
-                  <td>
-                    A
-                  </td>
-                  <td>
-                    40%
-                  </td>
-                </tr>
-                <tr class="mmcardindv3" style="font-weight:bold;">
-                  <td>
-                    Total
-                  </td>
-                  <td>
-                    A
-                  </td>
-                  <td>
-                    99%
-                  </td>
-                </tr>
+            <input type="submit" id="realEnrol" hidden="hidden"/>
+            <button type="button" id="fakeEnrol" class="meenrol">Enrol</button>
 
-              </table>
-
-            </div>
           </div>
-
-          <!--Dropdown 2-->
-          <div class="mmdivider">
-            <div class="mmcard mmeXpand">
-              <div>
-                DIP204 HTML
-              </div>
-            </div>
-
-            <div id="drop-content" class="mmcardin" style="padding:0%;">
-              <table>
-                <tr class="mmcardindv">
-                  <th class="mmcardwidth">
-                    Coursework
-                  </th>
-                  <th class="mmcardwidth2">
-                    Grade
-                  </th>
-                  <th class="mmcardwidth2">
-                    Marks (overall)
-                  </th>
-                </tr>
-                <tr class="mmcardindv2">
-                  <td>
-                    Assignment 1
-                  </td>
-                  <td>
-                    A
-                  </td>
-                  <td>
-                    25%
-                  </td>
-                </tr>
-                <tr class="mmcardindv">
-                  <td>
-                    Assignment 2
-                  </td>
-                  <td>
-                    A
-                  </td>
-                  <td>
-                    24%
-                  </td>
-                </tr>
-                <tr class="mmcardindv2">
-                  <td>
-                    Lab Test
-                  </td>
-                  <td>
-                    A
-                  </td>
-                  <td>
-                    10%
-                  </td>
-                </tr>
-                <tr class="mmcardindv">
-                  <td>
-                    Final Exam
-                  </td>
-                  <td>
-                    -
-                  </td>
-                  <td>
-                    -
-                  </td>
-                </tr>
-                <tr class="mmcardindv3" style="font-weight:bold;">
-                  <td>
-                    Total
-                  </td>
-                  <td>
-                    -
-                  </td>
-                  <td>
-                    -
-                  </td>
-                </tr>
-
-              </table>
-
-            </div>
-          </div>
+        </div>
 
       <!-- End of Main Content -->
       </div>
@@ -536,6 +390,15 @@
   <!-- Page level custom scripts -->
   <script src="js/demo/chart-area-demo.js"></script>
   <script src="js/demo/chart-pie-demo.js"></script>
+
+  <script src="text/JavaScript">
+  const realEnrolBtn = document.getElementById("realEnrol")
+  const fakeEnrolBtn = document.getElementById("fakeEnrol")
+
+  fakeEnrolBtn.addEventListener("click",function(){
+    realEnrolBtn.click();
+  });
+  </script>
 
 </body>
 

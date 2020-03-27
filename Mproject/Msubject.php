@@ -62,6 +62,13 @@
           <img src="turnitinIcon.png"><i style="color:white;padding-left:1%;">Turnitin</i></a>
       </li>
 
+      <li class="nav-item">
+        <a class="nav-link" href="Menrol.php">
+          <i class="fas fa-cogs"></i>
+            Enrol Subject
+        </a>
+      </li>
+
       <!-- Nav Item - Utilities Collapse Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
@@ -78,6 +85,7 @@
           </div>
         </div>
       </li>
+
 
       <!-- Divider -->
       <hr class="sidebar-divider">
@@ -378,7 +386,10 @@
                     -
                   </td>
                 </tr>
-                <input type="file" id="file1" name="file1" style="position:absolute;"/>
+                <input type="file" id="realadd" hidden="hidden"/>
+                <button type="button" id="fakeadd" class="addbutton">Add Submission</button>
+                <input type="submit" id="realsave" hidden="hidden"/>
+                <button type="button" id="fakesave" class="savebutton">Save</button>
 
               </table>
 
@@ -460,6 +471,10 @@
                     -
                   </td>
                 </tr>
+                <input type="file" id="realadd2" hidden="hidden"/>
+                <button type="button" id="fakeadd2" class="addbutton">Add Submission</button>
+                <input type="submit" id="realsave2" hidden="hidden"/>
+                <button type="button" id="fakesave2" class="savebutton">Save</button>
 
               </table>
 
@@ -549,6 +564,38 @@
   <!-- Page level custom scripts -->
   <script src="js/demo/chart-area-demo.js"></script>
   <script src="js/demo/chart-pie-demo.js"></script>
+
+  <!--Assignment submit button-->
+  <script type="text/javascript">
+  const realAddBtn = document.getElementById("realadd")
+  const fakeAddBtn = document.getElementById("fakeadd")
+
+  fakeAddBtn.addEventListener("click",function(){
+    realAddBtn.click();
+  });
+
+  const realSaveBtn = document.getElementById("realsave")
+  const fakeSaveBtn = document.getElementById("fakesave")
+
+  fakeSaveBtn.addEventListener("click",function(){
+    realSaveBtn.click();
+  });
+
+  const realAddBtn2 = document.getElementById("realadd2")
+  const fakeAddBtn2 = document.getElementById("fakeadd2")
+
+  fakeAddBtn2.addEventListener("click",function(){
+    realAddBtn2.click();
+  });
+
+  const realSaveBtn2 = document.getElementById("realsave2")
+  const fakeSaveBtn2 = document.getElementById("fakesave2")
+
+  fakeSaveBtn2.addEventListener("click",function(){
+    realSaveBtn2.click();
+  });
+
+  </script>
 
 </body>
 
