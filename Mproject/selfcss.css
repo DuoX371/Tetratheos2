@@ -127,4 +127,13 @@
   .mpftop{margin-top:6%;}
 
   /*Mactivity*/
+  .maTable table,th,td{margin:0% 0%;}
+  .maTable th{font-size: 20px;background-color:#abcbff;text-align: left;border-right: 1px solid #fff;}
+  .maTable td{word-wrap: break;font-size: 18px;border-right: 3px solid #fff;}
+  .maTdate {width:6%;}
+  .maTActivity{padding-left:1%;width:0%;}
+  .maftop{margin-top:15%;}
+  .maEnroll{background-color: #d1e3ff}
+  .maSubmit{background-color:#e8f1ff;}
+  .maEmail{background-color: #f5f7fa}
 }

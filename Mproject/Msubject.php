@@ -378,6 +378,7 @@
                     -
                   </td>
                 </tr>
+                <input type="file" id="file1" name="file1" style="position:absolute;"/>
 
               </table>
 
