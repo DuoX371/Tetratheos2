@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 25, 2020 at 09:06 AM
+-- Generation Time: Mar 28, 2020 at 05:44 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -21,10 +21,40 @@ SET time_zone = "+00:00";
 --
 -- Database: `tetratheos`
 --
-
 drop database tetratheos;
 create database tetratheos;
 use tetratheos;
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `assignment`
+--
+
+CREATE TABLE `assignment` (
+  `assignmentID` varchar(20) NOT NULL,
+  `dueDate` datetime NOT NULL DEFAULT current_timestamp(),
+  `assignmentType` varchar(5) NOT NULL,
+  `subjectID` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `assignment`
+--
+
+INSERT INTO `assignment` (`assignmentID`, `dueDate`, `assignmentType`, `subjectID`) VALUES
+('DIP1CTS03a', '2020-03-28 23:58:22', 'a', 'DIP1CTS03'),
+('DIP1CTS03b', '2020-03-28 23:58:29', 'b', 'DIP1CTS03'),
+('DIP1ITC04a', '2020-03-28 23:58:36', 'a', 'DIP1ITC04'),
+('DIP1MPR01a', '2020-03-28 23:58:54', 'a', 'DIP1MPR01'),
+('DIP1PRG12a', '2020-03-28 23:59:16', 'a', 'DIP1PRG12'),
+('DIP200a', '2020-03-28 23:59:23', 'a', 'DIP200'),
+('DIP202a', '2020-03-28 23:59:33', 'a', 'DIP202'),
+('DIP202b', '2020-03-28 23:59:38', 'b', 'DIP202'),
+('DIP203a', '2020-03-28 23:59:51', 'a', 'DIP203'),
+('DIP203b', '2020-03-28 23:59:55', 'b', 'DIP203'),
+('DIP222a', '2020-03-29 00:00:09', 'a', 'DIP222'),
+('DIP222b', '2020-03-29 00:00:13', 'b', 'DIP222');
+
 -- --------------------------------------------------------
 
 --
@@ -88,7 +118,8 @@ CREATE TABLE `submission` (
   `submissionDateTime` datetime NOT NULL DEFAULT current_timestamp(),
   `adminID` varchar(20) NOT NULL,
   `studentID` varchar(20) NOT NULL,
-  `subjectID` varchar(20) NOT NULL
+  `subjectID` varchar(20) NOT NULL,
+  `assignmentID` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -125,6 +156,12 @@ INSERT INTO `user` (`userID`, `name`, `phoneNumber`, `email`, `address`, `userTy
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `assignment`
+--
+ALTER TABLE `assignment`
+  ADD PRIMARY KEY (`assignmentID`);
 
 --
 -- Indexes for table `enrollment`

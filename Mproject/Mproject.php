@@ -2,7 +2,7 @@
   require "functions.php";
   include_once "database.php";
 
-  $subjects = findSubject($_SESSION["currentUser"]["userID"]);
+  $subjectAssignments = findSubjectAssignment($_SESSION["currentUser"]["userID"]);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -316,8 +316,8 @@
 
             <!-- Subject Card  -->
             <?php
-            if(mysqli_num_rows($subjects)>0){
-              while($record = mysqli_fetch_assoc($subjects)){
+            if(mysqli_num_rows($subjectAssignments)>0){
+              while($record = mysqli_fetch_assoc($subjectAssignments)){
                 echo '
                 <div class="col-xl-3 col-md-6 mb-4">
                   <div class="card border-left-success shadow h-100 py-2">
@@ -344,8 +344,8 @@
             ?>
 
           <!-- Content Row -->
-
           <div class="row">
+
 
             <!-- Area Chart -->
             <div>
@@ -354,25 +354,29 @@
                 <div class="mycard-header py-3 d-flex flex-row align-items-center" style="padding-left:30%">
                   <h6 class="m-0 font-weight-bold text-primary">Submission Overview</h6>
                 </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                  <div >
-                    <i class="h5 mb-0 font-weight-bold text-gray-800">DIP202 Buisness Commnucation</i><br>
-                    <i> Assignment 1</i><i style="margin-left:40%;">16/03/2020</i>
-                    <div class="mydivider"></div>
-                    <i class="h5 mb-0 font-weight-bold text-gray-800">DIP222 Python</i><br>
-                    <i> Assignment 1</i><i style="margin-left:40%;">12/04/2020</i>
-                    <div class="mydivider"></div>
-                    <i class="h5 mb-0 font-weight-bold text-gray-800">DIP2204 HTML</i><br>
-                    <i> Assignment 1</i><i style="margin-left:40%;">16/04/2020</i>
-                    <div class="mydivider"></div>
 
+                <!-- Card Body -->
+                <?php
+                mysqli_data_seek($subjectAssignments,0);
+
+                echo '
+                <div class="card-body">
+                  <div>';
+                  while($record = mysqli_fetch_assoc($subjectAssignments)){
+                    echo '
+                    <i class="h5 mb-0 font-weight-bold text-gray-800">' . $record["subjectID"] . " " . $record["subjectName"] . '</i><br>
+                    <i> Assignment 1</i><i style="margin-left:40%;">' . $record["dueDate"] . '</i>
+                    <div class="mydivider"></div>';
+                  }
+
+                    echo '
 
                   </div>
-                </div>
+                </div>';
+                ?>
+
               </div>
             </div>
-
 
 
             <!-- Pie Chart -->

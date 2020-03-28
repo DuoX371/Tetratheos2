@@ -11,12 +11,13 @@ function validateUser($username, $password)
   return $result;
 }
 
-function findSubject($studentID)
+function findSubjectAssignment($studentID)
 {
   global $database;
-  $sql = "select * from enrollment join subject using (subjectID) where studentID = '$studentID'";
+  $sql = "select * from enrollment join subject using (subjectID) join assignment using (subjectID) where studentID = '$studentID'";
   $result = mysqli_query($database, $sql);
   return $result;
 }
+
 
 ?>
