@@ -88,7 +88,7 @@
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="Menrol.php">
+        <a class="nav-link" href="Massign_Lec.php">
           <i class="fas fa-cogs"></i>
             Subject Assign
         </a>
@@ -278,11 +278,11 @@
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="Mprofile.php">
+                <a class="dropdown-item" href="Mprofile_Lec.php">
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Profile
                 </a>
-                <a class="dropdown-item" href="Mactivity.php">
+                <a class="dropdown-item" href="Mactivity_Lec.php">
                   <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                   Activity Log
                 </a>

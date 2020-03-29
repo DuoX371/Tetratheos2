@@ -88,7 +88,7 @@
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="Menrol.php">
+        <a class="nav-link" href="Massign_Lec.php">
           <i class="fas fa-cogs"></i>
             Subject Assign
         </a>
@@ -314,7 +314,13 @@
             <select id="subjects" style="width:10%;">
               <option value="DIP222">DIP222</option>
               <option value="DIP202">DIP202</option>
+            </select><br>
+            <label for="choose subject">Student ID:</label>
+            <select id="subjects" style="width:10%;">
+              <option value="DIP222">B1900071</option>
+              <option value="DIP202">B1900095</option>
             </select>
+            <label for="student name">Johann</label>
 
             <div class="malcard">
               <div class="malcardflex">
@@ -323,21 +329,18 @@
                 <label for="Coursework" class="malcourse">Coursework:</label>
 
                 <div class="malcardcol">
-                  <input type="checkbox" onchange="showHidea(this.checked)" id="Assignment1" name="chkbox" />
-                  <label for="Assignment 1">Assignment 1</label>
-                  <input type="datetime-local" id="Assignment1dt" style="display:none"/>
+                  <label for="Assignment 1">Assignment 1:</label>
+                  <input type="text" id="Assignment1mark"/>
                 </div>
 
                 <div class="malcardcol2">
-                  <input type="checkbox" onchange="showHideb(this.checked)" id="Assignment2" name="Assignment 2"/>
-                  <label for="Assignment 2">Assignment 2</label>
-                  <input type="datetime-local" id="Assignment2dt" style="display:none"/>
+                  <label for="Assignment 2">Assignment 2:</label>
+                  <input type="text" id="Assignment2mark"/>
                 </div>
 
                 <div class="malcardcol3">
-                  <input type="checkbox" onchange="showHidec(this.checked)" id="Assignment3" name="Assignment 3"/>
-                  <label for="Assignment 1">Assignment 3</label>
-                  <input type="datetime-local" id="Assignment3dt" style="display:none"/>
+                  <label for="Assignment 3">Assignment 3:</label>
+                  <input type="text" id="Assignment3mark"/>
                 </div>
               </div>
 
@@ -416,24 +419,6 @@
   <script src="js/demo/chart-pie-demo.js"></script>
 
   <!--datetime showhide-->
-  <script src="jquery.js"></script>
-  <script>
-  function showHidea(checked){
-    if (checked == true)
-      $("#Assignment1dt").fadeIn();
-    else $("#Assignment1dt").fadeOut();
-  }
-  function showHideb(checked){
-    if (checked == true)
-      $("#Assignment2dt").fadeIn();
-    else $("#Assignment2dt").fadeOut();
-  }
-  function showHidec(checked){
-    if (checked == true)
-      $("#Assignment3dt").fadeIn();
-    else $("#Assignment3dt").fadeOut();
-  }
-  </script>
 
 
 
