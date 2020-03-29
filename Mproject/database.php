@@ -19,5 +19,12 @@ function findSubjectAssignment($studentID)
   return $result;
 }
 
+function getAssignments($subjectID)
+{
+  global $database;
+  $sql = "select * from assignment where subjectID = '$subjectID'";
+  $result = mysqli_query($database, $sql);
+  return $result;
+}
 
 ?>

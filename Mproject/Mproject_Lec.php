@@ -2,7 +2,7 @@
   require "functions.php";
   include_once "database.php";
 
-  $subjects = findSubject($_SESSION["currentUser"]["userID"]);
+  $subjects = findSubjectAssignment($_SESSION["currentUser"]["userID"]);
 ?>
 <!DOCTYPE html>
 <html lang="en">

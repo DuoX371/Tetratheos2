@@ -19,10 +19,10 @@
         echo "ADMIN PAGE UNDER MAINTAINENCE";
       }
       elseif($userDetails["userType"] == "s"){
-        gopage("Mprofile.php");
+        gopage("Mproject.php");
       }
       elseif($userDetails["userType"] == "l"){
-        echo "STUDENT PAGE AND ADMIN PAGE UNDER MAINTAINENCE, LECTURER PAGE NO NEED ASK LA";
+        gopage("Mproject_Lec.php");
       }
 
     } else {
@@ -33,5 +33,5 @@
 
   }
 
-  
+
 ?>
