@@ -3,6 +3,7 @@
   include_once "database.php";
 
   $subjectAssignments = findSubjectAssignment($_SESSION["currentUser"]["userID"]);
+  
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -318,6 +319,8 @@
             <?php
             if(mysqli_num_rows($subjectAssignments)>0){
               while($record = mysqli_fetch_assoc($subjectAssignments)){
+                if($record["assignmentType"] == "a")
+                {
                 echo '
                 <div class="col-xl-3 col-md-6 mb-4">
                   <div class="card border-left-success shadow h-100 py-2">
@@ -334,7 +337,7 @@
                     </div>
                   </div>
                 </div>
-                ';
+                ';}
               }
               }
               else
@@ -363,10 +366,30 @@
                 <div class="card-body">
                   <div>';
                   while($record = mysqli_fetch_assoc($subjectAssignments)){
+                    $assignments = getAssignments($record["subjectID"]);
+                    echo '
+                    <i class="h5 mb-0 font-weight-bold text-gray-800">' . $record["subjectID"] . " " . $record["subjectName"] . '</i><br>';
+                    while ($row = mysqli_fetch_assoc($assignments)){
+                      $counter = 1;
+                      echo '<i>Assignment' . $counter . '</i><i style="margin-left:40%;">' . $record["dueDate"] . '</i><br>';
+                      $counter = $counter + 1;
+                    }
+                    echo '<div class="mydivider"></div>';
+
+
+
+                    /*
+                    if($record["assignmentType"] == "a"){
+                      $assignmentNum = "Assignment 1";
+                    }
+                    elseif ($record["assignmentType"] == "b"){
+                      $assignmentNum = "Assignment 2";
+                    }
+
                     echo '
                     <i class="h5 mb-0 font-weight-bold text-gray-800">' . $record["subjectID"] . " " . $record["subjectName"] . '</i><br>
-                    <i> Assignment 1</i><i style="margin-left:40%;">' . $record["dueDate"] . '</i>
-                    <div class="mydivider"></div>';
+                    <i>' . $assignmentNum . '</i><i style="margin-left:40%;">' . $record["dueDate"] . '</i>
+                    <div class="mydivider"></div>';*/
                   }
 
                     echo '
