@@ -10,7 +10,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <title>Tetratheos - Marks</title>
+  <title>Tetratheos - Subject Assign</title>
   <link rel="icon" href="tIcon.png">
 	<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 	<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -43,7 +43,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="Mproject.php">
+        <a class="nav-link" href="Mproject_Lec.php">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -53,21 +53,12 @@
 
       <!-- Heading -->
       <div class="sidebar-heading">
-        Submission
+        Submission Received
       </div>
 
       <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link turnitin" href="https://www.turnitin.com/login_page.asp?lang=en_us" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-          <img src="turnitinIcon.png"><i style="color:white;padding-left:1%;">Turnitin</i></a>
-      </li>
 
-      <li class="nav-item">
-        <a class="nav-link" href="Menrol.php">
-          <i class="fas fa-cogs"></i>
-            Enrol Subject
-        </a>
-      </li>
+
 
       <!-- Nav Item - Utilities Collapse Menu -->
       <li class="nav-item">
@@ -78,13 +69,14 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Subject-list:</h6>
-            <a class="collapse-item" href="Msubject.php">Subject 1</a>
-            <a class="collapse-item" href="Msubject.php">Subject 2</a>
-            <a class="collapse-item" href="Msubject.php">Subject 3</a>
-            <a class="collapse-item" href="Msubject.php">Subject 4</a>
+            <a class="collapse-item" href="Msubject_Lec.php">Subject 1</a>
+            <a class="collapse-item" href="Msubject_Lec.php">Subject 2</a>
+            <a class="collapse-item" href="Msubject_Lec.php">Subject 3</a>
+            <a class="collapse-item" href="Msubject_Lec.php">Subject 4</a>
           </div>
         </div>
       </li>
+
 
       <!-- Divider -->
       <hr class="sidebar-divider">
@@ -96,6 +88,12 @@
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
+        <a class="nav-link" href="Menrol.php">
+          <i class="fas fa-cogs"></i>
+            Subject Assign
+        </a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="charts.php">
           <i class="fas fa-fw fa-table"></i>
           <span>Calender</span></a>
@@ -103,9 +101,9 @@
 
       <!-- Nav Item - Tables -->
       <li class="nav-item">
-        <a class="nav-link" href="Mmark.php">
+        <a class="nav-link" href="Mmarking_Lec.php">
           <i class="fas fa-fw fa-chart-area"></i>
-          <span>Marks Checking</span></a>
+          <span>Marking</span></a>
       </li>
 
       <!-- Divider -->
@@ -306,135 +304,59 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Marks</h1>
+            <h1 class="h3 mb-0 text-gray-800">Subject Assign</h1>
             <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
           </div>
 
           <!--Main Content-->
-        <div class="mmfcontainer">
-          <div class="mmdivider">
-            <div class="mmcard mmeXpand">
-              <div>
-                DIP222 Python
+          <div>
+            <label for="choose subject">Subject:</label>
+            <select id="subjects" class="malsubjects">
+              <option value="DIP222">DIP222</option>
+              <option value="DIP202">DIP202</option>
+            </select>
+
+            <div class="malcard">
+              <div class="malcardflex">
+                <label for="subject nane">Subject Name:</label>
+                <input type="text" class="malsubname" disabled/><br>
+                <label for="Coursework" class="malcourse">Coursework:</label>
+
+                <div class="malcardcol">
+                  <input type="checkbox" onchange="showHidea(this.checked)" id="Assignment1" name="chkbox" />
+                  <label for="Assignment 1">Assignment 1</label>
+                  <input type="datetime-local" id="Assignment1dt" style="display:none"/>
+                </div>
+
+                <div class="malcardcol2">
+                  <input type="checkbox" onchange="showHideb(this.checked)" id="Assignment2" name="Assignment 2"/>
+                  <label for="Assignment 2">Assignment 2</label>
+                  <input type="datetime-local" id="Assignment2dt" style="display:none"/>
+                </div>
+
+                <div class="malcardcol3">
+                  <input type="checkbox" onchange="showHidec(this.checked)" id="Assignment3" name="Assignment 3"/>
+                  <label for="Assignment 1">Assignment 3</label>
+                  <input type="datetime-local" id="Assignment3dt" style="display:none"/>
+                </div>
               </div>
+
+              <div class="malbtn">
+                <input type="submit" id="malsavebtn" value="Save"></button>
+                <button type="button" id="malcancelbtn">Cancel</button>
+              </div>
+
+
             </div>
 
-            <div id="drop-content" class="mmcardin" style="padding:0%;">
-              <table>
-                <tr class="mmcardindv">
-                  <th class="mmcardwidth">
-                    Coursework
-                  </th>
-                  <th class="mmcardwidth2">
-                    Grade
-                  </th>
-                  <th class="mmcardwidth2">
-                    Marks (overall)
-                  </th>
-                </tr>
-                <tr class="mmcardindv2">
-                  <td>
-                    Assignment 1
-                  </td>
-                  <td>
-                    A
-                  </td>
-                  <td>
-                    25%
-                  </td>
-                </tr>
-                <tr class="mmcardindv">
-                  <td>
-                    Assignment 2
-                  </td>
-                  <td>
-                    A
-                  </td>
-                  <td>
-                    24%
-                  </td>
-                </tr>
-                <tr class="mmcardindv3">
-                  <td>
-                    Assignment 3
-                  </td>
-                  <td>
-                    A
-                  </td>
-                  <td>
-                    10%
-                  </td>
-                </tr>
-
-
-              </table>
-
-            </div>
           </div>
 
           <!--Dropdown 2-->
-          <div class="mmdivider">
-            <div class="mmcard mmeXpand">
-              <div>
-                DIP204 HTML
-              </div>
-            </div>
 
-            <div id="drop-content" class="mmcardin" style="padding:0%;">
-              <table>
-                <tr class="mmcardindv">
-                  <th class="mmcardwidth">
-                    Coursework
-                  </th>
-                  <th class="mmcardwidth2">
-                    Grade
-                  </th>
-                  <th class="mmcardwidth2">
-                    Marks (overall)
-                  </th>
-                </tr>
-                <tr class="mmcardindv2">
-                  <td>
-                    Assignment 1
-                  </td>
-                  <td>
-                    A
-                  </td>
-                  <td>
-                    25%
-                  </td>
-                </tr>
-                <tr class="mmcardindv">
-                  <td>
-                    Assignment 2
-                  </td>
-                  <td>
-                    A
-                  </td>
-                  <td>
-                    24%
-                  </td>
-                </tr>
-                <tr class="mmcardindv3">
-                  <td>
-                    Assignment 3
-                  </td>
-                  <td>
-                    A
-                  </td>
-                  <td>
-                    10%
-                  </td>
-                </tr>
-                
 
-              </table>
-
-            </div>
-          </div>
-
+        </div>
       <!-- End of Main Content -->
-      </div>
+
       <!-- Footer -->
       <footer class="sticky-footer bg-white msftop">
         <div class="container my-auto">
@@ -475,8 +397,6 @@
     </div>
   </div>
 
-  <!-- assignmentdropdown -->
-
 
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
@@ -494,6 +414,29 @@
   <!-- Page level custom scripts -->
   <script src="js/demo/chart-area-demo.js"></script>
   <script src="js/demo/chart-pie-demo.js"></script>
+
+  <!--datetime showhide-->
+  <script src="jquery.js"></script>
+  <script>
+  function showHidea(checked){
+    if (checked == true)
+      $("#Assignment1dt").fadeIn();
+    else $("#Assignment1dt").fadeOut();
+  }
+  function showHideb(checked){
+    if (checked == true)
+      $("#Assignment2dt").fadeIn();
+    else $("#Assignment2dt").fadeOut();
+  }
+  function showHidec(checked){
+    if (checked == true)
+      $("#Assignment3dt").fadeIn();
+    else $("#Assignment3dt").fadeOut();
+  }
+  </script>
+
+
+
 
 </body>
 

@@ -86,7 +86,7 @@
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="Menrol.php">
+        <a class="nav-link" href="Massign_Lec.php">
           <i class="fas fa-cogs"></i>
             Subject Assign
         </a>
@@ -100,7 +100,7 @@
 
       <!-- Nav Item - Tables -->
       <li class="nav-item">
-        <a class="nav-link" href="Mmark.php">
+        <a class="nav-link" href="Mmarking_Lec.php">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Marking</span></a>
       </li>

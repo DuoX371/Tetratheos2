@@ -95,13 +95,24 @@
 .mscardin{background-color:#fff;margin-bottom:10px;padding:1%;width:70%;margin-left:10%;border:1px solid #e3e6f0;display:none;}
 .mscardin td {border-bottom-style:solid #e8f1ff;padding:3% 2%;}
 .mscardindv {background-color:#e8f1ff;}
-.mscardindv2 {background-color:#f5f7fa;}
+.mscardindv2 {background-color:#f5f7fa;word-wrap: break-word;}
 .mslcardwidth {width:300px;border-right: 2px solid white; text-align: center;}
 .mslcardwidth2 {width:380px;border-right: 2px solid white;text-align: center;}
 .mslcardwidth3 {width:500px;text-align: center;}
 .msftop {margin-top:26%;}
 .addbutton{position:absolute;margin-left: 15%;margin-top: 32%;}
 .savebutton{position:absolute;margin-left: 30%;margin-top: 32%;width:5%;}
+
+/*MsubjectAssign(Lecturer)*/
+.malcard{border:1px solid black;width:70%;margin-left: 12%;padding-bottom: 20%;text-align: center;padding-top: 3%;margin-top: 5%;}
+.malcardfleax{display:flex;}
+.malcardcol{display:block;position: absolute;margin-top: 1.5%;margin-left: 20%;}
+.malcardcol2{display:block;position: absolute;margin-top: 4.5%;margin-left: 20%;}
+.malcardcol3{display:block;position: absolute;margin-top: 7.5%;margin-left: 20%;}
+.malsubname{width:50%;}
+.malcourse{position: absolute;margin-left: -17.9%;margin-top: 1.5%;}
+.malbtn{position: absolute;margin-top: 12%;margin-left: 24%;}
+.malsubjects{width:10%;}
 
 @media only screen and (max-width: 768px) {
   /* For mobile phones: */
@@ -172,4 +183,21 @@
   .melabel{margin-left: 20%;margin-top: 10%;}
   .meinput{margin-top:7%;margin-left: 6%;}
   .meenrol{margin-left:38%;margin-top: 5%;margin-bottom: 5%;width:20%;}
+
+  /*Msubject_Lec*/
+  .mslcardwidth {width:200px;border-right: 2px solid white; text-align: center;}
+  .mslcardwidth2 {width:280px;border-right: 2px solid white;text-align: center;}
+  .mslcardwidth3 {width:400px;text-align: center;}
+  .mscardindv2 {background-color:#f5f7fa;font-size: 12px;word-wrap: break-word;}
+
+  /*MsubjectAssign(Lecturer)*/
+  .malcard{border:1px solid black;width:100%;margin-left: 0%;padding-bottom: 110%;text-align: center;padding-top: 3%;margin-top: 5%;}
+  .malcardfleax{display:flex;}
+  .malcardcol{display:block;position: absolute;margin-top: 8.5%;margin-left: 1%;}
+  .malcardcol2{display:block;position: absolute;margin-top: 28.5%;margin-left: 1%;}
+  .malcardcol3{display:block;position: absolute;margin-top: 48.5%;margin-left: 1%;}
+  .malsubname{width:50%;}
+  .malcourse{position: absolute;margin-left: -28.5%;margin-top: 1.5%;}
+  .malbtn{position: absolute;margin-top:66%;margin-left: 23%;}
+  .malsubjects{width:40%}
 }
