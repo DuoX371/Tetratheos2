@@ -80,6 +80,7 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Subject-list:</h6>
+
             <?php
 
             if(mysqli_num_rows($subjectAssignments)>0){
@@ -332,6 +333,8 @@
 
             <!-- Subject Card  -->
             <?php
+            mysqli_data_seek($subjectAssignments,0);
+            
             if(mysqli_num_rows($subjectAssignments)>0){
               while($record = mysqli_fetch_assoc($subjectAssignments)){
                 if($record["assignmentType"] == "a")
