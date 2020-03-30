@@ -2,7 +2,7 @@
   require "functions.php";
   include_once "database.php";
 
-  $subjects = findSubjectAssignment($_SESSION["currentUser"]["userID"]);
+  $subjects = findSubjectLec($_SESSION["currentUser"]["userID"]);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -314,7 +314,7 @@
             <?php
             if(mysqli_num_rows($subjects)>0){
               while($record = mysqli_fetch_assoc($subjects)){
-                if($record["assignmentType"] == "a"){
+                //if($record["assignmentType"] == "a"){
                   echo '
                   <div class="col-xl-3 col-md-6 mb-4">
                     <div class="card border-left-success shadow h-100 py-2">
@@ -332,7 +332,7 @@
                     </div>
                   </div>
                   ';
-                }
+                //}
               }
               }
               else
