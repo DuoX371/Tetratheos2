@@ -10,7 +10,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <title>Tetratheos - SubjectL</title>
+  <title>Tetratheos - Profile</title>
   <link rel="icon" href="tIcon.png">
 	<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 	<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -69,10 +69,10 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Subject-list:</h6>
-            <a class="collapse-item" href="Msubject.php">Subject 1</a>
-            <a class="collapse-item" href="Msubject.php">Subject 2</a>
-            <a class="collapse-item" href="Msubject.php">Subject 3</a>
-            <a class="collapse-item" href="Msubject.php">Subject 4</a>
+            <a class="collapse-item" href="Msubject_Lec.php">Subject 1</a>
+            <a class="collapse-item" href="Msubject_Lec.php">Subject 2</a>
+            <a class="collapse-item" href="Msubject_Lec.php">Subject 3</a>
+            <a class="collapse-item" href="Msubject_Lec.php">Subject 4</a>
           </div>
         </div>
       </li>
@@ -278,11 +278,11 @@
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="Mprofile.php">
+                <a class="dropdown-item" href="Mprofile_Lec.php">
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Profile
                 </a>
-                <a class="dropdown-item" href="Mactivity.php">
+                <a class="dropdown-item" href="Mactivity_Lec.php">
                   <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                   Activity Log
                 </a>
@@ -304,120 +304,36 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Subject 1</h1>
+            <h1 class="h3 mb-0 text-gray-800">Profile</h1>
             <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
           </div>
 
           <!--Main Content-->
-          <div class="msdropdown" >
-            <div class="mscard eXpand" onclick="show_hide()">
-              <div>
-                Assignment 1
-                <span class='fas fa-angle-down msleft'></span>
+          <div class="mpfcontainer">
+            <img src="kurumi.png" class="mpPpic mpPpos">
+            <div>
+              <form class="mpformpos">
+                <label for="id">ID:</label><br>
+                <input type="text" id="id" name="id" class="mpinpos" disabled/><br>
+                <label for="username" class="mplbpos">Username:</label><br>
+                <input type="text" id="username" name="username" class="mpinpos"/><br>
+                <label for="email" class="mplbpos" >Email:</label><br>
+                <input type="text" id="email" name="email" class="mpinpos"/><br>
+                <label for="phone" class="mplbpos2">Phone Number:</label><br>
+                <input type="text" id="phone" name="phone" class="mpinpos"/>
+
+                <input type="file" id="real-file" hidden="hidden"/>
+                <button type="button" id="custom-button">Choose File</button>
+              </form>
+              <div class="mmfcontainer" style="margin-top:65%;">
+                <input type="submit" id="mpsavebtn" value="Save"></button>
+                <button type="button" id="mpcancelbtn">Cancel</button>
               </div>
             </div>
-
-            <div id="drop-content" class="mscardin" style="padding:0%;">
-              <table>
-                <tr class="mscardindv">
-                  <td class="mslcardwidth">
-                    Datetime
-                  </td>
-                  <td class="mslcardwidth2">
-                    Submitted by
-                  </td>
-                  <td class="mslcardwidth3">
-                    File
-                  </td>
-                </tr>
-                <tr class="mscardindv2">
-                  <td class="mslcardwidth">
-                    <a>Thursday, 21 Mac 2020</a><br>
-                    <a>10:34a.m.</a>
-                  </td>
-                  <td class="mslcardwidth2">
-                    Johann
-                  </td>
-                  <td class="mslcardwidth3">
-                    RenaiCirculation.mp3
-                  </td>
-                </tr>
-                <tr class="mscardindv2">
-                  <td class="mslcardwidth">
-                    <a>Friday, 22 Mac 2020</a><br>
-                    <a>10:35p.m.</a>
-                  </td>
-                  <td class="mslcardwidth2">
-                    Jia Le
-                  </td>
-                  <td class="mslcardwidth3">
-                    kurumi.png
-                  </td>
-                </tr>
-              </table>
-
-            </div>
           </div>
-
-          <!--Dropdown 2-->
-          <div class="msdropdown" >
-            <div class="mscard eXpand" onclick="show_hide2()">
-              <div>
-                Assignment 2
-                <span class='fas fa-angle-down msleft'></span>
-              </div>
-            </div>
-
-            <div id="drop-content2" class="mscardin" style="padding:0%;">
-              <table>
-                <tr class="mscardindv">
-                  <td class="mslcardwidth">
-                    Datetime
-                  </td>
-                  <td class="mslcardwidth2">
-                    Submitted by
-                  </td>
-                  <td class="mslcardwidth3">
-                    File
-                  </td>
-                </tr>
-                <tr class="mscardindv2">
-                  <td class="mslcardwidth">
-                    <a>Thursday, 21 Mac 2020</a><br>
-                    <a>10:34a.m.</a>
-                  </td>
-                  <td class="mslcardwidth2">
-                    Johann
-                  </td>
-                  <td class="mslcardwidth3">
-                    RenaiCirculation.mp3
-                  </td>
-                </tr>
-                <tr class="mscardindv2">
-                  <td class="mslcardwidth">
-                    <a>Friday, 22 Mac 2020</a><br>
-                    <a>10:35p.m.</a>
-                  </td>
-                  <td class="mslcardwidth2">
-                    Jia Le
-                  </td>
-                  <td class="mslcardwidth3">
-                    kurumi.png
-                  </td>
-                </tr>
-
-              </table>
-
-            </div>
-
-
-          </div>
-
-        </div>
-      <!-- End of Main Content -->
 
       <!-- Footer -->
-      <footer class="sticky-footer bg-white msftop">
+      <footer class="sticky-footer bg-white mpftop">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
             <span>Copyright &copy; Your Website 2019</span>
@@ -457,26 +373,7 @@
   </div>
 
   <!-- assignmentdropdown -->
-  <script>
-    function show_hide(){
-      var click = document.getElementById("drop-content");
-      if(click.style.display =="none"){
-        click.style.display ="block";
-      }else{
-        click.style.display ="none";
-      }
-    }
 
-    function show_hide2(){
-      var click = document.getElementById("drop-content2");
-      if(click.style.display =="none"){
-        click.style.display ="block";
-      }else{
-        click.style.display ="none";
-      }
-    }
-
-  </script>
 
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
@@ -495,34 +392,14 @@
   <script src="js/demo/chart-area-demo.js"></script>
   <script src="js/demo/chart-pie-demo.js"></script>
 
-  <!--Assignment submit button-->
+  <!--Change profile picture script-->
+
   <script type="text/javascript">
-  const realAddBtn = document.getElementById("realadd")
-  const fakeAddBtn = document.getElementById("fakeadd")
+  const realFileBtn = document.getElementById("real-file")
+  const customBtn = document.getElementById("custom-button")
 
-  fakeAddBtn.addEventListener("click",function(){
-    realAddBtn.click();
-  });
-
-  const realSaveBtn = document.getElementById("realsave")
-  const fakeSaveBtn = document.getElementById("fakesave")
-
-  fakeSaveBtn.addEventListener("click",function(){
-    realSaveBtn.click();
-  });
-
-  const realAddBtn2 = document.getElementById("realadd2")
-  const fakeAddBtn2 = document.getElementById("fakeadd2")
-
-  fakeAddBtn2.addEventListener("click",function(){
-    realAddBtn2.click();
-  });
-
-  const realSaveBtn2 = document.getElementById("realsave2")
-  const fakeSaveBtn2 = document.getElementById("fakesave2")
-
-  fakeSaveBtn2.addEventListener("click",function(){
-    realSaveBtn2.click();
+  customBtn.addEventListener("click",function(){
+    realFileBtn.click();
   });
 
   </script>
