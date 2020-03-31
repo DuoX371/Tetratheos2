@@ -27,4 +27,22 @@ function getAssignments($subjectID)
   return $result;
 }
 
+function findSubjectLec($lecturerID){
+  global $database;
+  $sql = "select * from subject join assignment using (subjectID) where lecturerID = '$lecturerID'";
+  $result = mysqli_query($database, $sql);
+  return $result;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 ?>
