@@ -77,7 +77,7 @@
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" onclick="closeAlert()">
           <i class="fas fa-cogs"></i>
             <strong>CLOSE Tetratheos</strong>
         </a>
@@ -279,36 +279,156 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+            <h1 class="h3 mb-0 text-gray-800">Account</h1>
             <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
           </div>
 
-          <!-- Content Row -->
-          <div class="row">
-
-          <div class="row">
-
-            <div class="myshadow mymb-4 mpaannoucment">
-              <div class="mycard-header py-3 d-flex flex-row align-items-center">
-                <h6 class="m-0 font-weight-bold text-primary">Announcement</h6>
+          <!--Main Content-->
+          <div class="madropdown" >
+            <div class="macard maeXpand" onclick="show_hide()">
+              <div>
+                Student
+                <span class='fas fa-angle-down maleft'></span>
               </div>
-              <textarea rows="8.5" cols="74"></textarea>
-              <input type="submit" value="save" class="mpasave"/>
             </div>
 
-            <div class="myshadow mymb-4 mpaannoucment2">
-              <div class="mycard-header py-3 d-flex flex-row align-items-center">
-                <h6 class="m-0 font-weight-bold text-primary mpanote">Note</h6>
-              </div>
-              <textarea rows="8.5" cols="50"></textarea>
-              <input type="submit" value="save" class="mpasave"/>
+            <div id="drop-content" class="macardin" style="padding:0%;">
+              <table>
+                <tr class="macardindv">
+                  <td class="macardwidth">
+                    ID
+                  </td>
+                  <td class="macardwidth2">
+                    Name
+                  </td>
+                  <td class="macardwidth3">
+
+                  </td>
+                </tr>
+                <tr class="macardindv2">
+                  <td class="macardwidth">
+                    <a>B1900071</a>
+
+                  </td>
+                  <td class="macardwidth2">
+                    Johann
+                  </td>
+                  <td class="macardwidth3 maremove">
+                    Remove
+                  </td>
+                </tr>
+                <tr class="macardindv2">
+                  <td class="macardwidth">
+                    <a>B1900095</a>
+                  </td>
+                  <td class="macardwidth2">
+                    Jia Le
+                  </td>
+                  <td class="macardwidth3 maremove">
+                    Remove
+                  </td>
+                </tr>
+              </table>
+
             </div>
           </div>
 
-          <!-- Content Row -->
+          <div class="madropdown" >
+            <div class="macard maeXpand" onclick="show_hide2()">
+              <div>
+                Lecturer
+                <span class='fas fa-angle-down maleft2'></span>
+              </div>
+            </div>
 
+            <div id="drop-content2" class="macardin" style="padding:0%;">
+              <table>
+                <tr class="macardindv">
+                  <td class="macardwidth">
+                    ID
+                  </td>
+                  <td class="macardwidth2">
+                    Name
+                  </td>
+                  <td class="macardwidth3">
 
+                  </td>
+                </tr>
+                <tr class="macardindv2">
+                  <td class="macardwidth">
+                    <a>L101</a>
 
+                  </td>
+                  <td class="macardwidth2">
+                    Steven
+                  </td>
+                  <td class="macardwidth3 maremove">
+                    Remove
+                  </td>
+                </tr>
+                <tr class="macardindv2">
+                  <td class="macardwidth">
+                    <a>L102</a>
+                  </td>
+                  <td class="macardwidth2">
+                    Koon
+                  </td>
+                  <td class="macardwidth3 maremove">
+                    Remove
+                  </td>
+                </tr>
+              </table>
+
+            </div>
+          </div>
+
+          <div class="madropdown" >
+            <div class="macard maeXpand" onclick="show_hide3()">
+              <div>
+                Subject
+                <span class='fas fa-angle-down maleft2'></span>
+              </div>
+            </div>
+
+            <div id="drop-content3" class="macardin" style="padding:0%;">
+              <table>
+                <tr class="macardindv">
+                  <td class="macardwidth">
+                    ID
+                  </td>
+                  <td class="macardwidth2">
+                    Name
+                  </td>
+                  <td class="macardwidth3">
+
+                  </td>
+                </tr>
+                <tr class="macardindv2">
+                  <td class="macardwidth">
+                    <a>L101</a>
+
+                  </td>
+                  <td class="macardwidth2">
+                    Steven
+                  </td>
+                  <td class="macardwidth3 maremove">
+                    Remove
+                  </td>
+                </tr>
+                <tr class="macardindv2">
+                  <td class="macardwidth">
+                    <a>L102</a>
+                  </td>
+                  <td class="macardwidth2">
+                    Koon
+                  </td>
+                  <td class="macardwidth3 maremove">
+                    Remove
+                  </td>
+                </tr>
+              </table>
+
+            </div>
           </div>
 
 
@@ -358,6 +478,35 @@
     </div>
   </div>
 
+  <script>
+    function show_hide(){
+      var click = document.getElementById("drop-content");
+      if(click.style.display =="none"){
+        click.style.display ="block";
+      }else{
+        click.style.display ="none";
+      }
+    }
+
+    function show_hide2(){
+      var click = document.getElementById("drop-content2");
+      if(click.style.display =="none"){
+        click.style.display ="block";
+      }else{
+        click.style.display ="none";
+      }
+    }
+
+    function show_hide3(){
+      var click = document.getElementById("drop-content3");
+      if(click.style.display =="none"){
+        click.style.display ="block";
+      }else{
+        click.style.display ="none";
+      }
+    }
+
+  </script>
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -374,6 +523,43 @@
   <!-- Page level custom scripts -->
   <script src="js/demo/chart-area-demo.js"></script>
   <script src="js/demo/chart-pie-demo.js"></script>
+
+  <script type="text/javascript">
+  const realAddBtn = document.getElementById("realadd")
+  const fakeAddBtn = document.getElementById("fakeadd")
+
+  fakeAddBtn.addEventListener("click",function(){
+    realAddBtn.click();
+  });
+
+  const realSaveBtn = document.getElementById("realsave")
+  const fakeSaveBtn = document.getElementById("fakesave")
+
+  fakeSaveBtn.addEventListener("click",function(){
+    realSaveBtn.click();
+  });
+
+  const realAddBtn2 = document.getElementById("realadd2")
+  const fakeAddBtn2 = document.getElementById("fakeadd2")
+
+  fakeAddBtn2.addEventListener("click",function(){
+    realAddBtn2.click();
+  });
+
+  const realSaveBtn2 = document.getElementById("realsave2")
+  const fakeSaveBtn2 = document.getElementById("fakesave2")
+
+  fakeSaveBtn2.addEventListener("click",function(){
+    realSaveBtn2.click();
+  });
+
+  </script>
+
+  <script>
+  function closeAlert() {
+    confirm("WARNING: Tetratheos will be off!");
+  }
+  </script>
 
 </body>
 
