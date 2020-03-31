@@ -34,7 +34,12 @@ function findSubjectLec($lecturerID){
   return $result;
 }
 
-
+function findUser($userID){
+  global $database;
+  $sql = "select * from user where userID = '$userID'";
+  $result = mysqli_query($database, $sql);
+  return $result;
+}
 
 
 

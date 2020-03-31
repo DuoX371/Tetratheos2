@@ -1,6 +1,9 @@
 <?php
   require "functions.php";
   include_once "database.php";
+
+  $subjectAssignments = findSubjectAssignment($_SESSION["currentUser"]["userID"]);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -78,10 +81,18 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Subject-list:</h6>
-            <a class="collapse-item" href="Msubject.php">Subject 1</a>
-            <a class="collapse-item" href="Msubject.php">Subject 2</a>
-            <a class="collapse-item" href="Msubject.php">Subject 3</a>
-            <a class="collapse-item" href="Msubject.php">Subject 4</a>
+            <?php
+
+            if(mysqli_num_rows($subjectAssignments)>0){
+              while($record = mysqli_fetch_assoc($subjectAssignments)){
+                if($record["assignmentType"] == "a")
+                {
+                  echo '<a class="collapse-item" href="Msubject.php">' . $record["subjectID"] . '</a>';
+                }
+              }
+            }
+
+             ?>
           </div>
         </div>
       </li>
@@ -367,7 +378,9 @@
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="Mlogin.php">Logout</a>
+          <form method="post" action="process.php">
+            <button class="btn btn-primary" name="logout" type="submit">Logout</button>
+          </form>
         </div>
       </div>
     </div>

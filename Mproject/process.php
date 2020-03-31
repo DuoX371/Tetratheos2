@@ -16,7 +16,7 @@
       $userDetails = mysqli_fetch_assoc($validateUser);
       $_SESSION["currentUser"] = $userDetails;
       if($userDetails["userType"] == "a"){
-        echo "ADMIN PAGE UNDER MAINTAINENCE";
+        gopage("Mproject_Adm.php");
       }
       elseif($userDetails["userType"] == "s"){
         gopage("Mproject.php");
@@ -33,5 +33,9 @@
 
   }
 
+  if(isset($_POST["logout"])){
+    unset($_SESSION["currentUser"]);
+    gopage("Mlogin.php");
+  }
 
 ?>

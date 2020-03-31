@@ -2,7 +2,7 @@
   require "functions.php";
   include_once "database.php";
 
-  $subjects = findSubjectAssignment($_SESSION["currentUser"]["userID"]);
+  //$subjects = findSubjectAssignment($_SESSION["currentUser"]["userID"]);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,7 +44,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="Mproject.php">
+        <a class="nav-link" href="Mproject_Adm.php">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -352,7 +352,9 @@
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="Mlogin.php">Logout</a>
+          <form method="post" action="process.php">
+            <button class="btn btn-primary" name="logout" type="submit">Logout</button>
+          </form>
         </div>
       </div>
     </div>
