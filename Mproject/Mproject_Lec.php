@@ -44,7 +44,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="Mproject.php">
+        <a class="nav-link" href="Mproject_Lec.php">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -68,10 +68,18 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Subject-list:</h6>
-            <a class="collapse-item" href="Msubject.php">Subject 1</a>
-            <a class="collapse-item" href="Msubject.php">Subject 2</a>
-            <a class="collapse-item" href="Msubject.php">Subject 3</a>
-            <a class="collapse-item" href="Msubject.php">Subject 4</a>
+            <?php
+
+            if(mysqli_num_rows($subjects)>0){
+              while($record = mysqli_fetch_assoc($subjects)){
+                if($record["assignmentType"] == "a")
+                {
+                  echo '<a class="collapse-item" href="Msubject.php">' . $record["subjectID"] . '</a>';
+                }
+              }
+            }
+
+             ?>
           </div>
         </div>
       </li>
@@ -312,6 +320,8 @@
 
             <!-- Subject Card  -->
             <?php
+            mysqli_data_seek($subjects,0);
+
             if(mysqli_num_rows($subjects)>0){
               while($record = mysqli_fetch_assoc($subjects)){
                 //if($record["assignmentType"] == "a"){
