@@ -1,8 +1,6 @@
 <?php
   require "functions.php";
   include_once "database.php";
-
-  $subjects = findSubjectAssignment($_SESSION["currentUser"]["userID"]);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,10 +10,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <title>Tetratheos - Admin</title>
+  <title>Tetratheos - Activity Log</title>
   <link rel="icon" href="tIcon.png">
 	<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 	<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 
   <!-- Custom styles for this template-->
   <link href="sb-admin-2.min.css" rel="stylesheet">
@@ -279,235 +278,35 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Account</h1>
+            <h1 class="h3 mb-0 text-gray-800">Activity Log</h1>
             <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
           </div>
 
           <!--Main Content-->
-          <div class="madropdown" >
-            <div class="macard maeXpand" onclick="show_hide()">
-              <div>
-                Student
-                <span class='fas fa-angle-down maleft'></span>
-              </div>
-            </div>
+          <div class="maTable">
+            <table>
+              <tr>
+                <th>Datetime</th>
+                <th>Activity</th>
+              </tr>
+              <tr class="maEnroll">
+                <td class="maTdate">20 Feb 2020 10:20a.m.</td>
+                <td class="maTActivity">Enrol Subject (Python)</td>
+              </tr>
+              <tr class="maSubmit">
+                <td class="maTdate">20 Feb 2020 10:30a.m.</td>
+                <td class="maTActivity">Submit Assignment (Python)</td>
+              </tr>
+              <tr class="maEmail">
+                <td class="maTdate">25 Mar 2020 12:00p.m.</td>
+                <td class="maTActivity">Write email to Steven</td>
+              </tr>
+            </table>
 
-            <div id="drop-content" class="macardin" style="padding:0%;">
-              <table>
-                <tr class="macardindv">
-                  <td class="macardwidth">
-                    ID
-                  </td>
-                  <td class="macardwidth2">
-                    Name
-                  </td>
-                  <td class="macardwidth3">
-
-                  </td>
-                </tr>
-                <tr class="macardindv2">
-                  <td class="macardwidth">
-                    <a>B1900071</a>
-
-                  </td>
-                  <td class="macardwidth2">
-                    Johann
-                  </td>
-                  <td class="macardwidth3 maremove">
-                    Remove
-                  </td>
-                </tr>
-                <tr class="macardindv2">
-                  <td class="macardwidth">
-                    <a>B1900095</a>
-                  </td>
-                  <td class="macardwidth2">
-                    Jia Le
-                  </td>
-                  <td class="macardwidth3 maremove">
-                    Remove
-                  </td>
-                </tr>
-                <tr class="macardindv3">
-                  <td class="macardwidth">
-                    <input type="text" class="mainputID" maxlength="8"/>
-                  </td>
-                  <td class="macardwidth2">
-                    <input type="text" class="mainputNAME"/>
-                  </td>
-                  <td class="macardwidth3 maremove">
-                    <input type="submit" value="Add" class="maaddbtn"/>
-                  </td>
-                </tr>
-              </table>
-
-            </div>
           </div>
-
-          <div class="madropdown" >
-            <div class="macard maeXpand" onclick="show_hide2()">
-              <div>
-                Lecturer
-                <span class='fas fa-angle-down maleft2'></span>
-              </div>
-            </div>
-
-            <div id="drop-content2" class="macardin" style="padding:0%;">
-              <table>
-                <tr class="macardindv">
-                  <td class="macardwidth">
-                    ID
-                  </td>
-                  <td class="macardwidth2">
-                    Name
-                  </td>
-                  <td class="macardwidth3">
-
-                  </td>
-                </tr>
-                <tr class="macardindv2">
-                  <td class="macardwidth">
-                    <a>L101</a>
-
-                  </td>
-                  <td class="macardwidth2">
-                    Steven
-                  </td>
-                  <td class="macardwidth3 maremove">
-                    Remove
-                  </td>
-                </tr>
-                <tr class="macardindv2">
-                  <td class="macardwidth">
-                    <a>L102</a>
-                  </td>
-                  <td class="macardwidth2">
-                    Koon
-                  </td>
-                  <td class="macardwidth3 maremove">
-                    Remove
-                  </td>
-                </tr>
-                <tr class="macardindv3">
-                  <td class="macardwidth">
-                    <input type="text" class="mainputID" maxlength="4"/>
-                  </td>
-                  <td class="macardwidth2">
-                    <input type="text" class="mainputNAME"/>
-                  </td>
-                  <td class="macardwidth3 maremove">
-                    <input type="submit" value="Add" class="maaddbtn"/>
-                  </td>
-                </tr>
-              </table>
-
-            </div>
-          </div>
-
-          <div class="madropdown" >
-            <div class="macard2 maeXpand" onclick="show_hide3()">
-              <div>
-                Subject
-                <span class='fas fa-angle-down maleft3'></span>
-              </div>
-            </div>
-
-            <div id="drop-content3" class="macardin2" style="padding:0%;">
-              <table>
-                <tr class="macardindv">
-                  <td class="macardwidth">
-                    ID
-                  </td>
-                  <td class="macardwidth2">
-                    Name
-                  </td>
-                  <td class="macardwidth6">
-                    Assinged by
-                  </td>
-                  <td class="macardwidth4">
-                    Enrolment Key
-                  </td>
-                  <td class="macardwidth5">
-                    Password
-                  </td>
-                  <td class="macardwidth3">
-
-                  </td>
-                </tr>
-                <tr class="macardindv2">
-                  <td class="macardwidth">
-                    <a>DIPMPR01</a>
-                  </td>
-                  <td class="macardwidth2">
-                    It Mini Project
-                  </td>
-                  <td class="macardwidth5">
-                    Steven
-                  </td>
-                  <td class="macardwidth4">
-                    LIKEPEANUT!
-                  </td>
-                  <td class="macardwidth5">
-                    abc123
-                  </td>
-                  <td class="macardwidth3 maremove">
-                    Remove
-                  </td>
-                </tr>
-                <tr class="macardindv2">
-                  <td class="macardwidth">
-                    <a>DIP001</a>
-                  </td>
-                  <td class="macardwidth2">
-                    Uguess guess
-                  </td>
-                  <td class="macardwidth6">
-                    Koon
-                  </td>
-                  <td class="macardwidth4">
-                    SEEUNEXTSEM!
-                  </td>
-                  <td class="macardwidth5">
-                    abc123
-                  </td>
-                  <td class="macardwidth3 maremove">
-                    Remove
-                  </td>
-                </tr>
-                <tr class="macardindv3">
-                  <td class="macardwidth">
-                    <input type="text" maxlength="9" class="mainputID"/>
-                  </td>
-                  <td class="macardwidth2">
-                    <input type="text" class="mainputNAME"/>
-                  </td>
-                  <td class="macardwidth6">
-                    <input type="text" class="mainputNAME"/>
-                  </td>
-                  <td class="macardwidth4">
-                    <input type="text" class="mainputNAME"/>
-                  </td>
-                  <td class="macardwidth5">
-                    <input type="text" class="mainputNAME"/>
-                  </td>
-                  <td class="macardwidth3 maremove">
-                    <input type="submit" value="Add" class="maaddbtn"/>
-                  </td>
-                </tr>
-              </table>
-
-            </div>
-          </div>
-
-
-        </div>
-        <!-- /.container-fluid -->
-
-      </div>
-      <!-- End of Main Content -->
 
       <!-- Footer -->
-      <footer class="sticky-footer bg-white">
+      <footer class="sticky-footer bg-white maftop">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
             <span>Copyright &copy; Your Website 2019</span>
@@ -546,35 +345,9 @@
     </div>
   </div>
 
-  <script>
-    function show_hide(){
-      var click = document.getElementById("drop-content");
-      if(click.style.display =="none"){
-        click.style.display ="block";
-      }else{
-        click.style.display ="none";
-      }
-    }
+  <!-- assignmentdropdown -->
 
-    function show_hide2(){
-      var click = document.getElementById("drop-content2");
-      if(click.style.display =="none"){
-        click.style.display ="block";
-      }else{
-        click.style.display ="none";
-      }
-    }
 
-    function show_hide3(){
-      var click = document.getElementById("drop-content3");
-      if(click.style.display =="none"){
-        click.style.display ="block";
-      }else{
-        click.style.display ="none";
-      }
-    }
-
-  </script>
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -592,41 +365,16 @@
   <script src="js/demo/chart-area-demo.js"></script>
   <script src="js/demo/chart-pie-demo.js"></script>
 
+  <!--Change profile picture script-->
+
   <script type="text/javascript">
-  const realAddBtn = document.getElementById("realadd")
-  const fakeAddBtn = document.getElementById("fakeadd")
+  const realFileBtn = document.getElementById("real-file")
+  const customBtn = document.getElementById("custom-button")
 
-  fakeAddBtn.addEventListener("click",function(){
-    realAddBtn.click();
+  customBtn.addEventListener("click",function(){
+    realFileBtn.click();
   });
 
-  const realSaveBtn = document.getElementById("realsave")
-  const fakeSaveBtn = document.getElementById("fakesave")
-
-  fakeSaveBtn.addEventListener("click",function(){
-    realSaveBtn.click();
-  });
-
-  const realAddBtn2 = document.getElementById("realadd2")
-  const fakeAddBtn2 = document.getElementById("fakeadd2")
-
-  fakeAddBtn2.addEventListener("click",function(){
-    realAddBtn2.click();
-  });
-
-  const realSaveBtn2 = document.getElementById("realsave2")
-  const fakeSaveBtn2 = document.getElementById("fakesave2")
-
-  fakeSaveBtn2.addEventListener("click",function(){
-    realSaveBtn2.click();
-  });
-
-  </script>
-
-  <script>
-  function closeAlert() {
-    confirm("WARNING: Tetratheos will be off!");
-  }
   </script>
 
 </body>
