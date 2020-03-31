@@ -1,6 +1,8 @@
 <?php
   require "functions.php";
   include_once "database.php";
+
+  $subjects = findSubjectAssignment($_SESSION["currentUser"]["userID"]);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,11 +12,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <title>Tetratheos - Marking</title>
+  <title>Tetratheos - Admin</title>
   <link rel="icon" href="tIcon.png">
 	<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 	<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-  <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 
   <!-- Custom styles for this template-->
   <link href="sb-admin-2.min.css" rel="stylesheet">
@@ -43,7 +44,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="Mproject_Lec.php">
+        <a class="nav-link" href="Mproject.php">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -53,58 +54,35 @@
 
       <!-- Heading -->
       <div class="sidebar-heading">
-        Submission Received
+        Management
       </div>
 
       <!-- Nav Item - Pages Collapse Menu -->
 
-
-
       <!-- Nav Item - Utilities Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-          <i class="fas fa-fw fa-folder"></i>
-          <span>Subject</span>
+        <a class="nav-link" href="Maccount_adm.php">
+          <i class="fas fa-cogs"></i>
+            Account
         </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Subject-list:</h6>
-            <a class="collapse-item" href="Msubject_Lec.php">Subject 1</a>
-            <a class="collapse-item" href="Msubject_Lec.php">Subject 2</a>
-            <a class="collapse-item" href="Msubject_Lec.php">Subject 3</a>
-            <a class="collapse-item" href="Msubject_Lec.php">Subject 4</a>
-          </div>
-        </div>
       </li>
-
 
       <!-- Divider -->
       <hr class="sidebar-divider">
 
       <!-- Heading -->
       <div class="sidebar-heading">
-        Addons
+        Emergency
       </div>
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="Massign_Lec.php">
+        <a class="nav-link" href="#">
           <i class="fas fa-cogs"></i>
-            Subject Assign
+            <strong>CLOSE Tetratheos</strong>
         </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="charts.php">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Calender</span></a>
-      </li>
 
-      <!-- Nav Item - Tables -->
-      <li class="nav-item">
-        <a class="nav-link" href="Mmarking.php">
-          <i class="fas fa-fw fa-chart-area"></i>
-          <span>Marking</span></a>
-      </li>
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
@@ -278,11 +256,11 @@
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="Mprofile_Lec.php">
+                <a class="dropdown-item" href="Mprofile.php">
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Profile
                 </a>
-                <a class="dropdown-item" href="Mactivity_Lec.php">
+                <a class="dropdown-item" href="Mactivity.php">
                   <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                   Activity Log
                 </a>
@@ -304,64 +282,47 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Marking</h1>
+            <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
             <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
           </div>
 
-          <!--Main Content-->
-          <div>
-            <label for="choose subject">Subject:</label>
-            <select id="subjects" style="width:10%;">
-              <option value="DIP222">DIP222</option>
-              <option value="DIP202">DIP202</option>
-            </select><br>
-            <label for="choose subject">Student ID:</label>
-            <select id="subjects" style="width:10%;">
-              <option value="DIP222">B1900071</option>
-              <option value="DIP202">B1900095</option>
-            </select>
-            <label for="student name">Johann</label>
+          <!-- Content Row -->
+          <div class="row">
 
-            <div class="malcard">
-              <div class="malcardflex">
-                <label for="subject nane">Subject Name:</label>
-                <input type="text" class="malsubname" disabled/><br>
-                <label for="Coursework" class="malcourse">Coursework:</label>
+          <div class="row">
 
-                <div class="malcardcol">
-                  <label for="Assignment 1">Assignment 1:</label>
-                  <input type="text" id="Assignment1mark"/>
-                </div>
-
-                <div class="malcardcol2">
-                  <label for="Assignment 2">Assignment 2:</label>
-                  <input type="text" id="Assignment2mark"/>
-                </div>
-
-                <div class="malcardcol3">
-                  <label for="Assignment 3">Assignment 3:</label>
-                  <input type="text" id="Assignment3mark"/>
-                </div>
+            <div class="myshadow mymb-4 mpaannoucment">
+              <div class="mycard-header py-3 d-flex flex-row align-items-center">
+                <h6 class="m-0 font-weight-bold text-primary">Announcement</h6>
               </div>
-
-              <div class="malbtn">
-                <input type="submit" id="malsavebtn" value="Save"></button>
-                <button type="button" id="malcancelbtn">Cancel</button>
-              </div>
-
-
+              <textarea rows="8.5" cols="74"></textarea>
+              <input type="submit" value="save" class="mpasave"/>
             </div>
+
+            <div class="myshadow mymb-4 mpaannoucment2">
+              <div class="mycard-header py-3 d-flex flex-row align-items-center">
+                <h6 class="m-0 font-weight-bold text-primary mpanote">Note</h6>
+              </div>
+              <textarea rows="8.5" cols="50"></textarea>
+              <input type="submit" value="save" class="mpasave"/>
+            </div>
+          </div>
+
+          <!-- Content Row -->
+
+
 
           </div>
 
-          <!--Dropdown 2-->
-
 
         </div>
+        <!-- /.container-fluid -->
+
+      </div>
       <!-- End of Main Content -->
 
       <!-- Footer -->
-      <footer class="sticky-footer bg-white msftop">
+      <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
             <span>Copyright &copy; Your Website 2019</span>
@@ -400,7 +361,6 @@
     </div>
   </div>
 
-
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -417,11 +377,6 @@
   <!-- Page level custom scripts -->
   <script src="js/demo/chart-area-demo.js"></script>
   <script src="js/demo/chart-pie-demo.js"></script>
-
-  <!--datetime showhide-->
-
-
-
 
 </body>
 

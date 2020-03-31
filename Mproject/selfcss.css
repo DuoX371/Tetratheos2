@@ -114,6 +114,13 @@
 .malbtn{position: absolute;margin-top: 12%;margin-left: 24%;}
 .malsubjects{width:10%;}
 
+
+/*Mproject(Admin)*/
+.mpaannoucment{position: absolute;width:40%;margin-left: 5%;}
+.mpaannoucment2{position: absolute;width:27.5%;margin-left: 50%;}
+.mpanote{padding-left: 10%;}
+.mpasave{padding:1.4% 2%;margin-left: 44%;}
+
 @media only screen and (max-width: 768px) {
   /* For mobile phones: */
   .mycard{position:relative;display:flex;flex-direction:column;word-wrap:break-word;background-color:#fff;background-clip:border-box;border:1px solid #e3e6f0;border-radius:.35rem;margin-left:5%;margin-right:2%; max-width:97%;font-size:15px;padding:0 2%;}
