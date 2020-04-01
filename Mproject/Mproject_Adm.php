@@ -1,6 +1,7 @@
 <?php
   require "functions.php";
   include_once "database.php";
+  include_once "session_checker.php";
 
   //$subjects = findSubjectAssignment($_SESSION["currentUser"]["userID"]);
 ?>

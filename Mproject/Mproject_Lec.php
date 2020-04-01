@@ -1,6 +1,7 @@
 <?php
   require "functions.php";
   include_once "database.php";
+  include_once "session_checker.php";
 
   $subjects = findSubjectLec($_SESSION["currentUser"]["userID"]);
 ?>
@@ -74,7 +75,7 @@
               while($record = mysqli_fetch_assoc($subjects)){
                 if($record["assignmentType"] == "a")
                 {
-                  echo '<a class="collapse-item" href="Msubject.php">' . $record["subjectID"] . '</a>';
+                  echo '<a class="collapse-item" href="Msubject_Lec.php">' . $record["subjectID"] . '</a>';
                 }
               }
             }

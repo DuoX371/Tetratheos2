@@ -1,6 +1,8 @@
 <?php
   require "functions.php";
   include_once "database.php";
+  include_once "session_checker.php";
+  
   $subjects = findSubjectLec($_SESSION["currentUser"]["userID"]);
 ?>
 <!DOCTYPE html>

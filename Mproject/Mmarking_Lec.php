@@ -1,6 +1,4 @@
-<form method="post" action="process.php">
-  <button class="btn btn-primary" name="logout" type="submit">Logout</button>
-</form><?php
+<?php
   require "functions.php";
   include_once "database.php";
 
