@@ -325,19 +325,21 @@
 
           <!--Main Content-->
           <div class="mecard">
+            <form method="post" action="process.php">
             <p class="mectitle">Enrolment</p>
             <table>
             <tr>
               <td><label for="Enrolment key" class="melabel">Enrolment Key:</label></td>
-              <td><input type="text" id="Ekey" class="meinput"/></td>
+              <td><input type="text" id="Ekey" class="meinput" name="enrolmentKey"/></td>
             </tr>
             <tr>
               <td><label for="Enrolment Password" class="melabel">Password:</label>
-              <td><input type="password" id="Epass" class="meinput"/></td>
+              <td><input type="password" id="Epass" class="meinput" name="enrolPass"/></td>
             </table>
 
             <input type="submit" id="realEnrol" hidden="hidden"/>
-            <button type="button" id="fakeEnrol" class="meenrol">Enrol</button>
+            <button type="submit" id="fakeEnrol" class="meenrol" name="enrolBtn">Enrol</button>
+            </form>
 
           </div>
         </div>

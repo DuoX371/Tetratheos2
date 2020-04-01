@@ -1,17 +1,15 @@
 <?php
-  //var_dump($_POST["username"]);
   require "functions.php";
   include_once "database.php";
 
 
   if(isset($_POST["login"])){
-//echo "dsadsa";
+
     $username = $_POST["username"];
     $password = $_POST["password"];
 
     $validateUser = validateUser($username, $password);
-    //$validateA101 = validateUser("A101", "abc");
-    //validateUser($username, $password);
+
     if(mysqli_num_rows($validateUser) > 0){
       $userDetails = mysqli_fetch_assoc($validateUser);
       $_SESSION["currentUser"] = $userDetails;
@@ -37,5 +35,31 @@
     unset($_SESSION["currentUser"]);
     gopage("Mlogin.php");
   }
+
+  if(isset($_POST["enrolBtn"])){
+
+    $enrolmentKey = $_POST["enrolmentKey"];
+    $enrolmentPass = $_POST["enrolPass"];
+
+    $validateEnrolKey = validateEnrolKey($enrolmentKey, $enrolmentPass);
+
+    if(mysqli_num_rows($validateEnrolKey) > 0){
+
+
+      $enrolDetails = mysqli_fetch_assoc($validateEnrolKey);
+      //var_dump($enrolDetails);
+
+      subjectEnrol($enrolDetails["subjectID"], $_SESSION["currentUser"]["userID"]);
+      var_dump($_SESSION["currentUser"]);
+      jsalert("Enrolment succesfull!");
+
+
+    }
+    else
+      {
+        jsalert("Wrong enrolment key or password. Please try again.");
+
+      }
+    }
 
 ?>

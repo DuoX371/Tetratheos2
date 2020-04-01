@@ -6,7 +6,6 @@ function validateUser($username, $password)
 {
   global $database;
   $sql = "select * from user where userID = '$username' and password = '$password'";
-  //var_dump($sql);
   $result = mysqli_query($database, $sql);
   return $result;
 }
@@ -41,10 +40,19 @@ function findUser($userID){
   return $result;
 }
 
+function validateEnrolKey($enrolmentKey, $enrolmentPass){
+  global $database;
+  $sql = "select * from subject where enrollmentKey = '$enrolmentKey' and password ='$enrolmentPass'";
+  $result = mysqli_query($database, $sql);
+  return $result;
+}
 
 
-
-
+function subjectEnrol($subjectID, $userID){
+  global $database;
+  $sql = "insert into enrollment(subjectID, studentID) Values('$subjectID', '$userID')";
+  mysqli_query($database, $sql);
+}
 
 
 
