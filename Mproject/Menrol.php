@@ -337,7 +337,7 @@
               <td><input type="password" id="Epass" class="meinput" name="enrolPass"/></td>
             </table>
 
-            <input type="submit" id="realEnrol" hidden="hidden"/>
+            
             <button type="submit" id="fakeEnrol" class="meenrol" name="enrolBtn">Enrol</button>
             </form>
 

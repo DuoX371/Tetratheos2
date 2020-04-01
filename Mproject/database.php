@@ -54,6 +54,12 @@ function subjectEnrol($subjectID, $userID){
   mysqli_query($database, $sql);
 }
 
+function validateDupSubject($subjectID,$userID){
+  global $database;
+  $sql = "select * from enrollment where subjectID = '$subjectID' and studentID = '$userID'";
+  $result = mysqli_query($database, $sql);
+  return $result;
+}
 
 
 

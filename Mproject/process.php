@@ -37,29 +37,37 @@
   }
 
   if(isset($_POST["enrolBtn"])){
-
+    
     $enrolmentKey = $_POST["enrolmentKey"];
     $enrolmentPass = $_POST["enrolPass"];
 
     $validateEnrolKey = validateEnrolKey($enrolmentKey, $enrolmentPass);
 
     if(mysqli_num_rows($validateEnrolKey) > 0){
-
-
       $enrolDetails = mysqli_fetch_assoc($validateEnrolKey);
-      //var_dump($enrolDetails);
 
-      subjectEnrol($enrolDetails["subjectID"], $_SESSION["currentUser"]["userID"]);
-      var_dump($_SESSION["currentUser"]);
-      jsalert("Enrolment succesfull!");
+      $a = validateDupSubject($enrolDetails["subjectID"],$_SESSION["currentUser"]["userID"]);
+      //echo 'aa';
 
-
+      if(mysqli_num_rows($a) != 0){
+        jsalert("Duplicate");
+        gopage("Menrol.php");
+      }
+      else
+      {
+        subjectEnrol($enrolDetails["subjectID"], $_SESSION["currentUser"]["userID"]);
+        //var_dump($_SESSION["currentUser"]);
+        jsalert("Enrolment succesfull!");
+        gopage("Menrol.php");
+      }
     }
+
+
     else
       {
         jsalert("Wrong enrolment key or password. Please try again.");
-
+        gopage("Menrol.php");
       }
-    }
+  }
 
 ?>
