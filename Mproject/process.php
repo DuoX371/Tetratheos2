@@ -37,7 +37,7 @@
   }
 
   if(isset($_POST["enrolBtn"])){
-    
+
     $enrolmentKey = $_POST["enrolmentKey"];
     $enrolmentPass = $_POST["enrolPass"];
 
@@ -46,10 +46,10 @@
     if(mysqli_num_rows($validateEnrolKey) > 0){
       $enrolDetails = mysqli_fetch_assoc($validateEnrolKey);
 
-      $a = validateDupSubject($enrolDetails["subjectID"],$_SESSION["currentUser"]["userID"]);
+      $validateDupSub = validateDupSubject($enrolDetails["subjectID"],$_SESSION["currentUser"]["userID"]);
       //echo 'aa';
 
-      if(mysqli_num_rows($a) != 0){
+      if(mysqli_num_rows($validateDupSub) != 0){
         jsalert("Duplicate");
         gopage("Menrol.php");
       }
