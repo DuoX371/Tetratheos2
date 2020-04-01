@@ -336,6 +336,8 @@
             <?php
             mysqli_data_seek($subjectAssignments,0);
 
+
+
             if(mysqli_num_rows($subjectAssignments)>0){
               while($record = mysqli_fetch_assoc($subjectAssignments)){
                 if($record["assignmentType"] == "a")
@@ -379,55 +381,22 @@
 
                 <!-- Card Body -->
                 <?php
-                mysqli_data_seek($subjectAssignments,0);
 
+                $studentSubject = getStudentSubjects($_SESSION["currentUser"]["userID"]);
                 echo '
                 <div class="card-body">
                   <div>';
-                  /*
-                  while($record = mysqli_fetch_assoc($subjectAssignments)){
+
+                  while($record = mysqli_fetch_assoc($studentSubject)){
                     $assignments = getAssignments($record["subjectID"]);
                     echo '
                     <i class="h5 mb-0 font-weight-bold text-gray-800">' . $record["subjectID"] . " " . $record["subjectName"] . '</i><br>';
-                    while ($row = mysqli_fetch_assoc($assignments)){
-                      $counter = 1;
-                      echo '<i>Assignment' . $counter . '</i><i style="margin-left:40%;">' . $record["dueDate"] . '</i><br>';
-                      $counter = $counter + 1;
+                    $counter = 1;
+                    while($row = mysqli_fetch_assoc($assignments)){
+                      echo '<i>Assignment ' . $counter . '</i><i style="margin-left:40%;">' . $row["dueDate"] . '</i><br>';
+                      $counter++;
                     }
-                    echo '<div class="mydivider"></div>';*/
-
-                  while($record = mysqli_fetch_assoc($subjectAssignments)){
-                    if($record["assignmentType"] == "a"){
-                      $assignmentNum = "Assignment 1";
-                    }
-                    elseif ($record["assignmentType"] == "b"){
-                      $assignmentNum = "Assignment 2";
-                    }
-
-                    $count = 0;
-
-                    if($record["assignmentType"] == "a"){
-                      echo '<i class="h5 mb-0 font-weight-bold text-gray-800">' . $record["subjectID"] . " " . $record["subjectName"] . '</i><br>
-                      <i>' . $assignmentNum . '</i><i style="margin-left:40%;">' . $record["dueDate"] . '</i>';
-                      $count++;
-                    }
-
-                    elseif ($record["assignmentType"] == "b"){
-                      echo '<br><i>' . $assignmentNum . '</i><i style="margin-left:40%;">' . $record["dueDate"] . '</i>';
-                      $count = $count + 2;
-                    }
-
-                    if($count != 0){
-                      echo '<div class="mydivider"></div>';
-                    }
-
-
-
-
-                    /*echo '
-                    <i class="h5 mb-0 font-weight-bold text-gray-800">' . $record["subjectID"] . " " . $record["subjectName"] . '</i><br>
-                    <i>' . $assignmentNum . '</i><i style="margin-left:40%;">' . $record["dueDate"] . '</i>
-                    <div class="mydivider"></div>';*/
+                    echo '<div class="mydivider"></div>';
                   }
 
                     echo '

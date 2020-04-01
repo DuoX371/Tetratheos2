@@ -18,6 +18,13 @@ function findSubjectAssignment($studentID)
   return $result;
 }
 
+function getStudentSubjects($studentID){
+    global $database;
+    $sql = "select * from enrollment join subject using (subjectID) where studentID = '$studentID'";
+    $result = mysqli_query($database, $sql);
+    return $result;
+}
+
 function getAssignments($subjectID)
 {
   global $database;

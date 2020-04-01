@@ -87,7 +87,7 @@
               while($record = mysqli_fetch_assoc($subjectAssignments)){
                 if($record["assignmentType"] == "a")
                 {
-                  echo '<a class="collapse-item" href="Msubject.php">' . $record["subjectID"] . '</a>';
+                  echo '<a class="collapse-item" href="#' . $record["subjectID"] . 'header">' . $record["subjectID"] . '</a>';
                 }
               }
             }
@@ -317,97 +317,131 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Subject 1</h1>
-            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-          </div>
 
           <!--Main Content-->
-          <div class="msdropdown" >
-            <div class="mscard eXpand" onclick="show_hide()">
-              <div>
-                Assignment 1
-                <span class='fas fa-angle-down msleft'></span>
-              </div>
-            </div>
+          <div>
+            <button class="floating-btn" id="totop"  onclick="topFunction()" title="Back to Top">
+            <i class="fas fa-plus"></i>
+          </button>
 
-            <div id="drop-content" class="mscardin" style="padding:0%;">
-              <table>
-                <tr class="mscardindv">
-                  <td class="mscardwidth">
-                    Submission status
-                  </td>
-                  <td class="mscardwidth2">
-                    Submitted for grading
-                  </td>
-                </tr>
-                <tr class="mscardindv" style="display:none;">
-                  <td>
-                    Submission status
-                  </td>
-                  <td>
-                    No attempt
-                  </td>
-                </tr>
-                <tr class="mscardindv2">
-                  <td>
-                    Due date
-                  </td>
-                  <td>
-                    Sunday, 1 April 2020 2:00PM
-                  </td>
-                </tr>
-                <tr class="mscardindv">
-                  <td>
-                    Time Remaining
-                  </td>
-                  <td>
-                    5 milisecond
-                  </td>
-                </tr>
-                <tr class="mscardindv" style="color:red;display:none;">
-                  <td>
-                    Time Remaining
-                  </td>
-                  <td>
-                    Overdue: 5 milisecond
-                  </td>
-                </tr>
-                <tr class="mscardindv2">
-                  <td>
-                    Last Modified
-                  </td>
-                  <td>
-                    Saturday, 0 April 2020 2:00PM
-                  </td>
-                </tr>
-                <tr class="mscardindv">
-                  <td >
-                    File Submission
-                  </td>
-                  <td>
-                    -
-                  </td>
-                </tr>
-                <tr class="mscardindv2">
-                  <td>
-                    Comment
-                  </td>
-                  <td>
-                    -
-                  </td>
-                </tr>
-                <input type="file" id="realadd" hidden="hidden"/>
-                <button type="button" id="fakeadd" class="addbutton">Add Submission</button>
-                <input type="submit" id="realsave" hidden="hidden"/>
-                <button type="button" id="fakesave" class="savebutton">Save</button>
-
-              </table>
-
-            </div>
+              <!--<button class="btn btn-dark d-none" id="totop"  onclick="topFunction()" title="Back to Top" >
+                  <i class="fa fa-angle-up"></i>
+              </button>-->
           </div>
+          <?php
+          mysqli_data_seek($subjectAssignments,0);
+
+          $studentSubject = getStudentSubjects($_SESSION["currentUser"]["userID"]);
+
+          while($record = mysqli_fetch_assoc($studentSubject)){
+            $assignments = getAssignments($record["subjectID"]);
+            echo '<div class="d-sm-flex align-items-center justify-content-between mb-4">
+              <h1 class="h3 mb-0 text-gray-800" id="' . $record["subjectID"] . 'header">' . $record["subjectID"] . " " . $record["subjectName"] . '</h1>
+              <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+            </div>';
+            $counter = 1;
+
+            while($row = mysqli_fetch_assoc($assignments)){
+              $dueDate = new DateTime($row["dueDate"]);
+              $dueDateDisplay = $dueDate->format("D, d F Y h:i A");
+              echo '<div class="accordion" id="accordionExample">
+                <div class="card" style="margin-bottom:50px;">
+                  <div class="card-header" id="headingOne">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#' . $row["assignmentID"] . '" aria-expanded="true" aria-controls="' . $row["assignmentID"] . '">
+                        Assignment ' . $counter . '
+                      </button>
+                    </h2>
+                  </div>
+
+                  <div id="' . $row["assignmentID"] . '" class="collapse hide" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div class="card-body" style="padding:3rem;">
+                      <table style="line-height: 4;">
+                        <tr class="mscardindv">
+                          <td class="mscardwidthStu">
+                            Submission status
+                          </td>
+                          <td class="mscardwidth2">
+                            Submitted for grading
+                          </td>
+                        </tr>
+                        <tr class="mscardindv" style="display:none;">
+                          <td class="mscardwidthStu">
+                            Submission status
+                          </td>
+                          <td>
+                            No attempt
+                          </td>
+                        </tr>
+                        <tr class="mscardindv2">
+                          <td class="mscardwidthStu">
+                            Due date
+                          </td>
+                          <td>
+                            ' . $dueDateDisplay . '
+                          </td>
+                        </tr>
+                        <tr class="mscardindv">
+                          <td class="mscardwidthStu">
+                            Time Remaining
+                          </td>
+                          <td>
+                            5 milisecond
+                          </td>
+                        </tr>
+                        <tr class="mscardindv" style="color:red;display:none;">
+                          <td class="mscardwidthStu">
+                            Time Remaining
+                          </td>
+                          <td>
+                            Overdue: 5 milisecond
+                          </td>
+                        </tr>
+                        <tr class="mscardindv2">
+                          <td class="mscardwidthStu">
+                            Last Modified
+                          </td>
+                          <td>
+                            Saturday, 0 April 2020 2:00PM
+                          </td>
+                        </tr>
+                        <tr class="mscardindv">
+                          <td class="mscardwidthStu">
+                            File Submission
+                          </td>
+                          <td>
+                            -
+                          </td>
+                        </tr>
+                        <tr class="mscardindv2">
+                          <td class="mscardwidthStu">
+                            Comment
+                          </td>
+                          <td>
+                            -
+                          </td>
+                        </tr>
+
+                        <input type="file" id="realadd" hidden="hidden"/>
+                        <button type="button" id="fakeadd" class="addbuttonS">Add Submission</button>
+                        <input type="submit" id="realsave" hidden="hidden"/>
+                        <button type="button" id="fakesave" class="savebuttonS">Save</button>
+
+                      </table>
+
+                    </div>
+                  </div>
+                </div>
+              </div>';
+
+              $counter++;
+            }
+          }
+
+          ?>
 
           <!--Dropdown 2-->
+          <!--
           <div class="msdropdown" >
             <div class="mscard eXpand" onclick="show_hide2()">
               <div>
@@ -492,7 +526,7 @@
             </div>
 
 
-          </div>
+          </div> -->
 
         </div>
       <!-- End of Main Content -->
@@ -557,6 +591,10 @@
       }else{
         click.style.display ="none";
       }
+    }
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
     }
 
   </script>

@@ -50,18 +50,17 @@
       //echo 'aa';
 
       if(mysqli_num_rows($validateDupSub) != 0){
-        jsalert("Duplicate");
+        jsalert("You have already enroled this subject!");
         gopage("Menrol.php");
       }
       else
       {
         subjectEnrol($enrolDetails["subjectID"], $_SESSION["currentUser"]["userID"]);
         //var_dump($_SESSION["currentUser"]);
-        jsalert("Enrolment succesfull!");
+        jsalert("You have succesfully enroled!");
         gopage("Menrol.php");
       }
     }
-
 
     else
       {
