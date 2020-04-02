@@ -326,23 +326,29 @@
           <div class="mpfcontainer">
             <img src="kurumi.png" class="mpPpic mpPpos">
             <div>
-              <form class="mpformpos">
+              <form class="mpformpos" method="post" action="process.php">
+                <?php
+                $user = findUser($_SESSION["currentUser"]["userID"]);
+                $record = mysqli_fetch_assoc($user);
+                echo '
                 <label for="id">ID:</label><br>
-                <input type="text" id="id" name="id" class="mpinpos" disabled/><br>
+                <input type="text" id="id" name="id" class="mpinpos" placeholder="' . $record["userID"] . '" disabled/></input><br>';
+                ?>
                 <label for="username" class="mplbpos">Username:</label><br>
                 <input type="text" id="username" name="username" class="mpinpos"/><br>
                 <label for="email" class="mplbpos" >Email:</label><br>
-                <input type="text" id="email" name="email" class="mpinpos"/><br>
+                <input type="email" id="email" name="email" class="mpinpos"/><br>
                 <label for="phone" class="mplbpos2">Phone Number:</label><br>
                 <input type="text" id="phone" name="phone" class="mpinpos"/>
 
                 <input type="file" id="real-file" hidden="hidden"/>
                 <button type="button" id="custom-button">Choose File</button>
-              </form>
+
               <div class="mmfcontainer" style="margin-top:65%;">
-                <input type="submit" id="mpsavebtn" value="Save"></button>
-                <button type="button" id="mpcancelbtn">Cancel</button>
+                <button type="submit" id="mpsavebtn" name="updateProfBtnStu">Save</button>
+                <button type="submit" id="mpcancelbtn" name="cancelProfBtnStu">Cancel</button>
               </div>
+              </form>
             </div>
           </div>
 

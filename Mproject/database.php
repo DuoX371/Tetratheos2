@@ -47,6 +47,12 @@ function findUser($userID){
   return $result;
 }
 
+function updateUser($name, $email, $phoneNum, $userID){
+  global $database;
+  $sql = "update user set name = '$name', email = '$email', phoneNumber = '$phoneNum' where userID = '$userID'";
+  mysqli_query($database, $sql);
+}
+
 function validateEnrolKey($enrolmentKey, $enrolmentPass){
   global $database;
   $sql = "select * from subject where enrollmentKey = '$enrolmentKey' and password ='$enrolmentPass'";
