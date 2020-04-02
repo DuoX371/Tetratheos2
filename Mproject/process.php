@@ -36,6 +36,25 @@
     gopage("Mlogin.php");
   }
 
+/*---Student---*/
+  //update profile
+  if(isset($_POST["updateProfBtnStu"])){
+    //var_dump($_POST);
+    $username = $_POST["username"];
+    $email = $_POST["email"];
+    $phoneNum = $_POST["phone"];
+
+    updateUser($username, $email, $phoneNum, $_SESSION["currentUser"]["userID"]);
+    jsalert("You have succesfully update your profile!");
+    gopage("Mprofile.php");
+
+
+  }
+  if(isset($_POST["cancelProfBtnStu"])){
+    gopage("Mproject.php");
+  }
+
+  //enrol subject
   if(isset($_POST["enrolBtn"])){
 
     $enrolmentKey = $_POST["enrolmentKey"];

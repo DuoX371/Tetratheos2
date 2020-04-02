@@ -16,6 +16,8 @@ html {
   scroll-behavior: smooth;
 }
 
+.tabSpace{margin:50px;}
+
 
 /*Mproject*/
 .mycard{position:relative;display:flex;flex-direction:column;min-width:0;word-wrap:break-word;background-color:#fff;background-clip:border-box;border:1px solid #e3e6f0;border-radius:.35rem;margin-left:5%; width:130%;}
@@ -68,7 +70,7 @@ html {
 .mpformpos{margin-left:65%;}
 .mplbpos{margin-top:35%;}
 .mplbpos2{width:180%;margin-top:20%;}
-.mpinpos{width:600%;max-width: 600%;}
+.mpinpos{width:600%;max-width: 600%;padding-left: 20px}
 #custom-button{padding:10px;color:white;background-color:#527ec4;border:1px solid #000;border-radius: 5px;cursor:pointer;position:absolute;top:60%;left:34%;}
 #custom-button:hover{background-color:#5c8ddb;}
 #mpsavebtn{padding:10px;color:white;background-color:#58c788;border:1px solid #58c788;border-radius: 5px;cursor:pointer;width:20%;position: absolute;top:73%;left:32%;}
@@ -195,6 +197,7 @@ html {
   .mmftop {margin-top:26%;}
 
   /*Mprofile*/
+
   .mpPpic{border-radius:50%;width:70%;height:10%;position:relative;}
   .mpEpic{right:1080px;top:400px;background-color: white;padding:1%;}
   .mpfcontainer{display:block;margin-top:5%;}

@@ -393,7 +393,9 @@
                     <i class="h5 mb-0 font-weight-bold text-gray-800">' . $record["subjectID"] . " " . $record["subjectName"] . '</i><br>';
                     $counter = 1;
                     while($row = mysqli_fetch_assoc($assignments)){
-                      echo '<i>Assignment ' . $counter . '</i><i style="margin-left:40%;">' . $row["dueDate"] . '</i><br>';
+                      $dueDate = new DateTime($row["dueDate"]);
+                      $dueDateDisplay = $dueDate->format("D, d F Y h:i A");
+                      echo '<i>Assignment ' . $counter . '</i><i style="margin-left:40%;">' . $dueDateDisplay . '</i><br>';
                       $counter++;
                     }
                     echo '<div class="mydivider"></div>';
