@@ -2,7 +2,7 @@
   require "functions.php";
   include_once "database.php";
   include_once "session_checker.php";
-  
+
   $subjects = findSubjectLec($_SESSION["currentUser"]["userID"]);
 ?>
 <!DOCTYPE html>
@@ -34,7 +34,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="Mproject.php">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="Mproject_Lec.php">
         <div class="sidebar-brand-icon rotate-n-15">
           <img src="tIcon.png">
         </div>
