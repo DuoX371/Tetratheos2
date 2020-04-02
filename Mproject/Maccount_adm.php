@@ -302,6 +302,12 @@
                   <td class="macardwidth2">
                     Name
                   </td>
+                  <td class="macardwidth6">
+                    Contact Number
+                  </td>
+                  <td class="macardwidth6">
+                    Email
+                  </td>
                   <td class="macardwidth3">
 
                   </td>
@@ -314,6 +320,12 @@
                   <td class="macardwidth2">
                     Johann
                   </td>
+                  <td class="macardwidth6">
+                    0123456789
+                  </td>
+                  <td class="macardwidth6">
+                    JOJOOOOOO@helplive.edu.my
+                  </td>
                   <td class="macardwidth3 maremove">
                     Remove
                   </td>
@@ -324,6 +336,12 @@
                   </td>
                   <td class="macardwidth2">
                     Jia Le
+                  </td>
+                  <td class="macardwidth6">
+                    9876543210
+                  </td>
+                  <td class="macardwidth6">
+                    OREWANIGENNIYAMEDANDA!!
                   </td>
                   <td class="macardwidth3 maremove">
                     Remove
@@ -336,6 +354,13 @@
                   <td class="macardwidth2">
                     <input type="text" class="mainputNAME"/>
                   </td>
+                  <td class="macardwidth6">
+                    <input type="text" class="mainputNAME"/>
+                  </td>
+                  <td class="macardwidth6">
+                    <input type="text" class="mainputNAME"/>
+                  </td>
+
                   <td class="macardwidth3 maremove">
                     <input type="submit" value="Add" class="maaddbtn"/>
                   </td>
@@ -362,6 +387,12 @@
                   <td class="macardwidth2">
                     Name
                   </td>
+                  <td class="macardwidth6">
+                    Contact Number
+                  </td>
+                  <td class="macardwidth6">
+                    Email
+                  </td>
                   <td class="macardwidth3">
 
                   </td>
@@ -369,10 +400,15 @@
                 <tr class="macardindv2">
                   <td class="macardwidth">
                     <a>L101</a>
-
                   </td>
                   <td class="macardwidth2">
                     Steven
+                  </td>
+                  <td class="macardwidth6">
+                    99999
+                  </td>
+                  <td class="macardwidth6">
+                    peanutsia@helplive
                   </td>
                   <td class="macardwidth3 maremove">
                     Remove
@@ -385,6 +421,12 @@
                   <td class="macardwidth2">
                     Koon
                   </td>
+                  <td class="macardwidth6">
+                    777777777
+                  </td>
+                  <td class="macardwidth6">
+                    SEEUNEXTSEM@helplive
+                  </td>
                   <td class="macardwidth3 maremove">
                     Remove
                   </td>
@@ -394,6 +436,12 @@
                     <input type="text" class="mainputID" maxlength="4"/>
                   </td>
                   <td class="macardwidth2">
+                    <input type="text" class="mainputNAME"/>
+                  </td>
+                  <td class="macardwidth6">
+                    <input type="text" class="mainputNAME"/>
+                  </td>
+                  <td class="macardwidth6">
                     <input type="text" class="mainputNAME"/>
                   </td>
                   <td class="macardwidth3 maremove">
