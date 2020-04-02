@@ -160,6 +160,7 @@ html {
 .maleft3{margin-left: 92%;}
 .macardin2{background-color:#fff;margin-bottom:10px;padding:1%;width:75%;margin-left:10%;border:1px solid #e3e6f0;display:none;}
 .macardin2 td {border-bottom-style:solid #e8f1ff;padding:3% 2%;}
+.removeBtn {padding: 0;border: none; background: none; outline: 0;}
 
 @media only screen and (max-width: 768px) {
   /* For mobile phones: */

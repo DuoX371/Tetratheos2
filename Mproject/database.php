@@ -25,6 +25,13 @@ function getStudentSubjects($studentID){
     return $result;
 }
 
+function getLecturerSubjects($lecturerID){
+    global $database;
+    $sql = "select * from enrollment join subject using (subjectID) where lecturerID = '$lecturerID'";
+    $result = mysqli_query($database, $sql);
+    return $result;
+}
+
 function getAssignments($subjectID)
 {
   global $database;
@@ -47,6 +54,28 @@ function findUser($userID){
   return $result;
 }
 
+function findStudent(){
+  global $database;
+  $sql = "select * from user where userType = 's'";
+  $result = mysqli_query($database, $sql);
+  return $result;
+}
+
+function findLecturer(){
+  global $database;
+  $sql = "select * from user where userType = 'l'";
+  $result = mysqli_query($database, $sql);
+  return $result;
+}
+
+function findSubjects(){
+  global $database;
+  $sql = "select * from user,subject where user.userID = subject.lecturerID and userType = 'l'";
+  $result = mysqli_query($database, $sql);
+  return $result;
+}
+
+
 function updateUser($name, $email, $phoneNum, $userID){
   global $database;
   $sql = "update user set name = '$name', email = '$email', phoneNumber = '$phoneNum' where userID = '$userID'";
@@ -59,7 +88,6 @@ function validateEnrolKey($enrolmentKey, $enrolmentPass){
   $result = mysqli_query($database, $sql);
   return $result;
 }
-
 
 function subjectEnrol($subjectID, $userID){
   global $database;
@@ -74,7 +102,43 @@ function validateDupSubject($subjectID,$userID){
   return $result;
 }
 
+/*Add/Remove Student*/
+function addStudent($studentID,$studentName,$studentContact,$studentEmail){
+  global $database;
+  $sql = "insert into user(userID, name, phoneNumber, email, userType, password) Values('$studentID', '$studentName','$studentContact', '$studentEmail', 's', 'abc')";
+  mysqli_query($database, $sql);
+}
+/*delete student/lecturer function */
+function delStudentLecturer($userID){
+  global $database;
+  $sql = "delete from user where userID = '$userID'";
+  mysqli_query($database, $sql);
+}
+//drop student subject
+function dropStudentSub($studentID){
+  global $database;
+  $sql = "delete from enrollment where studentID ='$studentID'";
+  mysqli_query($database, $sql);
+}
 
+/*Add/Remove Lecturer*/
+function addLec($lecID,$lecName,$lecContact,$lecEmail){
+  global $database;
+  $sql = "insert into user(userID, name, phoneNumber, email, userType, password) Values('$lecID', '$lecName','$lecContact', '$lecEmail', 'l', 'abc')";
+  mysqli_query($database, $sql);
+}
 
+/*ADD/REMOVE Subject*/
+function addSub($subID,$subName,$subLecturer,$subEnrolKey,$subEnrolPass){
+  global $database;
+  $sql = "insert into subject(subjectID, subjectName, lecturerID, enrollmentKey, password) Values('$subID', '$subName','$subLecturer','$subEnrolKey', '$subEnrolPass')";
+  mysqli_query($database, $sql);
+}
+
+function delSubject($subjectID){
+  global $database;
+  $sql = "delete from subject where subjectID = '$subjectID'";
+  mysqli_query($database, $sql);
+}
 
 ?>

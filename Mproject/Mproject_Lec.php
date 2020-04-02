@@ -364,8 +364,27 @@
                   <h6 class="m-0 font-weight-bold text-primary">Submission Due</h6>
                 </div>
                 <!-- Card Body -->
+                <?php
+
+                $lecturerSubject = getLecturerSubjects($_SESSION["currentUser"]["userID"]);
+                echo'
                 <div class="card-body">
-                  <div >
+                  <div>';
+
+                  while($record = mysqli_fetch_assoc($lecturerSubject)){
+                    $assignments = getAssignments($record["subjectID"]);
+                    echo '
+                    <i class="h5 mb-0 font-weight-bold text-gray-800">' . $record["subjectID"] . " " . $record["subjectName"] . '</i><br>';
+                    $counter = 1;
+                    while($row = mysqli_fetch_assoc($assignments)){
+                      $dueDate = new DateTime($row["dueDate"]);
+                      $dueDateDisplay = $dueDate->format("D, d F Y h:i A");
+                      echo '<i>Assignment ' . $counter . '</i><i style="margin-left:40%;">' . $dueDateDisplay . '</i><br>';
+                      $counter++;
+                    }
+                  }
+
+                    /*echo '<div class="mydivider"></div>';
                     <i class="h5 mb-0 font-weight-bold text-gray-800">DIP202 Buisness Commnucation</i><br>
                     <i> Assignment 1</i><i style="margin-left:40%;">16/03/2020</i>
                     <div class="mydivider"></div>
@@ -374,11 +393,12 @@
                     <div class="mydivider"></div>
                     <i class="h5 mb-0 font-weight-bold text-gray-800">DIP2204 HTML</i><br>
                     <i> Assignment 1</i><i style="margin-left:40%;">16/04/2020</i>
-                    <div class="mydivider"></div>
+                    <div class="mydivider"></div>*/
 
-
+                    echo'
                   </div>
-                </div>
+                </div>';
+                ?>
               </div>
             </div>
 

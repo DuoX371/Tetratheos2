@@ -88,4 +88,74 @@
       }
   }
 
+//admin add student profile
+if(isset($_POST['addStudentProf'])){
+
+  $studentID = $_POST["addStudentID"];
+  $studentName = $_POST["addStudentName"];
+  $studentContact = $_POST["addStudentContact"];
+  $studentEmail = $_POST["addStudentEmail"];
+
+  addStudent($studentID,$studentName,$studentContact,$studentEmail);
+  jsalert("You have succesfully added user profile $studentID!");
+  gopage("Maccount_adm.php");
+
+}
+
+//admin remove student profile
+if(isset($_POST['removeStudentProf'])){
+
+  $studentID = $_POST["studentID"];
+  delStudentLecturer($studentID);
+  dropStudentSub($studentID);
+  jsalert("You have succesfully deleted student profile $studentID!");
+  gopage("Maccount_adm.php");
+}
+
+//admin add lecturer profile
+if(isset($_POST['addLecProf'])){
+
+  $lecID = $_POST["addLecID"];
+  $lecName = $_POST["addLecName"];
+  $lecContact = $_POST["addLecContact"];
+  $lecEmail = $_POST["addLecEmail"];
+
+  addLec($lecID,$lecName,$lecContact,$lecEmail);
+  jsalert("You have succesfully added user profile $lecID!");
+  gopage("Maccount_adm.php");
+
+}
+//admin delete lecturer profile
+if(isset($_POST['removeLecProf'])){
+
+  $lecID = $_POST["lecID"];
+  delStudentLecturer($lecID);
+  //dropStudentSub($studentID);
+  jsalert("You have succesfully deleted lecturer profile $lecID!");
+  gopage("Maccount_adm.php");
+}
+
+//admin add subject
+if(isset($_POST['addSubjectBtn'])){
+
+  $subID = $_POST["addSubjectID"];
+  $subName = $_POST["addSubjectName"];
+  $subLecturer = $_POST["addSubjectLec"];
+  $subEnrolKey = $_POST["addSubjectEnrolKey"];
+  $subEnrolPass = $_POST["addSubjectEnrolPass"];
+
+  addSub($subID,$subName,$subLecturer,$subEnrolKey,$subEnrolPass);
+  jsalert("You have succesfully added user profile $subID!");
+  gopage("Maccount_adm.php");
+
+}
+//delete subject
+if(isset($_POST['removeSubject'])){
+
+  $subjectID = $_POST["subjectID"];
+  delSubject($subjectID);
+  jsalert("You have succesfully deleted subject ID $subjectID!");
+  gopage("Maccount_adm.php");
+}
+
 ?>

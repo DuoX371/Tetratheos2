@@ -312,59 +312,55 @@
 
                   </td>
                 </tr>
-                <tr class="macardindv2">
-                  <td class="macardwidth">
-                    <a>B1900071</a>
 
-                  </td>
-                  <td class="macardwidth2">
-                    Johann
-                  </td>
-                  <td class="macardwidth6">
-                    0123456789
-                  </td>
-                  <td class="macardwidth6">
-                    JOJOOOOOO@helplive.edu.my
-                  </td>
-                  <td class="macardwidth3 maremove">
-                    Remove
-                  </td>
-                </tr>
-                <tr class="macardindv2">
-                  <td class="macardwidth">
-                    <a>B1900095</a>
-                  </td>
-                  <td class="macardwidth2">
-                    Jia Le
-                  </td>
-                  <td class="macardwidth6">
-                    9876543210
-                  </td>
-                  <td class="macardwidth6">
-                    OREWANIGENNIYAMEDANDA!!
-                  </td>
-                  <td class="macardwidth3 maremove">
-                    Remove
-                  </td>
-                </tr>
+                <?php
+                $selectStudent = findStudent();
+
+                while ($record = mysqli_fetch_assoc($selectStudent)){
+                  echo '
+                  <tr class="macardindv2">
+                    <td class="macardwidth">
+                      <a>' . $record["userID"] . '</a>
+                    </td>
+                    <td class="macardwidth2 style="width:200px;">
+                      ' . $record["name"] . '
+                    </td>
+                    <td class="macardwidth6">
+                      ' . $record["phoneNumber"] . '
+                    </td>
+                    <td class="macardwidth6" style="width:268px;">
+                      ' . $record["email"] . '
+                    </td>
+                    <td class="macardwidth3">
+                    <form action="process.php" method="post">
+                    <input type="hidden" value=' . $record["userID"] . ' name="studentID">
+                    <button type="submit" class="maremove removeBtn" name="removeStudentProf">Remove</button>
+                    </form>
+                    </td>
+                  </tr>';
+                }
+                ?>
+
+                <form action="process.php" method="post">
                 <tr class="macardindv3">
                   <td class="macardwidth">
-                    <input type="text" class="mainputID" maxlength="8"/>
+                    <input type="text" class="mainputID" maxlength="8" name="addStudentID" required/>
                   </td>
                   <td class="macardwidth2">
-                    <input type="text" class="mainputNAME"/>
+                    <input type="text" class="mainputNAME" name="addStudentName" required/>
                   </td>
                   <td class="macardwidth6">
-                    <input type="text" class="mainputNAME"/>
+                    <input type="text" class="mainputNAME" name="addStudentContact" required/>
                   </td>
                   <td class="macardwidth6">
-                    <input type="text" class="mainputNAME"/>
+                    <input type="email" class="mainputNAME" name="addStudentEmail"/>
                   </td>
 
                   <td class="macardwidth3 maremove">
-                    <input type="submit" value="Add" class="maaddbtn"/>
+                    <input type="submit" value="Add" class="maaddbtn" name="addStudentProf" required/>
                   </td>
                 </tr>
+              </form>
               </table>
 
             </div>
@@ -397,57 +393,55 @@
 
                   </td>
                 </tr>
+
+                <?php
+
+                $selectLecturer = findLecturer();
+
+                while ($record = mysqli_fetch_assoc($selectLecturer)){
+                  echo '
                 <tr class="macardindv2">
                   <td class="macardwidth">
-                    <a>L101</a>
+                    <a>' . $record["userID"] . '</a>
                   </td>
                   <td class="macardwidth2">
-                    Steven
+                    ' . $record["name"] . '
                   </td>
                   <td class="macardwidth6">
-                    99999
+                    ' . $record["phoneNumber"] . '
                   </td>
                   <td class="macardwidth6">
-                    peanutsia@helplive
+                    ' . $record["email"] . '
                   </td>
                   <td class="macardwidth3 maremove">
-                    Remove
+                  <form action="process.php" method="post">
+                  <input type="hidden" value=' . $record["userID"] . ' name="lecID">
+                  <button type="submit" class="maremove removeBtn" name="removeLecProf">Remove</button>
+                  </form>
                   </td>
-                </tr>
-                <tr class="macardindv2">
-                  <td class="macardwidth">
-                    <a>L102</a>
-                  </td>
-                  <td class="macardwidth2">
-                    Koon
-                  </td>
-                  <td class="macardwidth6">
-                    777777777
-                  </td>
-                  <td class="macardwidth6">
-                    SEEUNEXTSEM@helplive
-                  </td>
-                  <td class="macardwidth3 maremove">
-                    Remove
-                  </td>
-                </tr>
+                </tr>';
+              }
+                ?>
+
+                <form action="process.php" method="post">
                 <tr class="macardindv3">
                   <td class="macardwidth">
-                    <input type="text" class="mainputID" maxlength="4"/>
+                    <input type="text" class="mainputID" name="addLecID" maxlength="4" required/>
                   </td>
                   <td class="macardwidth2">
-                    <input type="text" class="mainputNAME"/>
+                    <input type="text" class="mainputNAME" name="addLecName" required/>
                   </td>
                   <td class="macardwidth6">
-                    <input type="text" class="mainputNAME"/>
+                    <input type="text" class="mainputNAME" name="addLecContact" required/>
                   </td>
                   <td class="macardwidth6">
-                    <input type="text" class="mainputNAME"/>
+                    <input type="email" class="mainputNAME" name="addLecEmail"/>
                   </td>
                   <td class="macardwidth3 maremove">
-                    <input type="submit" value="Add" class="maaddbtn"/>
+                    <input type="submit" value="Add" class="maaddbtn" name="addLecProf"/>
                   </td>
                 </tr>
+              </form>
               </table>
 
             </div>
@@ -483,66 +477,59 @@
 
                   </td>
                 </tr>
+                <?php
+                $selectSubjects = findSubjects();
+
+                while ($record = mysqli_fetch_assoc($selectSubjects)){
+                  echo'
                 <tr class="macardindv2">
                   <td class="macardwidth">
-                    <a>DIPMPR01</a>
+                    <a>' . $record["subjectID"] . '</a>
                   </td>
                   <td class="macardwidth2">
-                    It Mini Project
+                    ' . $record["subjectName"] . '
                   </td>
                   <td class="macardwidth5">
-                    Steven
+                    ' . $record["name"] . '
                   </td>
                   <td class="macardwidth4">
-                    LIKEPEANUT!
+                    ' . $record["enrollmentKey"] . '
                   </td>
                   <td class="macardwidth5">
-                    abc123
+                    ' . $record["password"] .'
                   </td>
                   <td class="macardwidth3 maremove">
-                    Remove
+                    <form action="process.php" method="post">
+                    <input type="hidden" value=' . $record["subjectID"] . ' name="subjectID">
+                    <button type="submit" class="maremove removeBtn" name="removeSubject">Remove</button>
+                    </form>
                   </td>
-                </tr>
-                <tr class="macardindv2">
-                  <td class="macardwidth">
-                    <a>DIP001</a>
-                  </td>
-                  <td class="macardwidth2">
-                    Uguess guess
-                  </td>
-                  <td class="macardwidth6">
-                    Koon
-                  </td>
-                  <td class="macardwidth4">
-                    SEEUNEXTSEM!
-                  </td>
-                  <td class="macardwidth5">
-                    abc123
-                  </td>
-                  <td class="macardwidth3 maremove">
-                    Remove
-                  </td>
-                </tr>
+                </tr>';
+              }
+                ?>
+
+                <form action="process.php" method="post">
                 <tr class="macardindv3">
                   <td class="macardwidth">
-                    <input type="text" maxlength="9" class="mainputID"/>
+                    <input type="text" maxlength="9" class="mainputID" name = "addSubjectID"/>
                   </td>
                   <td class="macardwidth2">
-                    <input type="text" class="mainputNAME"/>
+                    <input type="text" class="mainputNAME" name = "addSubjectName"/>
                   </td>
                   <td class="macardwidth6">
-                    <input type="text" class="mainputNAME"/>
+                    <input type="text" class="mainputNAME" placeholder="Lecturer ID" name = "addSubjectLec"/>
                   </td>
                   <td class="macardwidth4">
-                    <input type="text" class="mainputNAME"/>
+                    <input type="text" class="mainputNAME" name = "addSubjectEnrolKey"/>
                   </td>
                   <td class="macardwidth5">
-                    <input type="text" class="mainputNAME"/>
+                    <input type="text" class="mainputNAME" name = "addSubjectEnrolPass"/>
                   </td>
                   <td class="macardwidth3 maremove">
-                    <input type="submit" value="Add" class="maaddbtn"/>
+                    <input type="submit" value="Add" class="maaddbtn" name = "addSubjectBtn"/>
                   </td>
                 </tr>
+                <form>
               </table>
 
             </div>
@@ -624,6 +611,7 @@
         click.style.display ="none";
       }
     }
+
 
   </script>
   <!-- Bootstrap core JavaScript-->
