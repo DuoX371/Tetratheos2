@@ -395,12 +395,18 @@
                     while($row = mysqli_fetch_assoc($assignments)){
                       $dueDate = new DateTime($row["dueDate"]);
                       $dueDateDisplay = $dueDate->format("D, d F Y h:i A");
-                      echo '<i>Assignment ' . $counter . '</i><i style="margin-left:40%;">' . $dueDateDisplay . '</i><br>';
-                      $counter++;
+
+                      if($row["assignmentType"] != "-"){
+                        echo '<i>Assignment ' . $counter . '</i><i style="margin-left:40%;">' . $dueDateDisplay . '</i><br>';
+                        $counter++;
+                      }
+                      else
+                      {
+                        echo '--<br>';
+                      }
                     }
                     echo '<div class="mydivider"></div>';
                   }
-
                     echo '
 
                   </div>

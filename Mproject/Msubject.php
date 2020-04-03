@@ -344,6 +344,7 @@
             while($row = mysqli_fetch_assoc($assignments)){
               $dueDate = new DateTime($row["dueDate"]);
               $dueDateDisplay = $dueDate->format("D, d F Y h:i A");
+              if($row["assignmentType"] != "-"){
               echo '<div class="accordion" id="accordionExample">
                 <div class="card" style="margin-bottom:50px;">
                   <div class="card-header" id="headingOne">
@@ -433,10 +434,14 @@
                   </div>
                 </div>
               </div>';
-
               $counter++;
             }
+            else {
+              echo 'There are no assignments for this subject.';
+              }
+            }
           }
+
 
           ?>
 

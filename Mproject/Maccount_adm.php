@@ -357,7 +357,7 @@
                   </td>
 
                   <td class="macardwidth3 maremove">
-                    <input type="submit" value="Add" class="maaddbtn" name="addStudentProf" required/>
+                    <input type="submit" value="Add" class="maaddbtn" name="addStudentProf"/>
                   </td>
                 </tr>
               </form>
@@ -517,7 +517,16 @@
                     <input type="text" class="mainputNAME" name = "addSubjectName"/>
                   </td>
                   <td class="macardwidth6">
-                    <input type="text" class="mainputNAME" placeholder="Lecturer ID" name = "addSubjectLec"/>
+                    <select class="mainputNAME" name="addSubjectLec">
+                      <?php
+                      mysqli_data_seek($selectLecturer,0);
+                      while ($record = mysqli_fetch_assoc($selectLecturer)){
+                        echo '<option value="' . $record["userID"] . '">' . $record["name"] . '</option>';
+                      }
+
+                       ?>
+                    </select>
+                    <!--<input type="text" class="mainputNAME" placeholder="Lecturer ID" name = "addSubjectLec"/>-->
                   </td>
                   <td class="macardwidth4">
                     <input type="text" class="mainputNAME" name = "addSubjectEnrolKey"/>

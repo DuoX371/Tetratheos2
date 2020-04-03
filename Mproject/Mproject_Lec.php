@@ -286,7 +286,7 @@
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="Mprofile.php">
+                <a class="dropdown-item" href="Mprofile_Lec.php">
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Profile
                 </a>
@@ -372,29 +372,26 @@
                   <div>';
 
                   while($record = mysqli_fetch_assoc($lecturerSubject)){
+                    //var_dump($record);
                     $assignments = getAssignments($record["subjectID"]);
                     echo '
                     <i class="h5 mb-0 font-weight-bold text-gray-800">' . $record["subjectID"] . " " . $record["subjectName"] . '</i><br>';
                     $counter = 1;
                     while($row = mysqli_fetch_assoc($assignments)){
+                      //var_dump($row);
                       $dueDate = new DateTime($row["dueDate"]);
                       $dueDateDisplay = $dueDate->format("D, d F Y h:i A");
-                      echo '<i>Assignment ' . $counter . '</i><i style="margin-left:40%;">' . $dueDateDisplay . '</i><br>';
-                      $counter++;
+
+                      if($row["assignmentType"] != "-"){
+                        echo '<i>Assignment ' . $counter . '</i><i style="margin-left:40%;">' . $dueDateDisplay . '</i><br>';
+                        $counter++;
+                      }
+                      else {
+                        echo '--<br>';
+                      }
                     }
+                    echo '<div class="mydivider"></div>';
                   }
-
-                    /*echo '<div class="mydivider"></div>';
-                    <i class="h5 mb-0 font-weight-bold text-gray-800">DIP202 Buisness Commnucation</i><br>
-                    <i> Assignment 1</i><i style="margin-left:40%;">16/03/2020</i>
-                    <div class="mydivider"></div>
-                    <i class="h5 mb-0 font-weight-bold text-gray-800">DIP222 Python</i><br>
-                    <i> Assignment 1</i><i style="margin-left:40%;">12/04/2020</i>
-                    <div class="mydivider"></div>
-                    <i class="h5 mb-0 font-weight-bold text-gray-800">DIP2204 HTML</i><br>
-                    <i> Assignment 1</i><i style="margin-left:40%;">16/04/2020</i>
-                    <div class="mydivider"></div>*/
-
                     echo'
                   </div>
                 </div>';

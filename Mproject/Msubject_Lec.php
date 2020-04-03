@@ -78,7 +78,7 @@
               while($record = mysqli_fetch_assoc($subjects)){
                 if($record["assignmentType"] == "a")
                 {
-                  echo '<a class="collapse-item" href="Msubject.php">' . $record["subjectID"] . '</a>';
+                  echo '<a class="collapse-item" href="Msubject_Lec.php">' . $record["subjectID"] . '</a>';
                 }
               }
             }
@@ -314,12 +314,76 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Subject 1</h1>
-            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-          </div>
+          <?php
+          $lecturerSubject = getLecturerSubjects($_SESSION["currentUser"]["userID"]);
+          while($record = mysqli_fetch_assoc($lecturerSubject)){
+            //var_dump($record);
+            $assignments = getAssignments($record["subjectID"]);
+            echo '<div class="d-sm-flex align-items-center justify-content-between mb-4">
+              <h1 class="h3 mb-0 text-gray-800" id="' . $record["subjectID"] . 'header">' . $record["subjectID"] . " " . $record["subjectName"] . '</h1>
+              <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+            </div>';
+
+            $counter = 1;
+            while($row = mysqli_fetch_assoc($assignments)){
+              $dueDate = new DateTime($row["dueDate"]);
+              $dueDateDisplay = $dueDate->format("D, d F Y h:i A");
+
+              if($row["assignmentType"] != "-"){
+              echo '<div class="accordion" id="accordionExample">
+                <div class="card" style="margin-bottom:50px;">
+                  <div class="card-header" id="headingOne">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#' . $row["assignmentID"] . '" aria-expanded="true" aria-controls="' . $row["assignmentID"] . '">
+                        Assignment ' . $counter . '
+                      </button>
+                    </h2>
+                  </div>
+
+                  <div id="' . $row["assignmentID"] . '" class="collapse hide" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div class="card-body">
+                    <table style="line-height: 4;">
+                      <tr class="mscardindv">
+                        <td class="mslcardwidth">
+                          Datetime
+                        </td>
+                        <td class="mslcardwidth2">
+                          Submitted by
+                        </td>
+                        <td class="mslcardwidth3">
+                          File
+                        </td>
+                      </tr>
+                      <tr class="mscardindv2">
+                        <td class="mslcardwidth">
+                          <a>Thursday, 21 Mac 2020</a><br>
+                          <a>10:34a.m.</a>
+                        </td>
+                        <td class="mslcardwidth2">
+                          Johann
+                        </td>
+                        <td class="mslcardwidth3">
+                          RenaiCirculation.mp3
+                        </td>
+                      </tr>
+                    </table>
+                    </div>
+                  </div>
+
+                </div>
+              </div>';
+            }
+              else {
+                echo 'There are no assignments for this subject.';
+              }
+              ;
+            }
+          }
+          ?>
+
 
           <!--Main Content-->
+          <!--
           <div class="msdropdown" >
             <div class="mscard eXpand" onclick="show_hide()">
               <div>
@@ -368,61 +432,9 @@
               </table>
 
             </div>
-          </div>
-
-          <!--Dropdown 2-->
-          <div class="msdropdown" >
-            <div class="mscard eXpand" onclick="show_hide2()">
-              <div>
-                Assignment 2
-                <span class='fas fa-angle-down msleft'></span>
-              </div>
-            </div>
-
-            <div id="drop-content2" class="mscardin" style="padding:0%;">
-              <table>
-                <tr class="mscardindv">
-                  <td class="mslcardwidth">
-                    Datetime
-                  </td>
-                  <td class="mslcardwidth2">
-                    Submitted by
-                  </td>
-                  <td class="mslcardwidth3">
-                    File
-                  </td>
-                </tr>
-                <tr class="mscardindv2">
-                  <td class="mslcardwidth">
-                    <a>Thursday, 21 Mac 2020</a><br>
-                    <a>10:34a.m.</a>
-                  </td>
-                  <td class="mslcardwidth2">
-                    Johann
-                  </td>
-                  <td class="mslcardwidth3">
-                    RenaiCirculation.mp3
-                  </td>
-                </tr>
-                <tr class="mscardindv2">
-                  <td class="mslcardwidth">
-                    <a>Friday, 22 Mac 2020</a><br>
-                    <a>10:35p.m.</a>
-                  </td>
-                  <td class="mslcardwidth2">
-                    Jia Le
-                  </td>
-                  <td class="mslcardwidth3">
-                    kurumi.png
-                  </td>
-                </tr>
-
-              </table>
-
-            </div>
+          </div> -->
 
 
-          </div>
 
         </div>
       <!-- End of Main Content -->

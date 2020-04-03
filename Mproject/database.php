@@ -27,7 +27,7 @@ function getStudentSubjects($studentID){
 
 function getLecturerSubjects($lecturerID){
     global $database;
-    $sql = "select * from enrollment join subject using (subjectID) where lecturerID = '$lecturerID'";
+    $sql = "select * from subject where lecturerID = '$lecturerID'";
     $result = mysqli_query($database, $sql);
     return $result;
 }
