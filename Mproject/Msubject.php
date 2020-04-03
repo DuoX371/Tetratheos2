@@ -423,12 +423,30 @@
                           </td>
                         </tr>
 
-                        <input type="file" id="realadd" hidden="hidden"/>
-                        <button type="button" id="fakeadd" class="addbuttonS">Add Submission</button>
-                        <input type="submit" id="realsave" hidden="hidden"/>
-                        <button type="button" id="fakesave" class="savebuttonS">Save</button>
 
                       </table>
+
+                      <form method="post" action="process.php">
+                        <!--SubjectID-->
+                        <input type="hidden" value="SBM' . $row["subjectID"] . "" . $_SESSION["currentUser"]["userID"] . '" name="submissionID"/>
+                        <!--SubjectID-->
+                        <input type="hidden" value="' . $record["subjectID"] . '" name="subjectID"/>
+                        <!--AssignmentID-->
+                        <input type="hidden" value="' . $row["assignmentID"] . '" name="assignmentID"/>
+                        <!--AssignmentName-->
+                        <input type="hidden" value="' . $record["subjectName"] . '" name="subjectName"/>
+
+                        <br>
+                        <div class="input-group" style="width:90%;">
+                          <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="inputGroupFile04" name="submissionFile" aria-describedby="inputGroupFileAddon04">
+                            <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
+                          </div>
+                          <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="submit" id="inputGroupFileAddon04" name ="uploadFile">Submit</button>
+                          </div>
+                        </div>
+                      </form>
 
                     </div>
                   </div>
@@ -437,7 +455,7 @@
               $counter++;
             }
             else {
-              echo 'There are no assignments for this subject.';
+              echo 'There are no assignments for this subject. <br>';
               }
             }
           }

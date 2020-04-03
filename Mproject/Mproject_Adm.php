@@ -287,24 +287,36 @@
           <!-- Content Row -->
           <div class="row">
 
+        <form method="post" action="process.php">
           <div class="row">
-
             <div class="myshadow mymb-4 mpaannoucment">
               <div class="mycard-header py-3 d-flex flex-row align-items-center">
                 <h6 class="m-0 font-weight-bold text-primary">Announcement</h6>
               </div>
-              <textarea rows="8.5" cols="74"></textarea>
-              <input type="submit" value="save" class="mpasave"/>
+              <textarea rows="8.5" cols="74" name="announmentAdmin"><?php
+                $selectAnnouncement = selectAnnouncement($_SESSION["currentUser"]["userID"]);
+                while ($record = mysqli_fetch_assoc($selectAnnouncement)){
+
+                echo $record["announcementInfo"];
+
+              }
+                ?></textarea>
+              <input type="submit" value="save" class="mpasave" name="announcementSaveBtn"/>
             </div>
 
             <div class="myshadow mymb-4 mpaannoucment2">
               <div class="mycard-header py-3 d-flex flex-row align-items-center">
                 <h6 class="m-0 font-weight-bold text-primary mpanote">Note</h6>
               </div>
-              <textarea rows="8.5" cols="50"></textarea>
-              <input type="submit" value="save" class="mpasave"/>
+              <textarea rows="8.5" cols="50" name="noteContent"><?php
+                $selectAnnouncement = selectAnnouncement();
+                $record = mysqli_fetch_assoc($selectAnnouncement);
+                echo $record["announcementNote"];
+                 ?></textarea>
+              <input type="submit" value="save" class="mpasave" name="noteSaveBtn"/>
             </div>
           </div>
+        </form>
 
           <!-- Content Row -->
 

@@ -76,9 +76,9 @@ function findSubjects(){
 }
 
 
-function updateUser($name, $email, $phoneNum, $userID){
+function updateUser($name, $email, $phoneNum, $password, $userID){
   global $database;
-  $sql = "update user set name = '$name', email = '$email', phoneNumber = '$phoneNum' where userID = '$userID'";
+  $sql = "update user set name = '$name', email = '$email', phoneNumber = '$phoneNum', password = '$password' where userID = '$userID'";
   mysqli_query($database, $sql);
 }
 
@@ -140,5 +140,38 @@ function delSubject($subjectID){
   $sql = "delete from subject where subjectID = '$subjectID'";
   mysqli_query($database, $sql);
 }
+
+//admin announcement
+function addAnnouncementContent($announcementContent,$adminID){
+  global $database;
+  $sql = "update announcement set announcementInfo = '$announcementContent' where adminID = '$adminID'";
+  mysqli_query($database, $sql);
+}
+function selectAnnouncement(){
+  global $database;
+  $sql = "select * from announcement";
+  $result = mysqli_query($database, $sql);
+  return $result;
+}
+function addNoteContent($announcementContent,$adminID){
+  global $database;
+  $sql = "update announcement set announcementNote = '$announcementContent' where adminID = '$adminID'";
+  mysqli_query($database, $sql);
+}
+
+//upload assignment
+function uploadAssignmentInsert($submissionID, $submissionFile, $studentID, $subjectID, $assignmentID){
+  global $database;
+  $sql = "insert into submission(submissionID,	submissionDateTime,	submissionFile,	studentID,	subjectID,	assignmentID)
+          Values ('$submissionID', current_timestamp(), '$submissionFile', '$studentID', '$subjectID', '$assignmentID')";
+  mysqli_query($database, $sql);
+}
+function uploadAssignmentUpdate($submissionFile, $submissionID){
+  global $database;
+  $sql = "update submission set submissionDateTime = current_timestamp(), submissionFile='$submissionFile' where submissionID = '$submissionID' ";
+  mysqli_query($database, $sql);
+}
+
+
 
 ?>

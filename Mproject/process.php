@@ -43,15 +43,13 @@
     $username = $_POST["username"];
     $email = $_POST["email"];
     $phoneNum = $_POST["phone"];
+    $password = $_POST["password"];
 
-    updateUser($username, $email, $phoneNum, $_SESSION["currentUser"]["userID"]);
+    updateUser($username, $email, $phoneNum, $password, $_SESSION["currentUser"]["userID"]);
     jsalert("You have succesfully update your profile!");
     gopage("Mprofile.php");
 
 
-  }
-  if(isset($_POST["cancelProfBtnStu"])){
-    gopage("Mproject.php");
   }
 
   //enrol subject
@@ -87,6 +85,39 @@
         gopage("Menrol.php");
       }
   }
+
+//student upload assignment
+if(isset($_POST["uploadFile"])){
+
+  $submissionID = $_POST["submissionID"];
+  $submissionFile = $_POST["submissionFile"];
+  $subjectID = $_POST["subjectID"];
+  $assignmentID = $_POST["assignmentID"];
+  $subjectName = $_POST["subjectName"];
+
+  uploadAssignmentUpdate($submissionFile, $submissionID);
+  uploadAssignmentInsert($submissionID, $submissionFile, $_SESSION["currentUser"]["userID"], $subjectID, $assignmentID);
+  jsalert("You have uploaded file for assignment $subjectName.");
+  gopage("Msubject.php");
+
+}
+
+
+//lecturer
+if(isset($_POST["updateProfBtnLec"])){
+  //var_dump($_POST);
+  $username = $_POST["username"];
+  $email = $_POST["email"];
+  $phoneNum = $_POST["phone"];
+  $password = $_POST["password"];
+
+  updateUser($username, $email, $phoneNum, $password, $_SESSION["currentUser"]["userID"]);
+  jsalert("You have succesfully update your profile!");
+  gopage("Mprofile_Lec.php");
+
+
+}
+
 
 //admin add student profile
 if(isset($_POST['addStudentProf'])){
@@ -157,5 +188,34 @@ if(isset($_POST['removeSubject'])){
   jsalert("You have succesfully deleted subject ID $subjectID!");
   gopage("Maccount_adm.php");
 }
+
+//announcement
+if(isset($_POST['announcementSaveBtn'])){
+
+  $announcementContent = $_POST['announmentAdmin'];
+
+  addAnnouncementContent($announcementContent,$_SESSION["currentUser"]["userID"]);
+  jsalert("Successfully updated announment!");
+  gopage("Mproject_Adm.php");
+
+}
+if(isset($_POST['noteSaveBtn'])){
+
+  $noteContent = $_POST['noteContent'];
+
+  addNoteContent($noteContent,$_SESSION["currentUser"]["userID"]);
+  jsalert("Successfully updated note!");
+  gopage("Mproject_Adm.php");
+
+}
+
+
+
+
+
+
+
+
+
 
 ?>

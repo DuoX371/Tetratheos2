@@ -78,7 +78,7 @@
               while($record = mysqli_fetch_assoc($subjects)){
                 if($record["assignmentType"] == "a")
                 {
-                  echo '<a class="collapse-item" href="Msubject.php">' . $record["subjectID"] . '</a>';
+                  echo '<a class="collapse-item" href="Msubject_Lec.php">' . $record["subjectID"] . '</a>';
                 }
               }
             }
@@ -323,23 +323,30 @@
           <div class="mpfcontainer">
             <img src="kurumi.png" class="mpPpic mpPpos">
             <div>
-              <form class="mpformpos">
+              <form class="mpformpos" method="post" action="process.php" style="margin-left: 30%;">
                 <label for="id">ID:</label><br>
-                <input type="text" id="id" name="id" class="mpinpos" disabled/><br>
-                <label for="username" class="mplbpos">Username:</label><br>
-                <input type="text" id="username" name="username" class="mpinpos"/><br>
-                <label for="email" class="mplbpos" >Email:</label><br>
-                <input type="text" id="email" name="email" class="mpinpos"/><br>
-                <label for="phone" class="mplbpos2">Phone Number:</label><br>
-                <input type="text" id="phone" name="phone" class="mpinpos"/>
+                <?php
+                $user = findUser($_SESSION["currentUser"]["userID"]);
+                $record = mysqli_fetch_assoc($user);
+                echo '<input type="text" id="id" name="id" class="textsize" placeholder="' . $record["userID"] . '" disabled/><br>';
+
+                ?>
+                <label for="username" class="mplbpos" style="margin-top: 10%;">Username:</label><br>
+                <input type="text" id="username" name="username" class="textsize" required/><br>
+                <label for="email" class="mplbpos" style="margin-top: 10%;">Email:</label><br>
+                <input type="email" id="email" name="email" class="textsize" required/><br>
+                <label for="phone" class="mplbpos2" style="margin-top: 10%;">Phone Number:</label><br>
+                <input type="text" id="phone" name="phone" class="textsize" required/>
+                <label for="pass" class="mplbpos2" style="margin-top: 10%;">New Password:</label><br>
+                <input type="password" id="pass" name="password" class="textsize" required/>
 
                 <input type="file" id="real-file" hidden="hidden"/>
                 <button type="button" id="custom-button">Choose File</button>
-              </form>
               <div class="mmfcontainer" style="margin-top:65%;">
-                <input type="submit" id="mpsavebtn" value="Save"></button>
-                <button type="button" id="mpcancelbtn">Cancel</button>
+                <button type="submit" id="mpsavebtn" name="updateProfBtnLec">Save</button>
+                <a id="mpcancelbtn" style="text-align:center;" href="Mproject_Lec.php">Cancel</a>
               </div>
+              </form>
             </div>
           </div>
 

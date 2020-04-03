@@ -407,8 +407,12 @@
               <div class="mycard-header py-3 d-flex flex-row align-items-center">
                 <h6 class="m-0 font-weight-bold text-primary">Announcement</h6>
               </div>
-              aaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaa aaaaaaaaaaaaaaaaaaaa asss ass sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss ddddddddddddddddddddaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-              sample
+            -------------------------------------------------------------------------------------<br>
+            <?php
+            $selectAnnouncement = selectAnnouncement();
+            $record = mysqli_fetch_assoc($selectAnnouncement);
+            echo $record["announcementInfo"];
+            ?>
             </div>
           </div>
 
