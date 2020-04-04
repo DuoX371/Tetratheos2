@@ -171,7 +171,39 @@ function uploadAssignmentUpdate($submissionFile, $submissionID){
   $sql = "update submission set submissionDateTime = current_timestamp(), submissionFile='$submissionFile' where submissionID = '$submissionID' ";
   mysqli_query($database, $sql);
 }
+function getAssignmentSubmissions($subjectID){
+  global $database;
+  $sql = "select * from submission,assignment where submission.subjectID = assignment.subjectID and subject.subjectID = '$subjectID'";
+  $result = mysqli_query($database, $sql);
+  return $result;
+}
+//
+function selectSubmissions($userID,$assignmentID){
+  global $database;
+  $sql = "select * from submission where studentID = '$userID' and assignmentID = '$assignmentID'";
+  $result = mysqli_query($database, $sql);
+  return $result;
+}
 
-
+/*Marking page*/
+//admin marking find lecturer studentID
+function lecturerStudent($lecturerID,$subjectID){
+  global $database;
+  $sql = "select * from enrollment join subject using (subjectID) where lecturerID = '$lecturerID' and subjectID = '$subjectID'";
+  $result = mysqli_query($database, $sql);
+  return $result;
+}
+function optionStudentDisplay($studentID){
+  global $database;
+  $sql = "select * from user where userID = '$studentID'";
+  $result = mysqli_query($database, $sql);
+  return $result;
+}
+function displaySubject($subjectID){
+  global $database;
+  $sql = "select * from subject where subjectID='$subjectID'";
+  $result = mysqli_query($database, $sql);
+  return $result;
+}
 
 ?>

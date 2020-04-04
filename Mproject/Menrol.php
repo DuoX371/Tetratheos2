@@ -88,7 +88,7 @@
               while($record = mysqli_fetch_assoc($subjectAssignments)){
                 if($record["assignmentType"] == "a")
                 {
-                  echo '<a class="collapse-item" href="Msubject.php">' . $record["subjectID"] . '</a>';
+                  echo '<a class="collapse-item" href="Msubject.php#' . $record["subjectID"] . 'header">' . $record["subjectID"] . '</a>';
                 }
               }
             }
@@ -337,7 +337,7 @@
               <td><input type="password" id="Epass" class="meinput" name="enrolPass"/></td>
             </table>
 
-            
+
             <button type="submit" id="fakeEnrol" class="meenrol" name="enrolBtn">Enrol</button>
             </form>
 

@@ -321,22 +321,31 @@
           <!--Main Content-->
           <div>
             <label for="choose subject">Subject:</label>
-            <select id="subjects" style="width:10%;">
-              <option value="DIP222">DIP222</option>
-              <option value="DIP202">DIP202</option>
-            </select><br>
+            <select id="subjects" onchange="selectSubject(this)" style="width:15%;">
+              <option value="validate">Choose a Subject</option>
+            <?php
+            $lecturerSubject = getLecturerSubjects($_SESSION["currentUser"]["userID"]);
+
+            while ($record = mysqli_fetch_assoc($lecturerSubject)){
+              echo '
+                <option value="' . $record["subjectID"] . '">' . $record["subjectID"] . '</option>';
+            }
+             ?>
+             </select><br>
+
             <label for="choose subject">Student ID:</label>
-            <select id="subjects" style="width:10%;">
+            <select id="studentSub" style="width:20%;">
+               <!--
               <option value="DIP222">B1900071</option>
-              <option value="DIP202">B1900095</option>
+              <option value="DIP202">B1900095</option>-->
             </select>
-            <label for="student name">Johann</label>
 
             <div class="malcard">
               <div class="malcardflex">
                 <label for="subject nane">Subject Name:</label>
-                <input type="text" class="malsubname" disabled/><br>
+                <input style="padding-left:20px;" type="text" class="malsubname" id=subjectNameDisplay value="" disabled/><br>
                 <label for="Coursework" class="malcourse">Coursework:</label>
+
 
                 <div class="malcardcol">
                   <label for="Assignment 1">Assignment 1:</label>
@@ -412,6 +421,51 @@
     </div>
   </div>
 
+<script>
+  function selectSubject(subjectOption){
+    var value = subjectOption.options[subjectOption.selectedIndex].value;
+    $.ajax({
+      type: "POST",
+      url: "process.php",
+      data: {
+        subjectID: value,
+        selectSubject: ""
+      },
+      success:function(response){
+        //console.log(response);
+        studentArray = JSON.parse(response);
+        //console.log(studentArray);
+
+        $("#studentSub option").remove();
+
+        for(var i = 0; i < studentArray.length;i++){
+          var optionStr = "<option value = '" + studentArray[i]["studentID"] + "'>"+studentArray[i]["studentID"] + "  " +studentArray[i]["0"] +"</option>";
+          $("#studentSub").append(optionStr);
+          //console.log(studentArray[i]["studentID"]);
+        }
+      }
+    });
+
+    $.ajax({
+      type: "POST",
+      url: "process.php",
+      data: {
+        subjectID: value,
+        subjectNameDisplay: ""
+      },
+      success:function(response){
+        console.log(response);
+
+        $("#subjectNameDisplay input").remove();
+        //var subjectDisplay = "<input type="text" class="malsubname" id=subjectNameDisplay value="aaa" disabled/>";
+        $("#subjectNameDisplay").val(response);
+
+      }
+    });
+
+  }
+
+</script>
 
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
@@ -430,6 +484,8 @@
   <script src="js/demo/chart-area-demo.js"></script>
   <script src="js/demo/chart-pie-demo.js"></script>
 
+  <!-- Bootstrap Jquery -->
+  <script src="vendor/jquery/jquery.js"></script>
   <!--datetime showhide-->
 
 

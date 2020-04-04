@@ -322,15 +322,24 @@
           <!--Main Content-->
           <div>
             <label for="choose subject">Subject:</label>
-            <select id="subjects" class="malsubjects">
-              <option value="DIP222">DIP222</option>
-              <option value="DIP202">DIP202</option>
+            <select id="subjects" class="malsubjects" onchange="selectSubject(this)">
+              <option value="validate">Choose a Subject</option>
+
+              <?php
+              $lecturerSubject = getLecturerSubjects($_SESSION["currentUser"]["userID"]);
+
+              while ($record = mysqli_fetch_assoc($lecturerSubject)){
+                echo '
+                  <option value="' . $record["subjectID"] . '">' . $record["subjectID"] . '</option>';
+              }
+               ?>
+
             </select>
 
             <div class="malcard">
               <div class="malcardflex">
                 <label for="subject nane">Subject Name:</label>
-                <input type="text" class="malsubname" disabled/><br>
+                <input type="text" class="malsubname" disabled id="subjectNameDisplay" value=""/><br>
                 <label for="Coursework" class="malcourse">Coursework:</label>
 
                 <div class="malcardcol">
@@ -410,6 +419,46 @@
     </div>
   </div>
 
+<script>
+function selectSubject(subjectOption){
+  var value = subjectOption.options[subjectOption.selectedIndex].value;
+  $.ajax({
+    type: "POST",
+    url: "process.php",
+    data: {
+      subjectID: value,
+      selectSubject: ""
+    },
+    success:function(response){
+      //console.log(response);
+      studentArray = JSON.parse(response);
+      //console.log(studentArray);
+
+      $("#studentSub option").remove();
+
+      for(var i = 0; i < studentArray.length;i++){
+        var optionStr = "<option value = '" + studentArray[i]["studentID"] + "'>"+studentArray[i]["studentID"] + "  " +studentArray[i]["0"] +"</option>";
+        $("#studentSub").append(optionStr);
+        //console.log(studentArray[i]["studentID"]);
+      }
+    }
+  });
+  $.ajax({
+    type: "POST",
+    url: "process.php",
+    data: {
+      subjectID: value,
+      subjectNameDisplay: ""
+    },
+    success:function(response){
+
+      $("#subjectNameDisplay input").remove();
+      $("#subjectNameDisplay").val(response);
+
+    }
+  });
+}
+</script>
 
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
@@ -427,6 +476,9 @@
   <!-- Page level custom scripts -->
   <script src="js/demo/chart-area-demo.js"></script>
   <script src="js/demo/chart-pie-demo.js"></script>
+
+  <!-- Bootstrap Jquery -->
+  <script src="vendor/jquery/jquery.js"></script>
 
   <!--datetime showhide-->
   <script src="jquery.js"></script>

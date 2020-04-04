@@ -209,7 +209,28 @@ if(isset($_POST['noteSaveBtn'])){
 
 }
 
+if(isset($_POST['selectSubject'])){
 
+  $lecturerStudent = lecturerStudent($_SESSION["currentUser"]["userID"],$_POST['subjectID']);
+  $students = array();
+  while ($record = mysqli_fetch_assoc($lecturerStudent)){
+    $optionStudent = optionStudentDisplay($record['studentID']);
+    $studentDetails = mysqli_fetch_assoc($optionStudent);
+    array_push($record, $studentDetails['name']);
+    array_push($students, $record);
+  }
+  echo json_encode($students);
+
+  //echo $_POST['subjectID'];
+}
+if(isset($_POST['subjectNameDisplay'])){
+  $displaySubject = displaySubject($_POST['subjectID']);
+  $record = mysqli_fetch_assoc($displaySubject);
+
+  echo $record['subjectName'];
+
+
+}
 
 
 

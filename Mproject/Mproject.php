@@ -83,19 +83,18 @@
             <h6 class="collapse-header">Subject-list:</h6>
 
             <?php
-
             if(mysqli_num_rows($subjectAssignments)>0){
               while($record = mysqli_fetch_assoc($subjectAssignments)){
                 if($record["assignmentType"] == "a")
                 {
-                  echo '<a class="collapse-item" href="Msubject.php">' . $record["subjectID"] . '</a>';
+                  echo '<a class="collapse-item" href="Msubject.php#' . $record["subjectID"] . 'header">' . $record["subjectID"] . '</a>';
                 }
               }
             }
 
              ?>
              <!--
-
+a
             <a class="collapse-item" href="Msubject.php">Subject 1</a>
             <a class="collapse-item" href="Msubject.php">Subject 2</a>
             <a class="collapse-item" href="Msubject.php">Subject 3</a>
