@@ -97,10 +97,21 @@ if(isset($_POST["uploadFile"])){
 
   uploadAssignmentUpdate($submissionFile, $submissionID);
   uploadAssignmentInsert($submissionID, $submissionFile, $_SESSION["currentUser"]["userID"], $subjectID, $assignmentID);
+
   jsalert("You have uploaded file for assignment $subjectName.");
   gopage("Msubject.php");
-
 }
+
+  /*$selectSubmissions = selectSubmissions($_SESSION["currentUser"]["userID"], $row["assignmentID"]);
+  while ($read = mysqli_fetch_assoc($selectSubmissions)){
+    $submitDate = new DateTime($read["submissionDateTime"]);
+    $submitDateDisplay = $submitDate->format("D, d F Y h:i A");
+
+    echo $read['submissionDateTime'];
+    echo $read[]
+  }*/
+
+//lecturer view assignment
 
 
 //lecturer
@@ -228,12 +239,15 @@ if(isset($_POST['subjectNameDisplay'])){
   $record = mysqli_fetch_assoc($displaySubject);
 
   echo $record['subjectName'];
-
-
 }
 
+if(isset($_POST['saveMarksBtn'])){
 
+  updateMarks();
 
+  //$subject = $_POST['selectSubject'];
+
+}
 
 
 

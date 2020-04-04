@@ -223,61 +223,6 @@
               </div>
             </li>
 
-            <!-- Nav Item - Messages -->
-            <li class="nav-item dropdown no-arrow mx-1">
-              <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-envelope fa-fw"></i>
-                <!-- Counter - Messages -->
-                <span class="badge badge-danger badge-counter">7</span>
-              </a>
-              <!-- Dropdown - Messages -->
-              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
-                <h6 class="dropdown-header">
-                  Message Center
-                </h6>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt="">
-                    <div class="status-indicator bg-success"></div>
-                  </div>
-                  <div class="font-weight-bold">
-                    <div class="text-truncate">Hi there! I am wondering if you can help me with a problem I've been having.</div>
-                    <div class="small text-gray-500">Emily Fowler · 58m</div>
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="https://source.unsplash.com/AU4VPcFN4LE/60x60" alt="">
-                    <div class="status-indicator"></div>
-                  </div>
-                  <div>
-                    <div class="text-truncate">I have the photos that you ordered last month, how would you like them sent to you?</div>
-                    <div class="small text-gray-500">Jae Chun · 1d</div>
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="https://source.unsplash.com/CS2uCrpNzJY/60x60" alt="">
-                    <div class="status-indicator bg-warning"></div>
-                  </div>
-                  <div>
-                    <div class="text-truncate">Last month's report looks great, I am very happy with the progress so far, keep up the good work!</div>
-                    <div class="small text-gray-500">Morgan Alvarez · 2d</div>
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="">
-                    <div class="status-indicator bg-success"></div>
-                  </div>
-                  <div>
-                    <div class="text-truncate">Am I a good boy? The reason I ask is because someone told me that people say this to all dogs, even if they aren't good...</div>
-                    <div class="small text-gray-500">Chicken the Dog · 2w</div>
-                  </div>
-                </a>
-                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
-              </div>
-            </li>
 
             <div class="topbar-divider d-none d-sm-block"></div>
 
@@ -321,7 +266,7 @@
             $assignments = getAssignments($record["subjectID"]);
             echo '<div class="d-sm-flex align-items-center justify-content-between mb-4">
               <h1 class="h3 mb-0 text-gray-800" id="' . $record["subjectID"] . 'header">' . $record["subjectID"] . " " . $record["subjectName"] . '</h1>
-              <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+              <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" ><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
             </div>';
 
             $counter = 1;
@@ -330,55 +275,68 @@
               $dueDateDisplay = $dueDate->format("D, d F Y h:i A");
 
               if($row["assignmentType"] != "-"){
-              echo '<div class="accordion" id="accordionExample">
-                <div class="card" style="margin-bottom:50px;">
-                  <div class="card-header" id="headingOne">
-                    <h2 class="mb-0">
-                      <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#' . $row["assignmentID"] . '" aria-expanded="true" aria-controls="' . $row["assignmentID"] . '">
-                        Assignment ' . $counter . '
-                      </button>
-                    </h2>
-                  </div>
 
-                  <div id="' . $row["assignmentID"] . '" class="collapse hide" aria-labelledby="headingOne" data-parent="#accordionExample">
-                    <div class="card-body">
-                    <table style="line-height: 4;">
-                      <tr class="mscardindv">
-                        <td class="mslcardwidth">
-                          Datetime
-                        </td>
-                        <td class="mslcardwidth2">
-                          Submitted by
-                        </td>
-                        <td class="mslcardwidth3">
-                          File
-                        </td>
-                      </tr>
-                      <tr class="mscardindv2">
-                        <td class="mslcardwidth">
-                          <a>Thursday, 21 Mac 2020</a><br>
-                          <a>10:34a.m.</a>
-                        </td>
-                        <td class="mslcardwidth2">
-                          Johann
-                        </td>
-                        <td class="mslcardwidth3">
-                          RenaiCirculation.mp3
-                        </td>
-                      </tr>
-                    </table>
+                $viewSubmissions = viewSubmissions($_SESSION["currentUser"]["userID"],$row["assignmentID"]);
+                while($read = mysqli_fetch_assoc($viewSubmissions)){
+                  $submitDate = new DateTime($read["submissionDateTime"]);
+                  $submitDateDayDisplay = $submitDate->format("l, j M Y");
+                  $submitTime = new DateTime($read["submissionDateTime"]);
+                  $submitTimeDisplay = $submitTime->format("g:sa");
+
+
+                  $submitStudentName = submittedStudentName($read['studentID']);
+                  while($rad = mysqli_fetch_assoc($submitStudentName)){
+
+                  echo '<div class="accordion" id="accordionExample">
+                    <div class="card" style="margin-bottom:50px;">
+                      <div class="card-header" id="headingOne">
+                        <h2 class="mb-0">
+                          <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#' . $row["assignmentID"] . '" aria-expanded="true" aria-controls="' . $row["assignmentID"] . '">
+                            Assignment ' . $counter . '
+                          </button>
+                        </h2>
+                      </div>
+
+                      <div id="' . $row["assignmentID"] . '" class="collapse hide" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div class="card-body">
+                        <table style="line-height: 4;">
+                          <tr class="mscardindv">
+                            <td class="mslcardwidth">
+                              Datetime
+                            </td>
+                            <td class="mslcardwidth2">
+                              Submitted by
+                            </td>
+                            <td class="mslcardwidth3">
+                              File
+                            </td>
+                          </tr>
+                          <tr class="mscardindv2">
+                            <td class="mslcardwidth">
+                              <a>' . $submitDateDayDisplay . '</a><br>
+                              <a>' . $submitTimeDisplay . '</a>
+                            </td>
+                            <td class="mslcardwidth2">
+                              ' . $rad["name"] . '
+                            </td>
+                            <td class="mslcardwidth3">
+                              ' . $read["submissionFile"] . '
+                            </td>
+                          </tr>
+                        </table>
+                        </div>
+                      </div>
+
                     </div>
-                  </div>
-
-                </div>
-              </div>';
-            }
-              else {
-                echo 'There are no assignments for this subject.';
+                  </div>';
+                }
               }
-              ;
             }
-          }
+                else {
+                  echo 'There are no assignments for this subject.';
+                }
+              }
+            }
           ?>
 
 

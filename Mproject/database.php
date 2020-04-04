@@ -184,6 +184,19 @@ function selectSubmissions($userID,$assignmentID){
   $result = mysqli_query($database, $sql);
   return $result;
 }
+//view submission lecturer
+function viewSubmissions($lecturerID,$assignmentID){
+  global $database;
+  $sql = "select * from submission join subject using (subjectID) where lecturerID='$lecturerID' and assignmentID = '$assignmentID'";
+  $result = mysqli_query($database, $sql);
+  return $result;
+}
+function submittedStudentName($studentID){
+  global $database;
+  $sql = "select * from user where userID = '$studentID'";
+  $result = mysqli_query($database, $sql);
+  return $result;
+}
 
 /*Marking page*/
 //admin marking find lecturer studentID
@@ -205,5 +218,12 @@ function displaySubject($subjectID){
   $result = mysqli_query($database, $sql);
   return $result;
 }
+function updateMarks($assigmentID,$studentID){
+  global $database;
+  $sql = "update assignmentmark set mark = '$mark' where assignmentID = '$assigmentID' and studentID = '$studentID'";
+  $result = mysqli_query($database, $sql);
+}
+
+
 
 ?>

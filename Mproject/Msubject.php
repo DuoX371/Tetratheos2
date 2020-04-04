@@ -342,7 +342,6 @@
             $counter = 1;
 
             while($row = mysqli_fetch_assoc($assignments)){
-              var_dump($row);
               $dueDate = new DateTime($row["dueDate"]);
               $dueDateDisplay = $dueDate->format("D, d F Y h:i A");
               if($row["assignmentType"] != "-"){
@@ -418,7 +417,7 @@
                               File Submission
                             </td>
                             <td>
-                              -
+                              ' . $read["submissionFile"] . '
                             </td>
                           </tr>
                           <tr class="mscardindv2">
@@ -433,34 +432,36 @@
 
                         </table>
 
-                        <form method="post" action="process.php">
-                          <!--SubmissionID-->
-                          <input type="hidden" value="SBM' . $row["subjectID"] . "" . $_SESSION["currentUser"]["userID"] . '" name="submissionID"/>
-                          <!--SubjectID-->
-                          <input type="hidden" value="' . $record["subjectID"] . '" name="subjectID"/>
-                          <!--AssignmentID-->
-                          <input type="hidden" value="' . $row["assignmentID"] . '" name="assignmentID"/>
-                          <!--AssignmentName-->
-                          <input type="hidden" value="' . $record["subjectName"] . '" name="subjectName"/>
-
-                          <br>
-                          <div class="input-group" style="width:90%;">
-                            <div class="custom-file">
-                              <input type="file" class="custom-file-input" id="inputGroupFile04" name="submissionFile" aria-describedby="inputGroupFileAddon04">
-                              <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
-                            </div>
-                            <div class="input-group-append">
-                              <button class="btn btn-outline-secondary" type="submit" id="inputGroupFileAddon04" name ="uploadFile">Submit</button>
-                            </div>
-                          </div>
-                        </form>
 
                       </div>
                     </div>
                   </div>
-                </div>';
-                $counter++;
+                </div>
+                ';
               }
+              echo '<form method="post" action="process.php">
+                <!--SubmissionID-->
+                <input type="hidden" value="SBM' . $row["subjectID"] . "" . $_SESSION["currentUser"]["userID"] . '" name="submissionID"/>
+                <!--SubjectID-->
+                <input type="hidden" value="' . $record["subjectID"] . '" name="subjectID"/>
+                <!--AssignmentID-->
+                <input type="hidden" value="' . $row["assignmentID"] . '" name="assignmentID"/>
+                <!--AssignmentName-->
+                <input type="hidden" value="' . $record["subjectName"] . '" name="subjectName"/>
+
+                <br>
+                <a>Assignment ' . $counter . ' submission</a>
+                <div class="input-group" style="width:50%;">
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="inputGroupFile04" name="submissionFile" aria-describedby="inputGroupFileAddon04">
+                    <label class="custom-file-label" for="inputGroupFile04">Select assignment file/folder</label>
+                  </div>
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="submit" id="inputGroupFileAddon04" name ="uploadFile">Submit</button>
+                  </div>
+                </div>
+              </form>';
+              $counter++;
             }
             else {
               echo 'There are no assignments for this subject. <br>';

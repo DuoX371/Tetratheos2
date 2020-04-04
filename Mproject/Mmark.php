@@ -225,61 +225,6 @@
               </div>
             </li>
 
-            <!-- Nav Item - Messages -->
-            <li class="nav-item dropdown no-arrow mx-1">
-              <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-envelope fa-fw"></i>
-                <!-- Counter - Messages -->
-                <span class="badge badge-danger badge-counter">7</span>
-              </a>
-              <!-- Dropdown - Messages -->
-              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
-                <h6 class="dropdown-header">
-                  Message Center
-                </h6>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt="">
-                    <div class="status-indicator bg-success"></div>
-                  </div>
-                  <div class="font-weight-bold">
-                    <div class="text-truncate">Hi there! I am wondering if you can help me with a problem I've been having.</div>
-                    <div class="small text-gray-500">Emily Fowler · 58m</div>
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="https://source.unsplash.com/AU4VPcFN4LE/60x60" alt="">
-                    <div class="status-indicator"></div>
-                  </div>
-                  <div>
-                    <div class="text-truncate">I have the photos that you ordered last month, how would you like them sent to you?</div>
-                    <div class="small text-gray-500">Jae Chun · 1d</div>
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="https://source.unsplash.com/CS2uCrpNzJY/60x60" alt="">
-                    <div class="status-indicator bg-warning"></div>
-                  </div>
-                  <div>
-                    <div class="text-truncate">Last month's report looks great, I am very happy with the progress so far, keep up the good work!</div>
-                    <div class="small text-gray-500">Morgan Alvarez · 2d</div>
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="">
-                    <div class="status-indicator bg-success"></div>
-                  </div>
-                  <div>
-                    <div class="text-truncate">Am I a good boy? The reason I ask is because someone told me that people say this to all dogs, even if they aren't good...</div>
-                    <div class="small text-gray-500">Chicken the Dog · 2w</div>
-                  </div>
-                </a>
-                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
-              </div>
-            </li>
 
             <div class="topbar-divider d-none d-sm-block"></div>
 
@@ -322,66 +267,60 @@
           </div>
 
           <!--Main Content-->
-        <div class="mmfcontainer">
-          <div class="mmdivider">
-            <div class="mmcard mmeXpand">
-              <div>
-                DIP222 Python
-              </div>
-            </div>
-
-            <div id="drop-content" class="mmcardin" style="padding:0%;">
-              <table>
-                <tr class="mmcardindv">
-                  <th class="mmcardwidth">
-                    Coursework
-                  </th>
-                  <th class="mmcardwidth2">
-                    Grade
-                  </th>
-                  <th class="mmcardwidth2">
-                    Marks (overall)
-                  </th>
-                </tr>
-                <tr class="mmcardindv2">
-                  <td>
-                    Assignment 1
-                  </td>
-                  <td>
-                    A
-                  </td>
-                  <td>
-                    25%
-                  </td>
-                </tr>
-                <tr class="mmcardindv">
-                  <td>
-                    Assignment 2
-                  </td>
-                  <td>
-                    A
-                  </td>
-                  <td>
-                    24%
-                  </td>
-                </tr>
-                <tr class="mmcardindv3">
-                  <td>
-                    Assignment 3
-                  </td>
-                  <td>
-                    A
-                  </td>
-                  <td>
-                    10%
-                  </td>
-                </tr>
 
 
-              </table>
+          <?php
+          /*
+          $studentSubject = getStudentSubjects($_SESSION["currentUser"]["userID"]);
+                  while($record = mysqli_fetch_assoc($studentSubject)){
+                    $assignments = getAssignments($record["subjectID"]);
+                    echo '' . $record["subjectID"] . " " . $record["subjectName"] . '';
 
-            </div>
-          </div>
+                  $counter = 1;
+                  while($row = mysqli_fetch_assoc($assignments)){
+                    $dueDate = new DateTime($row["dueDate"]);
+                    $dueDateDisplay = $dueDate->format("D, d F Y h:i A");
+                    $counter++;
+                  }
+                }*/
+                ?>
+                <div class="mmfcontainer">
+                <div class="mmdivider">
+                  <div class="mmcard mmeXpand">
+                    <div>
+                  </div>
+                </div>
+
+                <div id="drop-content" class="mmcardin" style="padding:0%;">
+                  <table>
+                    <tr class="mmcardindv">
+                      <th class="mmcardwidth">
+                        Coursework
+                      </th>
+                      <th class="mmcardwidth2">
+                        Grade
+                      </th>
+                      <th class="mmcardwidth2">
+                        Marks (overall)
+                      </th>
+                    </tr>
+                    <tr class="mmcardindv2">
+                      <td>
+                        Assignment 1
+                      </td>
+                      <td>
+                        A
+                      </td>
+                      <td>
+                        25%
+                      </td>
+                    </tr>
+                    </table>
+
+
+                  </div>
+                </div>
+
 
           <!--Dropdown 2-->
           <div class="mmdivider">
