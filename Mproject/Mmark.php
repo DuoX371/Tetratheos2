@@ -267,60 +267,66 @@
           </div>
 
           <!--Main Content-->
+        <div class="mmfcontainer">
+          <div class="mmdivider">
+            <div class="mmcard mmeXpand">
+              <div>
+                DIP222 Python
+              </div>
+            </div>
+
+            <div id="drop-content" class="mmcardin" style="padding:0%;">
+              <table>
+                <tr class="mmcardindv">
+                  <th class="mmcardwidth">
+                    Coursework
+                  </th>
+                  <th class="mmcardwidth2">
+                    Grade
+                  </th>
+                  <th class="mmcardwidth2">
+                    Marks (overall)
+                  </th>
+                </tr>
+                <tr class="mmcardindv2">
+                  <td>
+                    Assignment 1
+                  </td>
+                  <td>
+                    A
+                  </td>
+                  <td>
+                    25%
+                  </td>
+                </tr>
+                <tr class="mmcardindv">
+                  <td>
+                    Assignment 2
+                  </td>
+                  <td>
+                    A
+                  </td>
+                  <td>
+                    24%
+                  </td>
+                </tr>
+                <tr class="mmcardindv3">
+                  <td>
+                    Assignment 3
+                  </td>
+                  <td>
+                    A
+                  </td>
+                  <td>
+                    10%
+                  </td>
+                </tr>
 
 
-          <?php
-          /*
-          $studentSubject = getStudentSubjects($_SESSION["currentUser"]["userID"]);
-                  while($record = mysqli_fetch_assoc($studentSubject)){
-                    $assignments = getAssignments($record["subjectID"]);
-                    echo '' . $record["subjectID"] . " " . $record["subjectName"] . '';
+              </table>
 
-                  $counter = 1;
-                  while($row = mysqli_fetch_assoc($assignments)){
-                    $dueDate = new DateTime($row["dueDate"]);
-                    $dueDateDisplay = $dueDate->format("D, d F Y h:i A");
-                    $counter++;
-                  }
-                }*/
-                ?>
-                <div class="mmfcontainer">
-                <div class="mmdivider">
-                  <div class="mmcard mmeXpand">
-                    <div>
-                  </div>
-                </div>
-
-                <div id="drop-content" class="mmcardin" style="padding:0%;">
-                  <table>
-                    <tr class="mmcardindv">
-                      <th class="mmcardwidth">
-                        Coursework
-                      </th>
-                      <th class="mmcardwidth2">
-                        Grade
-                      </th>
-                      <th class="mmcardwidth2">
-                        Marks (overall)
-                      </th>
-                    </tr>
-                    <tr class="mmcardindv2">
-                      <td>
-                        Assignment 1
-                      </td>
-                      <td>
-                        A
-                      </td>
-                      <td>
-                        25%
-                      </td>
-                    </tr>
-                    </table>
-
-
-                  </div>
-                </div>
-
+            </div>
+          </div>
 
           <!--Dropdown 2-->
           <div class="mmdivider">
