@@ -368,7 +368,7 @@
                               File Submission
                             </td>
                             <td>
-                              ' . $read["submissionFile"] . '
+                              ' . $read["submissionFileName"] . '
                             </td>
                           </tr>
                           <tr class="mscardindv2">
@@ -402,7 +402,7 @@
 
                 <br>
                 <a>Assignment ' . $counter . ' submission</a>
-                <div class="input-group" style="width:50%;">
+                <div class="input-group" style="width:60%;">
                   <div class="custom-file">
                     <input type="file" class="custom-file-input" id="inputGroupFile04" name="submissionFile" aria-describedby="inputGroupFileAddon04" required>
                     <label class="custom-file-label" for="inputGroupFile04">Select assignment file (pdf file only to prevent and modifications on the file.)</label>

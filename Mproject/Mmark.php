@@ -258,11 +258,14 @@
             <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
           </div>
 
+          <div>
+            <div class="mycard myshadow mymb-4" style="width:80%;">
           <?php
           $studentSubject = getStudentSubjects($_SESSION["currentUser"]["userID"]);
           while($record = mysqli_fetch_assoc($studentSubject)){
             $assignments = getAssignments($record["subjectID"]);
-            echo '<h5>' . $record["subjectID"] . " " . $record["subjectName"] . '</h5><br>';
+            echo '<i class="h5 mb-0 font-weight-bold text-gray-800" style="padding-left:20px;padding-top:20px;">' . $record["subjectID"] . " " . $record["subjectName"] . '</i><br>';
+            //'<h5>' . $record["subjectID"] . " " . $record["subjectName"] . '</h5><br>';
             $counter = 1;
 
             while($row = mysqli_fetch_assoc($assignments)){
@@ -271,13 +274,33 @@
                 $marks = (int)$read['mark'];
                 //var_dump($grade);
                 if ($marks == 0){
-                  echo 'This assignment has yet to be marked.<br>';
+                  echo '<i style="padding-left:20px;"><strong>This assignment has yet to be marked.</strong></i><br>';
+                }
+                if ($marks > 80){
+                  $gradeDisplay = 'A';
+                }
+                elseif ($marks > 70) {
+                  $gradeDisplay = 'B';
+                }
+                elseif ($marks > 50) {
+                  $gradeDisplay = 'C';
+                }
+                elseif ($marks > 40) {
+                  $gradeDisplay = 'D';
+                }
+                elseif ($marks > 0) {
+                  $gradeDisplay = 'F';
+                }
+                else{
+                  $gradeDisplay = "";
                 }
                 //var_dump($marks);
-                echo 'Assignment ' . $counter . ': ' . $marks . '%<br><br>';
+                echo '<i style="padding-left:20px;">Assignment ' . $counter . ': ' . $marks . '% </i><br><i style="padding-left:20px;">Grade: ' . $gradeDisplay . '</i><br>';
                 $counter++;
               }
+              //echo '<div class="mydivider"></div>';
             }
+            echo '<div class="mydivider" style="width:100%;"></div><br>';
           }
           /*
           DIP222<br>
@@ -419,6 +442,9 @@
 
             </div>
           </div> */?>
+        </div>
+      </div>
+
 
       <!-- End of Main Content -->
       </div>

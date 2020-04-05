@@ -160,15 +160,16 @@ function addNoteContent($announcementContent,$adminID){
 }
 
 //upload assignment
-function uploadAssignmentInsert($submissionID, $name, $submissionFile, $mime, $studentID, $subjectID, $assignmentID){
+function uploadAssignmentInsert($submissionID, $name, $submissionFile,$submissionFileSize, $mime, $studentID, $subjectID, $assignmentID){
   global $database;
-  $sql = "insert into submission(submissionID,	submissionDateTime,	submissionFileName, submissionFile, mime,	studentID,	subjectID,	assignmentID)
-          Values ('$submissionID', current_timestamp(), $name,'$submissionFile', '$mime', '$studentID', '$subjectID', '$assignmentID')";
+  $sql = "insert into submission(submissionID, submissionDateTime,	submissionFileName, submissionFile, submissionFileSize, mime,	studentID,	subjectID,	assignmentID)
+          values ('$submissionID', current_timestamp(), '$name', '$submissionFile','$submissionFileSize', '$mime', '$studentID', '$subjectID', '$assignmentID')";
   mysqli_query($database, $sql);
 }
-function uploadAssignmentUpdate($submissionFile, $submissionID){
+function uploadAssignmentUpdate($submissionFileName,$mime,$submissionFile, $submissionFileSize, $submissionID){
   global $database;
-  $sql = "update submission set submissionDateTime = current_timestamp(), submissionFile='$submissionFile' where submissionID = '$submissionID' ";
+  $sql = "update submission set submissionDateTime = current_timestamp(), submissionFileName = '$submissionFileName',
+          mime = '$mime', submissionFile='$submissionFile', submissionFileSize = '$submissionFileSize' where submissionID = '$submissionID' ";
   mysqli_query($database, $sql);
 }
 function getAssignmentSubmissions($subjectID){

@@ -88,21 +88,24 @@
 
 //student upload assignment
 if(isset($_POST["uploadFile"])){
-  var_dump($_POST);
+  //var_dump($_POST);
+
   $submissionID = $_POST["submissionID"];
-  $name = $_FILES['myfile']['name'];
-  $submissionFile = file_get_contents($_FILES['myfile']['tmp_name']);
-  $type = $_FILES['myfile']['type'];
+  $name = $_FILES['submissionFile']['name'];
+  $submissionFile = base64_encode(file_get_contents($_FILES['submissionFile']['tmp_name']));
+  $type = $_FILES['submissionFile']['type'];
+  $size = $_FILES['submissionFile']['size'];
   $subjectID = $_POST["subjectID"];
   $assignmentID = $_POST["assignmentID"];
-  var_dump($_FILES);
+  //var_dump($_FILES);
 
-  //uploadAssignmentUpdate($submissionFile, $submissionID);
-  uploadAssignmentInsert($submissionID, $name, $submissionFile, $type, $_SESSION["currentUser"]["userID"], $subjectID, $assignmentID);
+  //uploadAssignmentInsert($submissionID, $name, $submissionFile,$submissionFileSize, $mime, $studentID, $subjectID, $assignmentID)
+  uploadAssignmentInsert($submissionID, $name, $submissionFile, $size, $type, $_SESSION["currentUser"]["userID"], $subjectID, $assignmentID);
+  uploadAssignmentUpdate($name,$type,$submissionFile, $size, $submissionID);
 
   $subjectName = $_POST["subjectName"];
   jsalert("You have uploaded file for assignment $subjectName.");
-  //gopage("Msubject.php");
+  gopage("Msubject.php");
 }
 
   /*$selectSubmissions = selectSubmissions($_SESSION["currentUser"]["userID"], $row["assignmentID"]);

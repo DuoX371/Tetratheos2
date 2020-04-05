@@ -312,7 +312,7 @@
                               ' . $rad["name"] . '
                             </td>
                             <td class="mslcardwidth3">
-                              <a target="_blank" href="view.php?id=' . $read["submissionID"] . '">' . $read["submissionFile"] . '</a>
+                              <a target="_blank" href="download.php?id=' . $read["submissionID"] . '">' . $read["submissionFileName"] . '</a>
                             </td>
                           </tr>
                         </table>
