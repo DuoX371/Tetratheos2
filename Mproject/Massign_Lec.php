@@ -275,6 +275,7 @@
             </select>
 
             <div class="malcard">
+              <form method="post" action="process.php">
               <div class="malcardflex">
                 <label for="subject nane">Subject Name:</label>
                 <input type="text" class="malsubname" disabled id="subjectNameDisplay" value=""/><br>
@@ -282,27 +283,29 @@
 
                 <div class="malcardcol">
                   <input type="checkbox" onchange="showHidea(this.checked)" id="Assignment1" name="chkbox" />
+                  <input type="hidden" id="assign1" name="subjectID"/>
                   <label for="Assignment 1">Assignment 1</label>
-                  <input type="datetime-local" id="Assignment1dt" style="display:none"/>
+                  <input type="datetime-local" id="Assignment1dt" name="a" style="display:none"/>
                 </div>
 
                 <div class="malcardcol2">
                   <input type="checkbox" onchange="showHideb(this.checked)" id="Assignment2" name="Assignment 2"/>
                   <label for="Assignment 2">Assignment 2</label>
-                  <input type="datetime-local" id="Assignment2dt" style="display:none"/>
+                  <input type="datetime-local" id="Assignment2dt" name="b" style="display:none"/>
                 </div>
 
                 <div class="malcardcol3">
                   <input type="checkbox" onchange="showHidec(this.checked)" id="Assignment3" name="Assignment 3"/>
                   <label for="Assignment 1">Assignment 3</label>
-                  <input type="datetime-local" id="Assignment3dt" style="display:none"/>
+                  <input type="datetime-local" id="Assignment3dt" name="c" style="display:none"/>
                 </div>
               </div>
 
               <div class="malbtn">
-                <input type="submit" id="malsavebtn" value="Save"></button>
+                <button type="submit" id="malsavebtn" name="saveAssignmentDateBtn" onclick="return setSubjectID()">Save</button>
                 <button type="button" id="malcancelbtn">Cancel</button>
               </div>
+            </form>
 
 
             </div>
@@ -396,6 +399,16 @@ function selectSubject(subjectOption){
     }
   });
 }
+
+function setSubjectID(){
+  var subjectOption = document.getElementById("subjects");
+  var subjectID = subjectOption.options[subjectOption.selectedIndex].value;
+  document.getElementById("assign1").value = subjectID;
+
+
+  console.log(subjectID);
+}
+
 </script>
 
   <!-- Bootstrap core JavaScript-->

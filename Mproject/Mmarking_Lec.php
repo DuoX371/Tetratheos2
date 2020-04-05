@@ -418,8 +418,6 @@ function setSubjectID(){
 
   console.log(subjectID);
   console.log(studentID);
-
-
 }
 
 

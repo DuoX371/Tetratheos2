@@ -218,11 +218,31 @@ function displaySubject($subjectID){
   $result = mysqli_query($database, $sql);
   return $result;
 }
+//insert and update marks
+function insertMarks($mark,$assignmentID,$studentID){
+  global $database;
+  $sql = "inset into assignmentmark values ('$mark', '$assigmentID', '$studentID'";
+  $result = mysqli_query($database, $sql);
+}
 function updateMarks($mark,$assigmentID,$studentID){
   global $database;
   $sql = "update assignmentmark set mark = '$mark' where assignmentID = '$assigmentID' and studentID = '$studentID'";
   $result = mysqli_query($database, $sql);
 }
+
+//insert and update due datefmt_create
+function insertDueDate($assignmentID,$dueDate,$assignmentType,$subjectID){
+  global $database;
+  $sql = "insert into assignment values ('$assignmentID','$dueDate','$assignmentType', '$subjectID')";
+  $result = mysqli_query($database, $sql);
+}
+
+function updateDueDate($assignmentID,$dueDate,$assignmentType,$subjectID){
+  global $database;
+  $sql = "update assignment set assignmentID = '$assignmentID', dueDate = '$dueDate', assignmentType = '$assignmentType' where subjectID = '$subjectID' ";
+  $result = mysqli_query($database, $sql);
+}
+
 //select assignmentmark
 function assignmentMark($studentID,$assignmentID){
   global $database;

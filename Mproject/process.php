@@ -253,27 +253,57 @@ if(isset($_POST['saveMarksBtn'])){
 
   $mark1 = $_POST['a'];
   $assignmentID1 = $subjectID.'a';
-
+  //insertMarks($mark1,$assignmentID1,$studentID);
   updateMarks($mark1,$assignmentID1,$studentID);
 
   $mark2 = $_POST['b'];
   $assignmentID2 = $subjectID.'b';
+  //insertMarks($mark2,$assignmentID2,$studentID);
   updateMarks($mark2,$assignmentID2,$studentID);
 
   $mark3 = $_POST['c'];
   $assignmentID3 = $subjectID.'c';
+  //insertMarks($mark2,$assignmentID2,$studentID);
   updateMarks($mark3,$assignmentID3,$studentID);
 
   jsalert("Successfully updated marks");
   gopage("Mmarking_Lec.php");
 
+}
+if(isset($_POST['saveAssignmentDateBtn'])){
+  //var_dump($_POST);
 
+  if($_POST['a']!=""){
+    $subjectID = $_POST['subjectID'];
+    $dueDate1 = $_POST['a'];
+    $assignmentID1 = $subjectID.'a';
+    $assignmentType1 = 'a';
+    //insertDueDate($assignmentID1,$dueDate1,$assignmentType1,$subjectID);
+    updateDueDate($assignmentID1,$dueDate1,$assignmentType1,$subjectID);
+  }
 
-
-
-
+  if($_POST['b']!=""){
+  $subjectID = $_POST['subjectID'];
+  $dueDate2 = $_POST['b'];
+  $assignmentID2 = $subjectID.'b';
+  $assignmentType2 = 'b';
+  //insertDueDate($assignmentID2,$dueDate2,$assignmentType2,$subjectID);
+  updateDueDate($assignmentID2,$dueDate2,$assignmentType2,$subjectID);
 }
 
+  if($_POST['c']!=""){
+  $subjectID = $_POST['subjectID'];
+  $dueDate3 = $_POST['c'];
+  $assignmentID3 = $subjectID.'c';
+  $assignmentType3 = 'c';
+  //insertDueDate($assignmentID3,$dueDate3,$assignmentType3,$subjectID);
+  updateDueDate($assignmentID3,$dueDate3,$assignmentType3,$subjectID);
+}
+
+  jsalert("Successfully updated assignment due date.");
+  gopage("Massign_Lec.php");
+
+}
 
 
 
