@@ -160,10 +160,10 @@ function addNoteContent($announcementContent,$adminID){
 }
 
 //upload assignment
-function uploadAssignmentInsert($submissionID, $submissionFile, $studentID, $subjectID, $assignmentID){
+function uploadAssignmentInsert($submissionID, $name, $submissionFile, $mime, $studentID, $subjectID, $assignmentID){
   global $database;
-  $sql = "insert into submission(submissionID,	submissionDateTime,	submissionFile,	studentID,	subjectID,	assignmentID)
-          Values ('$submissionID', current_timestamp(), '$submissionFile', '$studentID', '$subjectID', '$assignmentID')";
+  $sql = "insert into submission(submissionID,	submissionDateTime,	submissionFileName, submissionFile, mime,	studentID,	subjectID,	assignmentID)
+          Values ('$submissionID', current_timestamp(), $name,'$submissionFile', '$mime', '$studentID', '$subjectID', '$assignmentID')";
   mysqli_query($database, $sql);
 }
 function uploadAssignmentUpdate($submissionFile, $submissionID){
@@ -218,12 +218,17 @@ function displaySubject($subjectID){
   $result = mysqli_query($database, $sql);
   return $result;
 }
-function updateMarks($assigmentID,$studentID){
+function updateMarks($mark,$assigmentID,$studentID){
   global $database;
   $sql = "update assignmentmark set mark = '$mark' where assignmentID = '$assigmentID' and studentID = '$studentID'";
   $result = mysqli_query($database, $sql);
 }
-
-
+//select assignmentmark
+function assignmentMark($studentID,$assignmentID){
+  global $database;
+  $sql = "select * from assignmentmark where studentID = '$studentID' and assignmentID = '$assignmentID'";
+  $result = mysqli_query($database, $sql);
+  return $result;
+}
 
 ?>

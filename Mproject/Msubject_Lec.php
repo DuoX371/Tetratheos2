@@ -320,7 +320,7 @@
                               ' . $rad["name"] . '
                             </td>
                             <td class="mslcardwidth3">
-                              ' . $read["submissionFile"] . '
+                              <a target="_blank" href="view.php?id=' . $read["submissionID"] . '">' . $read["submissionFile"] . '</a>
                             </td>
                           </tr>
                         </table>

@@ -287,35 +287,33 @@
             </select>
 
             <div class="malcard">
-              <div class="malcardflex">
-                <label for="subject nane">Subject Name:</label>
-                <input style="padding-left:20px;" type="text" class="malsubname" id=subjectNameDisplay value="" disabled/><br>
-                <label for="Coursework" class="malcourse">Coursework:</label>
+              <form method="post" action="process.php">
+                <div class="malcardflex">
+                  <label for="subject nane">Subject Name:</label>
+                  <input type="hidden" id="selectedStudent" name="studentID"/>
+                  <input style="padding-left:20px;" type="text" class="malsubname" id=subjectNameDisplay value="" disabled/><br>
+                  <label for="Coursework" class="malcourse">Coursework:</label>
 
+                  <div class="malcardcol">
+                    <label for="Assignment 1">Assignment 1:</label>
+                    <input type="hidden" id="assign1" name="subjectID"/>
+                    <input type="text" id="Assignment1mark" name="a"/>
+                  </div>
 
-                <div class="malcardcol">
-                  <label for="Assignment 1">Assignment 1:</label>
-                  <input type="text" id="Assignment1mark"/>
+                  <div class="malcardcol2">
+                    <label for="Assignment 2">Assignment 2:</label>
+                    <input type="text" id="Assignment2mark" name="b"/>
+                  </div>
+
+                  <div class="malcardcol3">
+                    <label for="Assignment 3">Assignment 3:</label>
+                    <input type="text" id="Assignment3mark" name="c"/>
+                  </div>
                 </div>
 
-                <div class="malcardcol2">
-                  <label for="Assignment 2">Assignment 2:</label>
-                  <input type="text" id="Assignment2mark"/>
-                </div>
-
-                <div class="malcardcol3">
-                  <label for="Assignment 3">Assignment 3:</label>
-                  <input type="text" id="Assignment3mark"/>
-                </div>
-              </div>
-
-              <div class="malbtn">
-                <form method="post" action="process.php">
-                  <?php
-                  
-                  ?>
-                <button type="submit" id="malsavebtn" name="saveMarksBtn">Save</button>
-                <button type="button" id="malcancelbtn">Cancel</button>
+                <div class="malbtn">
+                  <button type="submit" id="malsavebtn" name="saveMarksBtn" onclick="return setSubjectID()">Save</button>
+                  <button type="button" id="malcancelbtn">Cancel</button>
               </form>
               </div>
 
@@ -383,7 +381,8 @@
         selectSubject: ""
       },
       success:function(response){
-        //console.log(response);
+
+        console.log(response);
         studentArray = JSON.parse(response);
         //console.log(studentArray);
 
@@ -413,25 +412,23 @@
 
       }
     });
+}
 
-    $.ajax({
-      type: "POST",
-      url: "process.php",
-      data: {
-        subjectID: value,
-        Assignment1mark: ""
-      },
-      success:function(response){
-        console.log(response);
+function setSubjectID(){
+  var subjectOption = document.getElementById("subjects");
+  var subjectID = subjectOption.options[subjectOption.selectedIndex].value;
+  document.getElementById("assign1").value = subjectID;
 
-        //$("#subjectNameDisplay input").remove();
-        //var subjectDisplay = "<input type="text" class="malsubname" id=subjectNameDisplay value="aaa" disabled/>";
-        //$("#subjectNameDisplay").val(response);
+  var studentSub = document.getElementById("studentSub");
+  var studentID = studentSub.options[studentSub.selectedIndex].value;
+  document.getElementById("selectedStudent").value = studentID;
 
-      }
-    });
+  console.log(subjectID);
+  console.log(studentID);
 
-  }
+
+}
+
 
 </script>
 

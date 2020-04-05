@@ -88,18 +88,21 @@
 
 //student upload assignment
 if(isset($_POST["uploadFile"])){
-
+  var_dump($_POST);
   $submissionID = $_POST["submissionID"];
-  $submissionFile = $_POST["submissionFile"];
+  $name = $_FILES['myfile']['name'];
+  $submissionFile = file_get_contents($_FILES['myfile']['tmp_name']);
+  $type = $_FILES['myfile']['type'];
   $subjectID = $_POST["subjectID"];
   $assignmentID = $_POST["assignmentID"];
+  var_dump($_FILES);
+
+  //uploadAssignmentUpdate($submissionFile, $submissionID);
+  uploadAssignmentInsert($submissionID, $name, $submissionFile, $type, $_SESSION["currentUser"]["userID"], $subjectID, $assignmentID);
+
   $subjectName = $_POST["subjectName"];
-
-  uploadAssignmentUpdate($submissionFile, $submissionID);
-  uploadAssignmentInsert($submissionID, $submissionFile, $_SESSION["currentUser"]["userID"], $subjectID, $assignmentID);
-
   jsalert("You have uploaded file for assignment $subjectName.");
-  gopage("Msubject.php");
+  //gopage("Msubject.php");
 }
 
   /*$selectSubmissions = selectSubmissions($_SESSION["currentUser"]["userID"], $row["assignmentID"]);
@@ -227,6 +230,8 @@ if(isset($_POST['selectSubject'])){
   while ($record = mysqli_fetch_assoc($lecturerStudent)){
     $optionStudent = optionStudentDisplay($record['studentID']);
     $studentDetails = mysqli_fetch_assoc($optionStudent);
+
+    //$record["name"] = $studentDetails['name'];
     array_push($record, $studentDetails['name']);
     array_push($students, $record);
   }
@@ -243,9 +248,29 @@ if(isset($_POST['subjectNameDisplay'])){
 
 if(isset($_POST['saveMarksBtn'])){
 
-  updateMarks();
+  $subjectID = $_POST['subjectID'];
+  $studentID = $_POST['studentID'];
 
-  //$subject = $_POST['selectSubject'];
+  $mark1 = $_POST['a'];
+  $assignmentID1 = $subjectID.'a';
+
+  updateMarks($mark1,$assignmentID1,$studentID);
+
+  $mark2 = $_POST['b'];
+  $assignmentID2 = $subjectID.'b';
+  updateMarks($mark2,$assignmentID2,$studentID);
+
+  $mark3 = $_POST['c'];
+  $assignmentID3 = $subjectID.'c';
+  updateMarks($mark3,$assignmentID3,$studentID);
+
+  jsalert("Successfully updated marks");
+  gopage("Mmarking_Lec.php");
+
+
+
+
+
 
 }
 

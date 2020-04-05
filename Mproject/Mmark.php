@@ -266,7 +266,46 @@
             <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
           </div>
 
+          <?php
+          $studentSubject = getStudentSubjects($_SESSION["currentUser"]["userID"]);
+          while($record = mysqli_fetch_assoc($studentSubject)){
+            $assignments = getAssignments($record["subjectID"]);
+            echo '<h5>' . $record["subjectID"] . " " . $record["subjectName"] . '</h5><br>';
+            $counter = 1;
+
+            while($row = mysqli_fetch_assoc($assignments)){
+              $assignmentMark = assignmentMark($_SESSION["currentUser"]["userID"], $row["assignmentID"]);
+              while ($read = mysqli_fetch_assoc($assignmentMark)){
+                $marks = (int)$read['mark'];
+                //var_dump($grade);
+                if ($marks == 0){
+                  echo 'This assignment has yet to be marked.<br>';
+                }
+                //var_dump($marks);
+                echo 'Assignment ' . $counter . ': ' . $marks . '%<br><br>';
+                $counter++;
+              }
+            }
+          }
+          /*
+          DIP222<br>
+          <p>Coursework Marks(overall) Grade<br>
+            Assignment 1: 25% A<br>
+            Assignment 2: 25% B<br>
+            Assignment 3: 25% C<br>
+            <br>
+            <br>
+
+            DIP222<br>
+            <p>Coursework Marks(overall) Grade<br>
+              Assignment 1: 25% A<br>
+              Assignment 2: 25% B<br>
+              Assignment 3: 25% C<br>
+              <br>
+              <br>*/
+              ?>
           <!--Main Content-->
+          <?php /*
         <div class="mmfcontainer">
           <div class="mmdivider">
             <div class="mmcard mmeXpand">
@@ -387,7 +426,7 @@
               </table>
 
             </div>
-          </div>
+          </div> */?>
 
       <!-- End of Main Content -->
       </div>

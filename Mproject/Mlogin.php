@@ -37,10 +37,10 @@ body {background-image:url(loginbackground1.png);
     <button type="submit" class="submit100" name="login">Login</button>
 
   </div>
-  <p style="margin-left:42%;position:absolute;">
+  <p style="margin-left:45%;position:absolute;">
     <a onclick="document.getElementById('id02').style.display='block'" class="hover" style="text-decoration:none;" style="text-decoration:none;">Forgot password?</a>
-    <a>|</a>
-    <a onclick="document.getElementById('id01').style.display='block'" class="hover" style="text-decoration:none;">Sign Up!</a>
+    <!--<a>|</a>
+    <a onclick="document.getElementById('id01').style.display='block'" class="hover" style="text-decoration:none;">Sign Up!</a>-->
   </p>
   </form>
 

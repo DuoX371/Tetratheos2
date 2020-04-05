@@ -351,6 +351,19 @@
                   //var_dump($read);
                   $submitDate = new DateTime($read["submissionDateTime"]);
                   $submitDateDisplay = $submitDate->format("D, d F Y h:i A");
+
+                  $timeRemain = $submitDate->diff($dueDate);
+                  //var_dump($timeRemain);
+
+                    if ($timeRemain->days > 0)
+                    {
+                      echo '<style>.overDue{color:red;}</style>';
+                    }
+                    else{
+                      echo '<style>.overDue{color:white;}</style>';
+                    }
+
+                  $timeRemainDisplay = $timeRemain->format('%R %a days %h hours %i minutes');
                 echo '<div class="accordion" id="accordionExample">
                   <div class="card" style="margin-bottom:50px;">
                     <div class="card-header" id="headingOne">
@@ -393,7 +406,7 @@
                               Time Remaining
                             </td>
                             <td>
-                              5 milisecond
+                              <div class= "overDue">' . $timeRemainDisplay . '</div>
                             </td>
                           </tr>
                           <tr class="mscardindv" style="color:red;display:none;">
@@ -439,7 +452,7 @@
                 </div>
                 ';
               }
-              echo '<form method="post" action="process.php">
+              echo '<form method="post" action="process.php" enctype="multipart/form-data">
                 <!--SubmissionID-->
                 <input type="hidden" value="SBM' . $row["subjectID"] . "" . $_SESSION["currentUser"]["userID"] . '" name="submissionID"/>
                 <!--SubjectID-->
@@ -453,8 +466,8 @@
                 <a>Assignment ' . $counter . ' submission</a>
                 <div class="input-group" style="width:50%;">
                   <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="inputGroupFile04" name="submissionFile" aria-describedby="inputGroupFileAddon04">
-                    <label class="custom-file-label" for="inputGroupFile04">Select assignment file/folder</label>
+                    <input type="file" class="custom-file-input" id="inputGroupFile04" name="submissionFile" aria-describedby="inputGroupFileAddon04" required>
+                    <label class="custom-file-label" for="inputGroupFile04">Select assignment file (pdf file only to prevent and modifications on the file.)</label>
                   </div>
                   <div class="input-group-append">
                     <button class="btn btn-outline-secondary" type="submit" id="inputGroupFileAddon04" name ="uploadFile">Submit</button>
