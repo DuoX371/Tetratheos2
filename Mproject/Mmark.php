@@ -181,44 +181,60 @@
               <!-- Dropdown - Alerts -->
               <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
                 <h6 class="dropdown-header">
-                  Alerts Center
+                  Notifications
                 </h6>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="mr-3">
-                    <div class="icon-circle bg-primary">
-                      <i class="fas fa-file-alt text-white"></i>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="small text-gray-500">December 12, 2019</div>
-                    <span class="font-weight-bold">A new monthly report is ready to download!</span>
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="mr-3">
-                    <div class="icon-circle bg-success">
-                      <i class="fas fa-donate text-white"></i>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="small text-gray-500">December 7, 2019</div>
-                    $290.29 has been deposited into your account!
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="mr-3">
-                    <div class="icon-circle bg-warning">
-                      <i class="fas fa-exclamation-triangle text-white"></i>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="small text-gray-500">December 2, 2019</div>
-                    Spending Alert: We've noticed unusually high spending for your account.
-                  </div>
-                </a>
-                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+
+                <?php
+                //select * from enrollment join subject using (subjectID) where studentID = '$studentID'
+                  $studentSubject = getStudentSubjects($_SESSION["currentUser"]["userID"]);
+                  while($record = mysqli_fetch_assoc($studentSubject)){
+                    //select * from assignment where subjectID = '$subjectID'
+                    $assignments = getAssignments($record["subjectID"]);
+                    $counter = 1;
+                    while($row = mysqli_fetch_assoc($assignments)){
+                      //var_dump($row);
+
+                      $dueDate = new DateTime($row["dueDate"]);
+                      $dueDateDisplay = $dueDate->format("D, d F Y h:i A");
+                      //echo $dueDateDisplay;
+                      $now = new DateTime();
+                      $currentDate = $now->format("F j, Y");
+
+                      $diff = $now->diff($dueDate)->format("%R%a");
+                      $days = intval($diff);
+
+                      if ($days > 0){
+                        if($days >0 and $days <8){
+                          echo '
+                          <a class="dropdown-item d-flex align-items-center" href="#">
+                            <div class="mr-3">
+                              <div class="icon-circle bg-primary">
+                                <i class="fas fa-file-alt text-white"></i>
+                              </div>
+                            </div>
+                          <div>
+                            <div class="small text-gray-500">' . $currentDate . '</div>
+                            <span class="font-weight-bold">You have an assignment DUE for ' . $record["subjectName"] . ' Assignment ' . $counter . ' this week.</span>
+                          </div>
+                          </a>';
+
+                          $counter++;
+                        }
+                        //echo 'red';
+                      }
+                      else{
+                        //echo 'blue';
+                      }
+                    }
+                  }
+
+
+                ?>
+
+                <a class="dropdown-item text-center small text-gray-500" href="#submissionDue">...</a>
               </div>
             </li>
+
 
 
             <div class="topbar-divider d-none d-sm-block"></div>
