@@ -278,17 +278,17 @@ if(isset($_POST['saveMarksBtn'])){
 
   $mark1 = $_POST['a'];
   $assignmentID1 = $subjectID.'a';
-  //insertMarks($mark1,$assignmentID1,$studentID);
+  insertMarks($mark1,$assignmentID1,$studentID);
   updateMarks($mark1,$assignmentID1,$studentID);
 
   $mark2 = $_POST['b'];
   $assignmentID2 = $subjectID.'b';
-  //insertMarks($mark2,$assignmentID2,$studentID);
+  insertMarks($mark2,$assignmentID2,$studentID);
   updateMarks($mark2,$assignmentID2,$studentID);
 
   $mark3 = $_POST['c'];
   $assignmentID3 = $subjectID.'c';
-  //insertMarks($mark2,$assignmentID2,$studentID);
+  insertMarks($mark2,$assignmentID2,$studentID);
   updateMarks($mark3,$assignmentID3,$studentID);
 
   jsalert("Successfully updated marks");

@@ -420,7 +420,7 @@
                 <div class="input-group" style="width:60%;">
                   <div class="custom-file">
                     <input type="file" class="custom-file-input" id="inputGroupFile04" name="submissionFile" aria-describedby="inputGroupFileAddon04" required>
-                    <label class="custom-file-label" for="inputGroupFile04">Select assignment file (pdf file only to prevent and modifications on the file.)</label>
+                    <label class="custom-file-label" for="inputGroupFile04">Select assignment file</label>
                   </div>
                   <div class="input-group-append">
                     <button class="btn btn-outline-secondary" type="submit" id="inputGroupFileAddon04" name ="uploadFile">Submit</button>
