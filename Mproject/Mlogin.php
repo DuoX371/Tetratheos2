@@ -98,7 +98,7 @@ body {background-image:url(loginbackground1.png);
     <div id="id02" class="modal">
       <span onclick="document.getElementById('id02').style.display='none'" class="close2" title="Close Modal">&times;</span>
       <!-- Modal Content -->
-      <form class="modal-content2 animate">
+      <form class="modal-content2 animate" method="post" action="process.php">
         <div class="imgcontainer">
           <br><br><img src="tIcon.png" alt="Icon" class="avatar" style="margin-left:47%;width:50px;border-radius:25px;"><br><br>
         </div>
@@ -108,17 +108,17 @@ body {background-image:url(loginbackground1.png);
             <h1 style="margin-left:30%;">Forgot Password?</h1>
           </p>
           <a style="margin-left:16%;">
-          No worries! Just enter your email and we'll send you a rest password link.
+          No worries! Just enter your student ID and we'll send you a rest password link.
           </a>
           <p>
           </p>
           <p>
-              <br><br><input type="text" placeholder="Email" >
+              <br><br><input type="text" placeholder="Student ID" name="studentID" >
           </p>
 
           <p>
             <a>
-              <button type="submit" class="submit101" style="margin-left:29%;width:30%;height:40%;">Send Email</button>
+              <button type="submit" class="submit101" name="requestBtn" style="margin-left:29%;width:30%;height:40%;">Send Request</button>
             </a>
           </p>
 

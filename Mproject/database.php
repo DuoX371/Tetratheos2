@@ -10,6 +10,29 @@ function validateUser($username, $password)
   return $result;
 }
 
+function findRequest(){
+  global $database;
+  $sql = "select * from message";
+  $result = mysqli_query($database, $sql);
+  return $result;
+}
+function clearRequest(){
+  global $database;
+  $sql = "delete from message";
+  $result = mysqli_query($database, $sql);
+}
+function requestResetPass($messageID, $studentIDwText,$studentID, $adminID){
+  global $database;
+  $sql = "insert into message value ('$messageID','$studentIDwText', '$studentID','$adminID')";
+  $result = mysqli_query($database, $sql);
+}
+function selectAllAdmin(){
+  global $database;
+  $sql = "select * from user where userType = 'a'";
+  $result = mysqli_query($database, $sql);
+  return $result;
+}
+
 function findSubjectAssignment($studentID)
 {
   global $database;

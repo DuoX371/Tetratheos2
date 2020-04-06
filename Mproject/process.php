@@ -27,8 +27,30 @@
       jsalert("Please enter a valide User ID or password");
       gopage("Mlogin.php");
     }
+  }
 
+  if(isset($_POST["requestBtn"])){
+    //var_dump($_POST);
+    $studentID = $_POST["studentID"];
+    $messageID = $studentID.'a';
+    $studentIDwText = $studentID.' has requested for a password reset.';
+    $adminID = selectAllAdmin();
+    while($record = mysqli_fetch_assoc($adminID)){
+      //var_dump($record);
+      requestResetPass($messageID, $studentIDwText,$studentID, $record['userID']);
+    }
+    jsalert("Successfully send request to admin.");
+    gopage("Mlogin.php");
 
+    //requestResetPass($messageID, $studentIDwText,$studentID, $adminID);
+  }
+
+  if(isset($_POST["clearMessage"])){
+    //var_dump($_POST);
+    clearRequest();
+    jsalert("Successfully deleted all requests.");
+    gopage("Mproject_Adm.php");
+    //jsalert("Successfully deleted all requests.");
   }
 
   if(isset($_POST["logout"])){
