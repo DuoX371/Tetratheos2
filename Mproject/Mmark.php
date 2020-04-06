@@ -106,11 +106,6 @@
       </div>
 
       <!-- Nav Item - Charts -->
-      <li class="nav-item">
-        <a class="nav-link" href="charts.php">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Calender</span></a>
-      </li>
 
       <!-- Nav Item - Tables -->
       <li class="nav-item">
@@ -240,10 +235,7 @@
                   <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                   Profile
                 </a>
-                <a class="dropdown-item" href="Mactivity.php">
-                  <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Activity Log
-                </a>
+
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                   <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -266,7 +258,69 @@
             <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
           </div>
 
+          <div>
+            <div class="mycard myshadow mymb-4" style="width:80%;">
+          <?php
+          $studentSubject = getStudentSubjects($_SESSION["currentUser"]["userID"]);
+          while($record = mysqli_fetch_assoc($studentSubject)){
+            $assignments = getAssignments($record["subjectID"]);
+            echo '<i class="h5 mb-0 font-weight-bold text-gray-800" style="padding-left:20px;padding-top:20px;">' . $record["subjectID"] . " " . $record["subjectName"] . '</i><br>';
+            //'<h5>' . $record["subjectID"] . " " . $record["subjectName"] . '</h5><br>';
+            $counter = 1;
+
+            while($row = mysqli_fetch_assoc($assignments)){
+              $assignmentMark = assignmentMark($_SESSION["currentUser"]["userID"], $row["assignmentID"]);
+              while ($read = mysqli_fetch_assoc($assignmentMark)){
+                $marks = (int)$read['mark'];
+                //var_dump($grade);
+                if ($marks == 0){
+                  echo '<i style="padding-left:20px;"><strong>This assignment has yet to be marked.</strong></i><br>';
+                }
+                if ($marks > 80){
+                  $gradeDisplay = 'A';
+                }
+                elseif ($marks > 70) {
+                  $gradeDisplay = 'B';
+                }
+                elseif ($marks > 50) {
+                  $gradeDisplay = 'C';
+                }
+                elseif ($marks > 40) {
+                  $gradeDisplay = 'D';
+                }
+                elseif ($marks > 0) {
+                  $gradeDisplay = 'F';
+                }
+                else{
+                  $gradeDisplay = "";
+                }
+                //var_dump($marks);
+                echo '<i style="padding-left:20px;">Assignment ' . $counter . ': ' . $marks . '% </i><br><i style="padding-left:20px;">Grade: ' . $gradeDisplay . '</i><br>';
+                $counter++;
+              }
+              //echo '<div class="mydivider"></div>';
+            }
+            echo '<div class="mydivider" style="width:100%;"></div><br>';
+          }
+          /*
+          DIP222<br>
+          <p>Coursework Marks(overall) Grade<br>
+            Assignment 1: 25% A<br>
+            Assignment 2: 25% B<br>
+            Assignment 3: 25% C<br>
+            <br>
+            <br>
+
+            DIP222<br>
+            <p>Coursework Marks(overall) Grade<br>
+              Assignment 1: 25% A<br>
+              Assignment 2: 25% B<br>
+              Assignment 3: 25% C<br>
+              <br>
+              <br>*/
+              ?>
           <!--Main Content-->
+          <?php /*
         <div class="mmfcontainer">
           <div class="mmdivider">
             <div class="mmcard mmeXpand">
@@ -387,7 +441,10 @@
               </table>
 
             </div>
-          </div>
+          </div> */?>
+        </div>
+      </div>
+
 
       <!-- End of Main Content -->
       </div>

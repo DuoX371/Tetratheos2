@@ -88,16 +88,22 @@
 
 //student upload assignment
 if(isset($_POST["uploadFile"])){
+  //var_dump($_POST);
 
   $submissionID = $_POST["submissionID"];
-  $submissionFile = $_POST["submissionFile"];
+  $name = $_FILES['submissionFile']['name'];
+  $submissionFile = base64_encode(file_get_contents($_FILES['submissionFile']['tmp_name']));
+  $type = $_FILES['submissionFile']['type'];
+  $size = $_FILES['submissionFile']['size'];
   $subjectID = $_POST["subjectID"];
   $assignmentID = $_POST["assignmentID"];
+  //var_dump($_FILES);
+
+  //uploadAssignmentInsert($submissionID, $name, $submissionFile,$submissionFileSize, $mime, $studentID, $subjectID, $assignmentID)
+  uploadAssignmentInsert($submissionID, $name, $submissionFile, $size, $type, $_SESSION["currentUser"]["userID"], $subjectID, $assignmentID);
+  uploadAssignmentUpdate($name,$type,$submissionFile, $size, $submissionID);
+
   $subjectName = $_POST["subjectName"];
-
-  uploadAssignmentUpdate($submissionFile, $submissionID);
-  uploadAssignmentInsert($submissionID, $submissionFile, $_SESSION["currentUser"]["userID"], $subjectID, $assignmentID);
-
   jsalert("You have uploaded file for assignment $subjectName.");
   gopage("Msubject.php");
 }
@@ -227,6 +233,8 @@ if(isset($_POST['selectSubject'])){
   while ($record = mysqli_fetch_assoc($lecturerStudent)){
     $optionStudent = optionStudentDisplay($record['studentID']);
     $studentDetails = mysqli_fetch_assoc($optionStudent);
+
+    //$record["name"] = $studentDetails['name'];
     array_push($record, $studentDetails['name']);
     array_push($students, $record);
   }
@@ -243,12 +251,62 @@ if(isset($_POST['subjectNameDisplay'])){
 
 if(isset($_POST['saveMarksBtn'])){
 
-  updateMarks();
+  $subjectID = $_POST['subjectID'];
+  $studentID = $_POST['studentID'];
 
-  //$subject = $_POST['selectSubject'];
+  $mark1 = $_POST['a'];
+  $assignmentID1 = $subjectID.'a';
+  //insertMarks($mark1,$assignmentID1,$studentID);
+  updateMarks($mark1,$assignmentID1,$studentID);
+
+  $mark2 = $_POST['b'];
+  $assignmentID2 = $subjectID.'b';
+  //insertMarks($mark2,$assignmentID2,$studentID);
+  updateMarks($mark2,$assignmentID2,$studentID);
+
+  $mark3 = $_POST['c'];
+  $assignmentID3 = $subjectID.'c';
+  //insertMarks($mark2,$assignmentID2,$studentID);
+  updateMarks($mark3,$assignmentID3,$studentID);
+
+  jsalert("Successfully updated marks");
+  gopage("Mmarking_Lec.php");
 
 }
+if(isset($_POST['saveAssignmentDateBtn'])){
+  //var_dump($_POST);
 
+  if($_POST['a']!=""){
+    $subjectID = $_POST['subjectID'];
+    $dueDate1 = $_POST['a'];
+    $assignmentID1 = $subjectID.'a';
+    $assignmentType1 = 'a';
+    //insertDueDate($assignmentID1,$dueDate1,$assignmentType1,$subjectID);
+    updateDueDate($assignmentID1,$dueDate1,$assignmentType1,$subjectID);
+  }
+
+  if($_POST['b']!=""){
+  $subjectID = $_POST['subjectID'];
+  $dueDate2 = $_POST['b'];
+  $assignmentID2 = $subjectID.'b';
+  $assignmentType2 = 'b';
+  //insertDueDate($assignmentID2,$dueDate2,$assignmentType2,$subjectID);
+  updateDueDate($assignmentID2,$dueDate2,$assignmentType2,$subjectID);
+}
+
+  if($_POST['c']!=""){
+  $subjectID = $_POST['subjectID'];
+  $dueDate3 = $_POST['c'];
+  $assignmentID3 = $subjectID.'c';
+  $assignmentType3 = 'c';
+  //insertDueDate($assignmentID3,$dueDate3,$assignmentType3,$subjectID);
+  updateDueDate($assignmentID3,$dueDate3,$assignmentType3,$subjectID);
+}
+
+  jsalert("Successfully updated assignment due date.");
+  gopage("Massign_Lec.php");
+
+}
 
 
 

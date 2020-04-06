@@ -106,12 +106,7 @@
         Addons
       </div>
 
-      <!-- Nav Item - Charts -->
-      <li class="nav-item">
-        <a class="nav-link" href="charts.php">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Calender</span></a>
-      </li>
+
 
       <!-- Nav Item - Tables -->
       <li class="nav-item">
