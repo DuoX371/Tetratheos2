@@ -260,7 +260,6 @@
             $assignments = getAssignments($record["subjectID"]);
             echo '<div class="d-sm-flex align-items-center justify-content-between mb-4">
               <h1 class="h3 mb-0 text-gray-800" id="' . $record["subjectID"] . 'header">' . $record["subjectID"] . " " . $record["subjectName"] . '</h1>
-              <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" ><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
             </div>';
 
             $counter = 1;
@@ -269,6 +268,31 @@
               $dueDateDisplay = $dueDate->format("D, d F Y h:i A");
 
               if($row["assignmentType"] != "-"){
+                echo '<div class="accordion" id="accordionExample">
+                  <div class="card" style="margin-bottom:50px;">
+                    <div class="card-header" id="headingOne">
+                      <h2 class="mb-0">
+                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#' . $row["assignmentID"] . '" aria-expanded="true" aria-controls="' . $row["assignmentID"] . '">
+                          Assignment ' . $counter . '
+                        </button>
+                      </h2>
+                    </div>
+
+                    <div id="' . $row["assignmentID"] . '" class="collapse hide" aria-labelledby="headingOne" data-parent="#accordionExample">
+                      <div class="card-body">
+                      <table style="line-height: 4;">
+                        <tr class="mscardindv">
+                          <td class="mslcardwidth">
+                            Datetime
+                          </td>
+                          <td class="mslcardwidth2">
+                            Submitted by
+                          </td>
+                          <td class="mslcardwidth3">
+                            File
+                          </td>
+                        </tr>';
+
 
                 $viewSubmissions = viewSubmissions($_SESSION["currentUser"]["userID"],$row["assignmentID"]);
                 while($read = mysqli_fetch_assoc($viewSubmissions)){
@@ -280,31 +304,7 @@
 
                   $submitStudentName = submittedStudentName($read['studentID']);
                   while($rad = mysqli_fetch_assoc($submitStudentName)){
-
-                  echo '<div class="accordion" id="accordionExample">
-                    <div class="card" style="margin-bottom:50px;">
-                      <div class="card-header" id="headingOne">
-                        <h2 class="mb-0">
-                          <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#' . $row["assignmentID"] . '" aria-expanded="true" aria-controls="' . $row["assignmentID"] . '">
-                            Assignment ' . $counter . '
-                          </button>
-                        </h2>
-                      </div>
-
-                      <div id="' . $row["assignmentID"] . '" class="collapse hide" aria-labelledby="headingOne" data-parent="#accordionExample">
-                        <div class="card-body">
-                        <table style="line-height: 4;">
-                          <tr class="mscardindv">
-                            <td class="mslcardwidth">
-                              Datetime
-                            </td>
-                            <td class="mslcardwidth2">
-                              Submitted by
-                            </td>
-                            <td class="mslcardwidth3">
-                              File
-                            </td>
-                          </tr>
+                  echo '
                           <tr class="mscardindv2">
                             <td class="mslcardwidth">
                               <a>' . $submitDateDayDisplay . '</a><br>
@@ -316,16 +316,18 @@
                             <td class="mslcardwidth3">
                               <a target="_blank" href="download.php?id=' . $read["submissionID"] . '">' . $read["submissionFileName"] . '</a>
                             </td>
-                          </tr>
-                        </table>
-                        </div>
-                      </div>
+                          </tr>';
 
-                    </div>
-                  </div>';
+                    }
+                  }
+                  echo '
+                  </table>
+                  </div>
+                </div>
+
+              </div>
+            </div>';
                 }
-              }
-            }
                 else {
                   echo 'There are no assignments for this subject.';
                 }

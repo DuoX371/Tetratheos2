@@ -275,9 +275,8 @@
 
           <!--Main Content-->
           <div class="mpfcontainer">
-            <img src="kurumi.png" class="mpPpic mpPpos">
             <div>
-              <form class="mpformpos" method="post" action="process.php" style="margin-left: 30%;">
+              <form class="mpformpos" method="post" action="process.php" style="margin-left: 80%;">
                 <?php
                 $user = findUser($_SESSION["currentUser"]["userID"]);
                 $record = mysqli_fetch_assoc($user);
@@ -295,11 +294,10 @@
                 <input type="password" id="pass" name="password" class="textsize" required/>
 
                 <input type="file" id="real-file" hidden="hidden"/>
-                <button type="button" id="custom-button">Choose File</button>
 
               <div class="mmfcontainer" style="margin-top:65%;">
-                <button type="submit" id="mpsavebtn" name="updateProfBtnStu">Save</button>
-                <a id="mpcancelbtn" style="text-align:center;" href="Mproject.php">Cancel</a>
+                <button type="submit" id="mpsavebtn" name="updateProfBtnStu" style="margin-top:30px;">Save</button>
+                <a id="mpcancelbtn" style="text-align:center;margin-top:30px;" href="Mproject.php">Cancel</a>
               </div>
               </form>
             </div>

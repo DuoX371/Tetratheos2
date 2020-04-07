@@ -13,7 +13,6 @@
 }
 
 
-
 html {
   scroll-behavior: smooth;
 }
@@ -73,7 +72,7 @@ html {
 .mplbpos{margin-top:35%;}
 .mplbpos2{width:180%;margin-top:20%;}
 .mpinpos{width:600%;max-width: 600%;padding-left: 20px}
-.textsize{width:200%;max-width: 200%; padding-left:20px}
+.textsize{width:800%;max-width: 800%; padding-left:20px}
 #custom-button{padding:10px;color:white;background-color:#527ec4;border:1px solid #000;border-radius: 5px;cursor:pointer;position:absolute;top:60%;left:34%;}
 #custom-button:hover{background-color:#5c8ddb;}
 #mpsavebtn{padding:10px;color:white;background-color:#58c788;border:1px solid #58c788;border-radius: 5px;cursor:pointer;width:20%;position: absolute;top:73%;left:32%;}

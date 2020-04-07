@@ -290,7 +290,6 @@
             $assignments = getAssignments($record["subjectID"]);
             echo '<div class="d-sm-flex align-items-center justify-content-between mb-4">
               <h1 class="h3 mb-0 text-gray-800" id="' . $record["subjectID"] . 'header">' . $record["subjectID"] . " " . $record["subjectName"] . '</h1>
-              <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
             </div>';
             $counter = 1;
 
@@ -317,123 +316,123 @@
                     }
 
                   $timeRemainDisplay = $timeRemain->format('%R %a days %h hours %i minutes');
-                echo '<div class="accordion" id="accordionExample">
-                  <div class="card" style="margin-bottom:50px;">
-                    <div class="card-header" id="headingOne">
-                      <h2 class="mb-0">
-                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#' . $row["assignmentID"] . '" aria-expanded="true" aria-controls="' . $row["assignmentID"] . '">
-                          Assignment ' . $counter . '
-                        </button>
-                      </h2>
-                    </div>
+                  echo '<div class="accordion" id="accordionExample">
+                    <div class="card" style="margin-bottom:50px;">
+                      <div class="card-header" id="headingOne">
+                        <h2 class="mb-0">
+                          <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#' . $row["assignmentID"] . '" aria-expanded="true" aria-controls="' . $row["assignmentID"] . '">
+                            Assignment ' . $counter . '
+                          </button>
+                        </h2>
+                      </div>
 
-                    <div id="' . $row["assignmentID"] . '" class="collapse hide" aria-labelledby="headingOne" data-parent="#accordionExample">
-                      <div class="card-body" style="padding:3rem;">
-                        <table style="line-height: 4;">
-                          <tr class="mscardindv">
-                            <td class="mscardwidthStu">
-                              Submission status
-                            </td>
-                            <td class="mscardwidth2">
-                              Submitted for grading
-                            </td>
-                          </tr>
-                          <tr class="mscardindv" style="display:none;">
-                            <td class="mscardwidthStu">
-                              Submission status
-                            </td>
-                            <td>
-                              No attempt
-                            </td>
-                          </tr>
-                          <tr class="mscardindv2">
-                            <td class="mscardwidthStu">
-                              Due date
-                            </td>
-                            <td>
-                              ' . $dueDateDisplay . '
-                            </td>
-                          </tr>
-                          <tr class="mscardindv">
-                            <td class="mscardwidthStu">
-                              Time Remaining
-                            </td>
-                            <td>
-                              <div class= "overDue">' . $timeRemainDisplay . '</div>
-                            </td>
-                          </tr>
-                          <tr class="mscardindv" style="color:red;display:none;">
-                            <td class="mscardwidthStu">
-                              Time Remaining
-                            </td>
-                            <td>
-                              Overdue: 5 milisecond
-                            </td>
-                          </tr>
-                          <tr class="mscardindv2">
-                            <td class="mscardwidthStu">
-                              Last Modified
-                            </td>
-                            <td>
-                              ' . $submitDateDisplay . '
-                            </td>
-                          </tr>
-                          <tr class="mscardindv">
-                            <td class="mscardwidthStu">
-                              File Submission
-                            </td>
-                            <td>
-                              ' . $read["submissionFileName"] . '
-                            </td>
-                          </tr>
-                          <tr class="mscardindv2">
-                            <td class="mscardwidthStu">
-                              Comment
-                            </td>
-                            <td>
-                              -
-                            </td>
-                          </tr>
-
-
-                        </table>
+                      <div id="' . $row["assignmentID"] . '" class="collapse hide" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div class="card-body" style="padding:3rem;">
+                          <table style="line-height: 4;">
+                            <tr class="mscardindv">
+                              <td class="mscardwidthStu">
+                                Submission status
+                              </td>
+                              <td class="mscardwidth2">
+                                Submitted for grading
+                              </td>
+                            </tr>
+                            <tr class="mscardindv" style="display:none;">
+                              <td class="mscardwidthStu">
+                                Submission status
+                              </td>
+                              <td>
+                                No attempt
+                              </td>
+                            </tr>
+                            <tr class="mscardindv2">
+                              <td class="mscardwidthStu">
+                                Due date
+                              </td>
+                              <td>
+                                ' . $dueDateDisplay . '
+                              </td>
+                            </tr>
+                            <tr class="mscardindv">
+                              <td class="mscardwidthStu">
+                                Time Remaining
+                              </td>
+                              <td>
+                                <div class= "overDue">' . $timeRemainDisplay . '</div>
+                              </td>
+                            </tr>
+                            <tr class="mscardindv" style="color:red;display:none;">
+                              <td class="mscardwidthStu">
+                                Time Remaining
+                              </td>
+                              <td>
+                                Overdue: 5 milisecond
+                              </td>
+                            </tr>
+                            <tr class="mscardindv2">
+                              <td class="mscardwidthStu">
+                                Last Modified
+                              </td>
+                              <td>
+                                ' . $submitDateDisplay . '
+                              </td>
+                            </tr>
+                            <tr class="mscardindv">
+                              <td class="mscardwidthStu">
+                                File Submission
+                              </td>
+                              <td>
+                                ' . $read["submissionFileName"] . '
+                              </td>
+                            </tr>
+                            <tr class="mscardindv2">
+                              <td class="mscardwidthStu">
+                                Comment
+                              </td>
+                              <td>
+                                -
+                              </td>
+                            </tr>
 
 
+                          </table>
+
+
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                ';
-              }
-              echo '<form method="post" action="process.php" enctype="multipart/form-data">
-                <!--SubmissionID-->
-                <input type="hidden" value="SBM' . $row["subjectID"] . "" . $_SESSION["currentUser"]["userID"] . '" name="submissionID"/>
-                <!--SubjectID-->
-                <input type="hidden" value="' . $record["subjectID"] . '" name="subjectID"/>
-                <!--AssignmentID-->
-                <input type="hidden" value="' . $row["assignmentID"] . '" name="assignmentID"/>
-                <!--AssignmentName-->
-                <input type="hidden" value="' . $record["subjectName"] . '" name="subjectName"/>
+                  ';
+                }
+                echo '<form method="post" action="process.php" enctype="multipart/form-data">
+                  <!--SubmissionID-->
+                  <input type="hidden" value="SBM' . $row["subjectID"] . "" . $_SESSION["currentUser"]["userID"] . '" name="submissionID"/>
+                  <!--SubjectID-->
+                  <input type="hidden" value="' . $record["subjectID"] . '" name="subjectID"/>
+                  <!--AssignmentID-->
+                  <input type="hidden" value="' . $row["assignmentID"] . '" name="assignmentID"/>
+                  <!--AssignmentName-->
+                  <input type="hidden" value="' . $record["subjectName"] . '" name="subjectName"/>
 
-                <br>
-                <a>Assignment ' . $counter . ' submission</a>
-                <div class="input-group" style="width:60%;">
-                  <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="inputGroupFile04" name="submissionFile" aria-describedby="inputGroupFileAddon04" required>
-                    <label class="custom-file-label" for="inputGroupFile04">Select assignment file</label>
+                  <br>
+                  <a>Assignment ' . $counter . ' submission</a>
+                  <div class="input-group" style="width:60%;">
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" id="inputGroupFile04" name="submissionFile" aria-describedby="inputGroupFileAddon04" required>
+                      <label class="custom-file-label" for="inputGroupFile04">Select assignment file</label>
+                    </div>
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-secondary" type="submit" id="inputGroupFileAddon04" name ="uploadFile">Submit</button>
+                    </div>
                   </div>
-                  <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="submit" id="inputGroupFileAddon04" name ="uploadFile">Submit</button>
-                  </div>
-                </div>
-              </form>';
-              $counter++;
-            }
-            else {
-              echo 'There are no assignments for this subject. <br>';
+                </form>';
+                $counter++;
+              }
+              else {
+                echo 'There are no assignments for this subject. <br>';
+                }
               }
             }
-          }
 
 
           ?>
