@@ -1,0 +1,18 @@
+1. Run XAMPP and start Apache and MySQL
+2. Go to localhost/phpmyadmin
+3. Import the database file attached. tetratheos.sql
+4. go to localhost/tetratheos1/Mproject/Mlogin.php
+5. Start using!
+
+Users accounts
+Student	Pass
+B1900071 abc
+B1900095	abc
+
+Lecturer Pass
+L101	abc
+L102	abc
+...
+
+Admin	Pass
+A101	abc
